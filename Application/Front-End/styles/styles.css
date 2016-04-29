@@ -1,0 +1,64 @@
+html
+{
+  height: 100%;
+}
+body
+{
+  height: 100%;
+}
+
+/*Home page CSS*/
+.home_container
+{
+  background: url(../images/homebkg.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.center-block
+{
+  text-align: center;
+	vertical-align: center;
+	position: absolute;
+     top: 40%;
+     left: 50%;
+     transform: translateX(-50%) translateY(-40%);
+		 -ms-transform:translateX(-50%) translateY(-40%);
+		 -webkit-transform:translateX(-50%) translateY(-40%);
+		 -moz-transform:translateX(-50%) translateY(-40%);
+		 -o-transform:translateX(-50%) translateY(-30%);
+}
+
+/*Search*/
+.search_row
+{
+  margin: 27% auto;
+  width: 30%;
+  padding-top: 50px;
+}
+
+#search_input
+{
+  background-color: #ac3571;
+  border-radius: 0;
+  border: none;
+  color: white;
+  opacity: 0.9;
+  height:55px;
+}
+
+/*Placeholder color cross browser*/
+#search_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+#search_input::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+#search_input:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+#search_input:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
