@@ -48,7 +48,42 @@ body
   color: white;
   opacity: 0.9;
   height:55px;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-bottom: solid transparent;
+  transition: 0.3s ease;
+  white-space: nowrap;
+
 }
+#search_input:hover
+{
+  border-bottom: solid #e9dde3;
+}
+
+#search_input:active, #search_input:focus
+{
+  border-bottom: solid #e9dde3;
+}
+/*Search button*/
+.search_btn
+{
+  height: 55px;
+  background-color: #83114b;
+  border-radius: 0;
+  border: none;
+  color: white;
+  opacity: 0.9;
+}
+
+.search_btn:hover, .search_btn:focus, .search_btn:active, .search_btn.active {
+    color: #fff;
+    background-color: #751043;
+    border-color: #92275d;
+}
+
 
 /*Placeholder color cross browser*/
 #search_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
