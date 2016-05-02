@@ -35,9 +35,11 @@ body
 /*Search*/
 .search_row
 {
-  margin: 27% auto;
-  width: 30%;
-  padding-top: 50px;
+  position: absolute;
+  top: 67%;
+left:38%;
+  width: 25%;
+
 }
 
 #search_input
