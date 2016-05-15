@@ -9,6 +9,7 @@ Make sure you have installed:
 
 Inside of netbeans:
 Clone the project  **errors will be given**
+
 To resolve these errors:
 First unzip the libraries.zip file in the lib folder
 Then: Add library by right clicking on the libraries in the project
