@@ -58,4 +58,20 @@ public class UserResource {
             return r;
         }
     }
+
+    @POST
+    @Path("")
+    public Response createUser(User u) {
+        r = null;
+        try {
+            service.createUser(u);
+            r = Response.noContent().build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
 }

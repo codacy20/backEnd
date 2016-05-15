@@ -40,6 +40,10 @@ public class UserService {
         return null;
     }
     
+    public void createUser(User u){
+        users.add(u);
+    }
+    
     
 
 }
