@@ -10,8 +10,9 @@ package model;
  * @author tycho
  */
 public class User {
-    
+
     int userID;
+    String username;
     String password;
     Address address;
     String email;
@@ -20,25 +21,30 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String password, Address address) {
+    public User(int userID, String username, String password, Address address) {
         this.userID = userID;
+        this.username = username;
         this.password = password;
         this.address = address;
         this.email = null;
         this.phoneNumber = null;
     }
 
-    public User(int userID, String password, Address address, String email, String phoneNumber) {
+    public User(int userID, String username, String password, Address address, String email, String phoneNumber) {
         this.userID = userID;
+        this.username = username;
         this.password = password;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
-    
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
@@ -61,6 +67,10 @@ public class User {
         return userID;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -76,5 +86,5 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
- 
+
 }

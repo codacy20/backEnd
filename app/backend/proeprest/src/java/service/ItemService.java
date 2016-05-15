@@ -6,7 +6,6 @@
 package service;
 
 import database.DummyDatabase;
-import exception.DataNotFoundException;
 import model.Item;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,10 +47,10 @@ public class ItemService {
 	}
 	
 	
-	public Item getItem(long id) {
+	public Item getItem(long id) throws Exception {
 		Item item = itemss.get(id);
 		if (item == null) {
-			throw new DataNotFoundException("Message with id " + id + " not found");
+			throw new Exception("Message with id " + id + " not found");
 		}
 		return item;
 	}

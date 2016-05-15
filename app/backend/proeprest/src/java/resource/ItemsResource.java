@@ -41,7 +41,7 @@ public class ItemsResource {
         
     @GET
     @Path("/{ItemId}")
-    public Item getMessage(@PathParam("ItemId") long id) {
+    public Item getMessage(@PathParam("ItemId") long id) throws Exception {
         Item item = itemService.getItem(id);
 		return item;
 	}	
