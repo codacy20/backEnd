@@ -2,13 +2,13 @@
 # Created by https://www.gitignore.io/api/netbeans,webstorm,java
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-.nb-gradle/
+app/backend/proeprest/nbproject/private/
+app/backend/proeprest/build/
+app/backend/proeprest/nbbuild/
+app/backend/proeprest/dist/
+app/backend/proeprest/nbdist/
+app/backend/proeprest/nbactions.xml
+app/backend/proeprest/nb-gradle/
 
 
 ### WebStorm ###

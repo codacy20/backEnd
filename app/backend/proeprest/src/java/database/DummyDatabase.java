@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Database;
+package database;
 
-import Model.Item;
+import model.Item;
 import java.util.HashMap;
 import java.util.Map;
 
