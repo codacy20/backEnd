@@ -18,20 +18,11 @@ public class UserService {
     ArrayList<User> users = new ArrayList<>();
 
     public UserService() {
-        users.add(new User(0, "Tycho", "pass", (new Address("Eindhoven", "Streetname", 12))));
-        users.add(new User(1, "Tom", "pass", (new Address("Eindhoven", "Streetname", 13))));
+        users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", 12)), "a@b.com"));
+        users.add(new User("Tom", "pass", (new Address("Eindhoven", "Streetname", 13)), "a@b.com"));
     }
 
-    public User getUserByID(int id) {
-        for (User u : users) {
-            if (id == u.getUserID()) {
-                return u;
-            }
-        }
-        return null;
-    }
-
-    public User getUserByUsername(String username) {
+    public User getUserByName(String username) {
         for (User u : users) {
             if (username.equals(u.getUsername())) {
                 return u;
@@ -40,17 +31,36 @@ public class UserService {
         return null;
     }
 
-    public void createUser(User u) {
-        users.add(u);
-    }
-
-    public void updateUser(int id, User u) {
+    public boolean createUser(User u) {
         for (User user : users) {
-            if (user.getUserID() == id) {
-                user = u;
-                return;
+            if (user.getUsername().equals(u.getUsername())) {
+                return false;
             }
         }
+        users.add(u);
+        return true;
+    }
+
+    public boolean updateUser(User u) {
+        for (User user : users) {
+            if (user.getUsername().equals(u.getUsername())) {
+                user = u;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int login(String user, String pass) {
+        for(User u : users){
+            if(u.getUsername().equals(user)){
+                if(u.getPassword().equals(pass))
+                    return 1;
+                else
+                    return 0;
+            }
+        }
+        return -1;
     }
 
 }

@@ -16,8 +16,8 @@ import service.UserService;
  * @author tycho
  */
 @Path("user")
-@Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 
     Response r;
@@ -28,35 +28,17 @@ public class UserResource {
     }
 
     @GET
-    @Path("id/{userID}")
-    public Response getUserByID(@PathParam("userID") int id) {
-        try {
-            r = null;
-            User u = service.getUserByID(id);
-            if (u != null) {
-                r = Response.ok(u).build();
-            } else {
-                throw new Exception("User does not exist");
-            }
-        } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        } finally {
-            return r;
-        }
-    }
-
-    @GET
-    @Path("username/{username}")
+    @Path("name/{username}")
     public Response getUserByName(@PathParam("username") String username) {
         try {
             r = null;
-            User u = service.getUserByUsername(username);
+            User u = service.getUserByName(username);
             if (u != null) {
                 r = Response.ok(u).build();
             } else {
-                throw new Exception("User does not exist");
+                r = Response.status(Response.Status.NOT_FOUND)
+                        .entity("User does not exist")
+                        .build();
             }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -68,12 +50,17 @@ public class UserResource {
     }
 
     @POST
-    @Path("{userID}")
+    @Path("create")
     public Response createUser(User u) {
         r = null;
         try {
-            service.createUser(u);
-            r = Response.noContent().build();
+            if (service.createUser(u)) {
+                r = Response.ok().build();
+            } else {
+                r = Response.status(Response.Status.CONFLICT)
+                        .entity("User already exists")
+                        .build();
+            }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -84,12 +71,17 @@ public class UserResource {
     }
 
     @PUT
-    @Path("{userID}")
-    public Response updateUser(@PathParam("userID") int id, User u) {
+    @Path("update")
+    public Response updateUser(User u) {
         r = null;
         try {
-            service.updateUser(id, u);
-            r = Response.noContent().build();
+            if (service.updateUser(u)) {
+                r = Response.noContent().build();
+            } else {
+                r = Response.status(Response.Status.NOT_FOUND)
+                        .entity("User not found")
+                        .build();
+            }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -98,4 +90,35 @@ public class UserResource {
             return r;
         }
     }
+
+    @GET
+    @Path("login/{username}")
+    public Response login(@PathParam("username") String name, String pass) {
+        r = null;
+        try {
+            int result = service.login(name, pass);
+            switch (result) {
+                case 1:
+                    r = Response.ok().build();
+                    break;
+                case 0:
+                    r = Response.status(Response.Status.UNAUTHORIZED)
+                            .entity("Password incorrect")
+                            .build();
+                    break;
+                case -1:
+                    r = Response.status(Response.Status.NOT_FOUND)
+                            .entity("Username not found")
+                            .build();
+                    break;
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+
 }
