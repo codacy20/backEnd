@@ -18,12 +18,12 @@ public class Item {
     private String Resteurant;
 
     
-    public Item(long ID, String Name, int Price, String Resteurant) {
-        this.ID = ID;
+    public Item(String Name, int Price, String Restaurant) {
+        this.ID = 0;
         this.Name = Name;
         this.Price = Price;
         //this.ProductID = ProductID;
-        this.Resteurant = Resteurant;
+        this.Resteurant = Restaurant;
     }
 
     public long getID() {

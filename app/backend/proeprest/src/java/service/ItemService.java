@@ -17,17 +17,18 @@ import java.util.Map;
  * @author Amir
  */
 public class ItemService {
-    	private Map<Long, Item> itemss = DummyDatabase.getItems();
-	
-	public ItemService() {
-		itemss.put(1L, new Item(1,"item 1",0, "Resteurant"));
-		itemss.put(2L, new Item(2, "item 2", 0, "Resteurant"));
-	}
-	
-	public List<Item> getAllMessages() {
-		return new ArrayList<Item>(itemss.values()); 
-	}
-	
+
+    private List<Item> itemlist = new ArrayList<>();
+
+    public ItemService() {
+        itemlist.add(new Item("item 1", 0, "Resteurant"));
+        itemlist.add(new Item("item 2", 0, "Resteurant"));
+    }
+
+    public List<Item> getAllItems() {
+        return itemlist;
+    }
+
 //	public List<Item> getAllItemsForYear(int year) {
 //		List<Item> messagesForYear = new ArrayList<>();
 //		Calendar cal = Calendar.getInstance();
@@ -39,39 +40,36 @@ public class ItemService {
 //		}
 //		return itemsForYear;
 //	}
-	
-	public List<Item> getAllMessagesPaginated(int start, int size) {
-		ArrayList<Item> list = new ArrayList<Item>(itemss.values());
-		if (start + size > list.size()) return new ArrayList<Item>();
-		return list.subList(start, start + size); 
-	}
-	
-	
-	public Item getItem(long id) throws Exception {
-		Item item = itemss.get(id);
-		if (item == null) {
-			throw new Exception("Message with id " + id + " not found");
-		}
-		return item;
-	}
-	
-	public Item addItem(Item item) {
-		item.setID(itemss.size() + 1);
-		itemss.put(item.getID(), item);
-		return item;
-	}
-	
-	public Item updateItem(Item item) {
-		if (item.getID() <= 0) {
-			return null;
-		}
-		itemss.put(item.getID(), item);
-		return item;
-	}
-	
-	public Item removeItem(long id) {
-		return itemss.remove(id);
-	}
-	
+    public Item getItem(long id) throws Exception {
+        for (Item i : itemlist) {
+            if (i.getID() == id) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    public void addItem(Item item) {
+        item.setID(itemlist.size() + 1);
+        itemlist.add(item);
+    }
+
+    public void updateItem(long id, Item item) {
+        for (Item i : itemlist) {
+            if (i.getID() == id) {
+                i = item;
+                return;
+            }
+        }
+    }
+
+    public void removeItem(long id) {
+        for (Item i : itemlist) {
+            if (i.getID() == id) {
+                itemlist.remove(i);
+                return;
+            }
+        }
+    }
 
 }

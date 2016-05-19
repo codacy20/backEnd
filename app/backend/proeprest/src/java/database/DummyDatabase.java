@@ -15,13 +15,7 @@ import java.util.Map;
  */
 public class DummyDatabase {
     
-    private static Map<Long, Item> messages = new HashMap<>();
-    //private static Map<String, Profile> profiles = new HashMap<>();
-
-	
-	public static Map<Long, Item> getItems() {
-		return messages;
-	}
+   //TODO connect to database, libraries for connecting, SQL queries
 
 	
     
