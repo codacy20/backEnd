@@ -18,11 +18,13 @@ import java.util.Map;
  */
 public class ItemService {
 
-    private List<Item> itemlist = new ArrayList<>();
+    private final List<Item> itemlist = new ArrayList<>();
 
     public ItemService() {
         itemlist.add(new Item("item 1", 0, "Resteurant"));
         itemlist.add(new Item("item 2", 0, "Resteurant"));
+        itemlist.get(0).setID(0);
+        itemlist.get(1).setID(1);
     }
 
     public List<Item> getAllItems() {

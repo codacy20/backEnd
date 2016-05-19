@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Amir
  */
-@Path("/items")
+@Path("items")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ItemsResource {
@@ -26,7 +26,7 @@ public class ItemsResource {
     ItemService itemService = new ItemService();
 
     @GET
-    @Path("/{ItemId}")
+    @Path("{ItemId}")
     public Item getItem(@PathParam("ItemId") long id) throws Exception {
         Item item = itemService.getItem(id);
         return item;
@@ -38,13 +38,13 @@ public class ItemsResource {
     }
 
     @PUT
-    @Path("/{ItemId}")
+    @Path("{ItemId}")
     public void updateItem(@PathParam("ItemId") long id, Item item) {
         itemService.updateItem(id, item);
     }
 
     @DELETE
-    @Path("/{ItemId}")
+    @Path("{ItemId}")
     public void deleteItem(@PathParam("ItemId") long id) {
         itemService.removeItem(id);
     }

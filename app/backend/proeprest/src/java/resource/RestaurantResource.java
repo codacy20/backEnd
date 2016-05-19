@@ -17,7 +17,7 @@ import service.UserService;
  *
  * @author mikaeil
  */
-@Path("Restaurant")
+@Path("restaurant")
 @Produces(MediaType.APPLICATION_JSON)
 public class RestaurantResource {
     
@@ -61,7 +61,7 @@ public class RestaurantResource {
             return r;
         }
     }
-/*
+
     @POST
     public Response createRestaurant(Restaurant Res) {
         r = null;
@@ -75,7 +75,7 @@ public class RestaurantResource {
         } finally {
             return r;
         }
-    }*/
+    }
     
     
 }
