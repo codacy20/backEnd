@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author mikaeil
@@ -17,6 +19,7 @@ public class Restaurant {
     Address address;
     String email;
     String phoneNumber;
+    List<Item> menu;
     
     public Restaurant() {
     }
@@ -62,6 +65,9 @@ public class Restaurant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public void setMenu(Item itemX) {
+        this.menu.add(itemX);
+    }
 
     public int getRestaurantID() {
         return restaurant_ID;
@@ -85,6 +91,10 @@ public class Restaurant {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+    
+    public List<Item> getMenu() {
+        return this.menu;
     }
     
 }
