@@ -14,16 +14,18 @@ public class Item {
     private long ID;
     private String Name;
     private int Price;
+    private int bidPrice;
     //private int ProductID;
-    private String Resteurant;
+    //private String Resteurant;
 
     
     public Item(String Name, int Price, String Restaurant) {
         this.ID = 0;
         this.Name = Name;
         this.Price = Price;
+        this.bidPrice=bidPrice;
         //this.ProductID = ProductID;
-        this.Resteurant = Restaurant;
+        //this.Resteurant = Resteurant;
     }
 
     public long getID() {
@@ -39,14 +41,17 @@ public class Item {
     public int getPrice() {
         return Price;
     }
+    public int getBidPrice() {
+        return bidPrice;
+    }
 
 //    public int getProductID() {
 //        return ProductID;
 //    }
 
-    public String getResteurant() {
-        return Resteurant;
-    }
+ //   public String getResteurant() {
+ //       return Resteurant;
+ //   }
     
     public void setID(long ID) {
         this.ID = ID;
@@ -59,20 +64,22 @@ public class Item {
     public void setPrice(int Price) {
         this.Price = Price;
     }
+    public void setBidPrice(int Price) {
+        this.Price = bidPrice;
+    }
 
 //    public void setProductID(int ProductID) {
 //        this.ProductID = ProductID;
 //    }
 
-    public void setResteurant(String Resteurant) {
-        this.Resteurant = Resteurant;
-    }
+//    public void setResteurant(String Resteurant) {
+//        this.Resteurant = Resteurant;
+//    }
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + Name + ", Price=" + Price + ", Resteurant=" + Resteurant + '}';
-    }
-    
+        return "Item{" + "Name=" + Name + ", Price=" + Price + ", bidPrice=" + bidPrice +'}';
+    }  
     
     
 }
