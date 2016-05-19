@@ -1,0 +1,40 @@
+@media (max-width: 767px) {
+    .work_item .right_image img {
+        float: none;
+        margin-top: 20px;
+    }
+    .left_image > img {
+        margin-bottom: 20px;
+    }
+    .order_item,
+    .work_item {
+        text-align: center;
+    }
+    .price.text-right {
+        text-align: center;
+    }
+	.header_area .col-sm-3 {
+		float: left;
+		width: 50%;
+	}
+	.header_area .col-sm-9 {
+		float: left;
+		width: 50%;
+	}
+	.menu_body {
+		min-height: 1000px;
+	}
+	.mainmenu_area {
+	  margin-top: 100px;
+	}
+
+
+
+}
+
+@media (max-width: 400px) {
+	.menu_body {
+	  min-height: 1340px;
+	}
+	
+}

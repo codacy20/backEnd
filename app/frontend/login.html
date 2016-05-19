@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
@@ -18,14 +18,20 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
+<body class="login_body">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 	<header class="header_area">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-sm-3">
+					<div class="logo" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true, delay:400}">
+						<a href="index.html"><img src="img/logo.png" alt="" />
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-9">
 					<div class="to-close pull-right">
 					  <div class="x">
 						<input type="checkbox" id="menu-x" />
@@ -66,30 +72,66 @@
 		<!--End mainmenu_area-->
 	</div>
 
-	<section class="main_area">
+	<section class="login_area">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<div class="home_logo text-center" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true, delay:400}">
-						<a href="index.html"><img src="img/home_logo.png" alt="" />
-						</a>
-					</div>
-					<div class="search text-center">
-						<form action="">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="what would you like to eat ? |" aria-describedby="basic-addon1">
-								<span class="input-group-addon" type="submit" id="basic-addon1"><i class="fa fa-search"></i></span>
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="login">
+						<div class="mk_tab_nav">
+							<ul class="" role="tablist">
+								<li role="presentation" class="active"><a href="#signup" aria-controls="home" role="tab" data-toggle="tab">Sign Up</a>
+								</li>
+								<li role="presentation"><a href="#login" aria-controls="profile" role="tab" data-toggle="tab">Log In</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mk_tab_content">
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="signup">
+									<form action="">
+										<div class="name">
+											<div class="first_name">
+												<input type="text" placeholder="First name" required />
+												<span>*</span>
+											</div>
+											<div class="last_name">
+												<input type="text" placeholder="Last name" required />
+												<span>*</span>
+											</div>
+										</div>
+										<div class="email">
+											<input type="email" placeholder="Email Address" required />
+											<span>*</span>
+										</div>
+										<div class="password">
+											<input type="password" placeholder="Set Password" required />
+											<span>*</span>
+										</div>
+										<div class="submit text-center">
+											<input type="submit" value="Get started" />
+										</div>
+									</form>
+								</div>
+								<div class="tab-pane fade" id="login">
+									<form action="">
+										<div class="email">
+											<input type="email" placeholder="Email Address" required />
+											<span>*</span>
+										</div>
+										<div class="password">
+											<input type="password" placeholder="Set Password" required />
+											<span>*</span>
+										</div>
+									</form>
+								</div>
 							</div>
-							<input type="submit" value="suprise me!" />
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!--End row-->
 		</div>
-		<!--End container-->
 	</section>
-	<!--End mainmenu_area-->
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')

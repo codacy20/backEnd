@@ -1,0 +1,129 @@
+
+.slicknav_btn {
+    cursor: pointer;
+    display: block;
+    float: right;
+    line-height: 1.125em;
+    padding: 0.438em 0.625em;
+    position: relative;
+    vertical-align: middle;
+}
+.slicknav_menu .slicknav_menutxt {
+    display: none;
+    float: left;
+    line-height: 1.188em;
+}
+.slicknav_menu .slicknav_icon {
+    float: left;
+    margin: 0.188em 0 0;
+}
+.slicknav_menu .slicknav_no-text {
+    margin: 0;
+}
+.slicknav_menu .slicknav_icon-bar {
+    border-radius: 1px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    display: block;
+    height: 0.125em;
+    width: 20px;
+}
+.slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+    margin-top: 0.188em;
+}
+.slicknav_nav {
+    clear: both;
+}
+.slicknav_nav ul, .slicknav_nav li {
+    display: block;
+}
+.slicknav_nav .slicknav_arrow {
+    font-size: 0.8em;
+    margin: 0 0 0 0.4em;
+}
+.slicknav_nav .slicknav_item {
+    cursor: pointer;
+    display: block;
+}
+.slicknav_nav a {
+    display: block;
+}
+.slicknav_nav .slicknav_item a {
+    display: inline;
+}
+.slicknav_menu::before, .slicknav_menu::after {
+    content: " ";
+    display: table;
+}
+.slicknav_menu::after {
+    clear: both;
+}
+.slicknav_menu {
+    font-size: 16px;
+}
+.slicknav_btn {
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    float: none;
+    line-height: 1.125em;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 30px;
+}
+.slicknav_menu .slicknav_menutxt {
+    color: #fff;
+    font-weight: bold;
+}
+.slicknav_menu .slicknav_icon-bar {
+    background: #fff none repeat scroll 0 0;
+}
+.slicknav_menu {
+    padding: 5px;
+    width: 100%;
+    z-index: 99;
+}
+.slicknav_nav {
+    color: #fff;
+    font-size: 0.875em;
+    margin: 0;
+    padding: 0;
+}
+header.header_area .slicknav_nav, .slicknav_nav ul {
+    float: none;
+    list-style: outside none none;
+    overflow: hidden;
+    width: 100%;
+}
+header.header_area .slicknav_menu ul.slicknav_nav li {
+    float: none;
+    margin: 0;
+    text-align: center;
+}
+.slicknav_nav ul {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+.slicknav_nav .slicknav_item {
+    margin: 2px 5px;
+    padding: 5px 10px;
+}
+.slicknav_nav a {
+  color: #fff;
+  font-size: 16px;
+  margin: 2px 5px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.slicknav_nav .slicknav_item a {
+    margin: 0;
+    padding: 0;
+}
+.slicknav_nav .slicknav_txtnode {
+    margin-left: 15px;
+}
