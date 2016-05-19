@@ -99,6 +99,7 @@ ul {
   height: 60px;
   padding: 0 12px;
 }
+
 .search input[type="submit"] {
     background: #ffd200 none repeat scroll 0 0;
     border: medium none;
@@ -110,9 +111,6 @@ ul {
     margin: 24px auto 0;
     padding: 0 20px;
 	transition: .8s;
-}
-.search input[type="submit"]:hover {
-    background: #e8bf02 none repeat scroll 0 0;
 }
 .search .input-group {
     margin: 0 auto;
@@ -165,12 +163,12 @@ ul {
     padding-bottom: 15px;
 }
 .order_area .address {
-    border-bottom: 1px solid #363636;
+    border-bottom: 1px solid lightgray;
     margin-bottom: 30px;
     padding-bottom: 20px;
 }
 .order_area hr {
-    border-top: 1px solid #363636;
+    border-top: 1px solid lightgray;
     margin: 0 auto;
     width: 70%;
 }
@@ -299,8 +297,23 @@ ul {
     z-index: 999;
 }
 
+.checkout_btn input[type="submit"] {
+    background: #ffd200 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    display: block;
+    /*padding: 15px;*/
+    margin: 6px auto 0;
+    padding: 20px;
+    transition: .8s;
+    width: auto;
+}
 
 
+.checkout_btn input[type="submit"]:hover {
+    background: #e8bf02 none repeat scroll 0 0;
+    cursor:pointer;
+}
 
 /*================ Menu Bar =================*/
 header.header_area {
