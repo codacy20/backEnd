@@ -16,7 +16,7 @@ public class Item {
     private int Price;
     private int bidPrice;
     //private int ProductID;
-    //private String Resteurant;
+    private String Resteurant;
 
     
     public Item(String Name, int Price, String Restaurant) {
@@ -25,7 +25,7 @@ public class Item {
         this.Price = Price;
         this.bidPrice=bidPrice;
         //this.ProductID = ProductID;
-        //this.Resteurant = Resteurant;
+        this.Resteurant = Resteurant;
     }
 
     public long getID() {
@@ -49,9 +49,9 @@ public class Item {
 //        return ProductID;
 //    }
 
- //   public String getResteurant() {
- //       return Resteurant;
- //   }
+    public String getResteurant() {
+        return Resteurant;
+    }
     
     public void setID(int ID) {
         this.ID = ID;
@@ -72,9 +72,9 @@ public class Item {
 //        this.ProductID = ProductID;
 //    }
 
-//    public void setResteurant(String Resteurant) {
-//        this.Resteurant = Resteurant;
-//    }
+    public void setResteurant(String Resteurant) {
+        this.Resteurant = Resteurant;
+    }
 
     @Override
     public String toString() {

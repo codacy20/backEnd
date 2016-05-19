@@ -50,6 +50,26 @@ public class ItemService {
         }
         return null;
     }
+    
+    public List<Item> Search(String name) throws Exception {
+        List<Item> searched = new ArrayList<>();
+        for (Item i : itemlist) {
+            if (i.getName() == name) {
+                searched.add(i);
+            }
+        }
+        return searched;
+    }
+    
+    public List<Item> getResteurantItems(String name) throws Exception {
+        List<Item> rest = new ArrayList<>();
+        for (Item i : itemlist) {
+            if (i.getResteurant() == name) {
+                rest.add(i);
+            }
+        }
+        return rest;
+    }
 
     public void addItem(Item item) {
         item.setID(itemlist.size() + 1);
@@ -65,13 +85,14 @@ public class ItemService {
         }
     }
 
-    public void removeItem(long id) {
+    public Item removeItem(long id) {
         for (Item i : itemlist) {
             if (i.getID() == id) {
                 itemlist.remove(i);
-                return;
+                return i;
             }
         }
+        return null;
     }
 
 }
