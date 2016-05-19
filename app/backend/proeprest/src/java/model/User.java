@@ -16,7 +16,6 @@ public class User {
     String password;
     Address address;
     String email;
-    String phoneNumber;
 
     public User() {
     }
@@ -27,16 +26,14 @@ public class User {
         this.password = password;
         this.address = address;
         this.email = null;
-        this.phoneNumber = null;
     }
 
-    public User(int userID, String username, String password, Address address, String email, String phoneNumber) {
+    public User(int userID, String username, String password, Address address, String email) {
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.address = address;
         this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
     public void setUserID(int userID) {
@@ -59,10 +56,6 @@ public class User {
         this.email = email;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public int getUserID() {
         return userID;
     }
@@ -81,10 +74,6 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
     }
 
 }

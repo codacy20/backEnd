@@ -17,6 +17,7 @@ import service.UserService;
  */
 @Path("user")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
 
     Response r;
@@ -32,7 +33,12 @@ public class UserResource {
         try {
             r = null;
             User u = service.getUserByID(id);
-            r = Response.ok(u).build();
+            if (u != null) {
+                r = Response.ok(u).build();
+            }
+            else{
+                throw new Exception();
+            }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -44,7 +50,6 @@ public class UserResource {
 
     @GET
     @Path("username/{username}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getUserByName(@PathParam("username") String username) {
         try {
             r = null;
@@ -60,11 +65,27 @@ public class UserResource {
     }
 
     @POST
-    @Path("")
+    @Path("{userID}")
     public Response createUser(User u) {
         r = null;
         try {
             service.createUser(u);
+            r = Response.noContent().build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+
+    @PUT
+    @Path("{userID}")
+    public Response updateUser(@PathParam("userID") int id, User u) {
+        r = null;
+        try {
+            service.updateUser(id, u);
             r = Response.noContent().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)

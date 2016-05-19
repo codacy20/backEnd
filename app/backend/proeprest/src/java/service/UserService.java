@@ -30,7 +30,7 @@ public class UserService {
         }
         return null;
     }
-    
+
     public User getUserByUsername(String username) {
         for (User u : users) {
             if (username.equals(u.getUsername())) {
@@ -39,11 +39,18 @@ public class UserService {
         }
         return null;
     }
-    
-    public void createUser(User u){
+
+    public void createUser(User u) {
         users.add(u);
     }
-    
-    
+
+    public void updateUser(int id, User u) {
+        for (User user : users) {
+            if (user.getUserID() == id) {
+                user = u;
+                return;
+            }
+        }
+    }
 
 }

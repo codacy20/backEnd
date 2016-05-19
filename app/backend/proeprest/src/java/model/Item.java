@@ -11,7 +11,7 @@ package model;
  */
 public class Item {
     
-    private long ID;
+    private int ID;
     private String Name;
     private int Price;
     private int bidPrice;
@@ -53,7 +53,7 @@ public class Item {
  //       return Resteurant;
  //   }
     
-    public void setID(long ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
     
