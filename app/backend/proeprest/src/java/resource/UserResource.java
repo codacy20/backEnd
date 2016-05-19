@@ -35,9 +35,8 @@ public class UserResource {
             User u = service.getUserByID(id);
             if (u != null) {
                 r = Response.ok(u).build();
-            }
-            else{
-                throw new Exception();
+            } else {
+                throw new Exception("User does not exist");
             }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -54,7 +53,11 @@ public class UserResource {
         try {
             r = null;
             User u = service.getUserByUsername(username);
-            r = Response.ok(u).build();
+            if (u != null) {
+                r = Response.ok(u).build();
+            } else {
+                throw new Exception("User does not exist");
+            }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())

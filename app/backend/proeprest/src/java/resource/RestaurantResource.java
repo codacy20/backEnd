@@ -61,9 +61,8 @@ public class RestaurantResource {
             return r;
         }
     }
-
+/*
     @POST
-    @Path("")
     public Response createRestaurant(Restaurant Res) {
         r = null;
         try {
@@ -76,7 +75,7 @@ public class RestaurantResource {
         } finally {
             return r;
         }
-    }
+    }*/
     
     
 }
