@@ -233,28 +233,37 @@ ul {
     background: #f6dada none repeat scroll 0 0;
     padding: 80px 10px 20px;
 }
-.name {
+.name, .address {
     overflow: hidden;
 }
 
+
 #signup .last_name,
-#signup .first_name {
+#signup .first_name,
+#signup .city,
+#signup .post_code {
     float: left;
     margin-right: 4%;
     width: 48%;
 	position:relative;
 }
-#signup .last_name {
+#signup .last_name,
+#signup .post_code {
 	margin-right: 0;
 }
 #signup .last_name > span,
-#signup .first_name > span {
+#signup .first_name > span,
+#signup .city > span,
+#signup .post_code > span
+{
   color: red;
   position: absolute;
   right: 7px;
   top: 5px;
 }
-#signup .name input:last-child {
+#signup .address input:last-child,
+#signup .name input:last-child
+{
     margin-right: 0;
 }
 #login input[type="submit"],
@@ -274,11 +283,15 @@ ul {
     
 }
 .password,
-.email {
+.email,
+.username,
+.housenumber{
     position: relative;
 }
 .password > span,
-.email > span {
+.email > span,
+.username > span,
+.housenumber > span{
     color: red;
     position: absolute;
     right: 7px;

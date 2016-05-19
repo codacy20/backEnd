@@ -72,6 +72,7 @@
 		<!--End mainmenu_area-->
 	</div>
 
+	<!--Log In/sign up area-->
 	<section class="login_area">
 		<div class="container">
 			<div class="row">
@@ -85,8 +86,11 @@
 								</li>
 							</ul>
 						</div>
+						<!--registration form-->
 						<div class="mk_tab_content">
 							<div class="tab-content">
+
+								<!--sign up tab-->
 								<div class="tab-pane fade in active" id="signup">
 									<form action="">
 										<div class="name">
@@ -99,6 +103,26 @@
 												<span>*</span>
 											</div>
 										</div>
+										<div class="username">
+											<input type="text" placeholder="Username" required />
+											<span>*</span>
+										</div>
+										<div class="housenumber">
+											<input type="text" placeholder="House Number" required />
+											<span>*</span>
+										</div>
+
+										<div class="address">
+											<div class="city">
+												<input type="text" placeholder="City" required />
+												<span>*</span>
+											</div>
+											<div class="post_code">
+												<input type="text" placeholder="Post Code" required />
+												<span>*</span>
+											</div>
+										</div>
+
 										<div class="email">
 											<input type="email" placeholder="Email Address" required />
 											<span>*</span>
@@ -112,25 +136,31 @@
 										</div>
 									</form>
 								</div>
+								<!-- end sign up tab-->
+
+								<!--log in tab-->
 								<div class="tab-pane fade" id="login">
 									<form action="">
 										<div class="email">
-											<input type="email" placeholder="Email Address" required />
+											<input type="email" placeholder="Username" required />
 											<span>*</span>
 										</div>
 										<div class="password">
-											<input type="password" placeholder="Set Password" required />
+											<input type="password" placeholder="Password" required />
 											<span>*</span>
 										</div>
 									</form>
 								</div>
+								<!--end log in tab-->
 							</div>
 						</div>
+						<!--end registration form-->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- End Log In/sign up area-->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
