@@ -62,9 +62,9 @@ public class ItemsResource {
             return r;
         }
     }
-/*
+
     @GET
-    @Path("{resteurantName}")
+    @Path("getrest/{resteurantName}")
     public Response getResteurantItems(@PathParam("resteurantName") String name) throws Exception {
         r = null;
         List<Item> items = itemService.getResteurantItems(name);
@@ -85,7 +85,7 @@ public class ItemsResource {
     }
 
     @GET
-    @Path("{search}")
+    @Path("search/{search}")
     public Response Search(@PathParam("search") String name) throws Exception {
         r = null;
         List<Item> items = itemService.Search(name);
@@ -103,7 +103,7 @@ public class ItemsResource {
             return r;
         }
     }
-*/
+
     @POST
     public Response addItem(Item item) {
         try {

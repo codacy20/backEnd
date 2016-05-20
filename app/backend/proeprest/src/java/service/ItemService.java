@@ -21,8 +21,8 @@ public class ItemService {
     private final List<Item> itemlist = new ArrayList<>();
 
     public ItemService() {
-        itemlist.add(new Item("item 1", 0, "Resteurant"));
-        itemlist.add(new Item("item 2", 0, "Resteurant"));
+        itemlist.add(new Item("item1", 0, "notkfc"));
+        itemlist.add(new Item("item2", 0, "kfc"));
         itemlist.get(0).setID(0);
         itemlist.get(1).setID(1);
     }
@@ -54,7 +54,7 @@ public class ItemService {
     public List<Item> Search(String name) throws Exception {
         List<Item> searched = new ArrayList<>();
         for (Item i : itemlist) {
-            if (i.getName() == name) {
+            if (i.getName().equals(name)) {
                 searched.add(i);
             }
         }
@@ -64,7 +64,7 @@ public class ItemService {
     public List<Item> getResteurantItems(String name) throws Exception {
         List<Item> rest = new ArrayList<>();
         for (Item i : itemlist) {
-            if (i.getResteurant() == name) {
+            if (i.getResteurant().equals(name)) {
                 rest.add(i);
             }
         }

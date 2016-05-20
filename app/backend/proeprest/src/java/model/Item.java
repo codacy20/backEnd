@@ -25,7 +25,7 @@ public class Item {
         this.Price = Price;
         this.bidPrice=bidPrice;
         //this.ProductID = ProductID;
-        this.Resteurant = Resteurant;
+        this.Resteurant = Restaurant;
     }
 
     public long getID() {
