@@ -34,6 +34,7 @@ public class UserResource {
             r = null;
             User u = service.getUserByName(username);
             if (u != null) {
+                u.setPassword("");
                 r = Response.ok(u).build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND)
@@ -79,7 +80,7 @@ public class UserResource {
                 r = Response.noContent().build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND)
-                        .entity("User not found")
+                        .entity("Username not found")
                         .build();
             }
         } catch (Exception e) {
@@ -111,6 +112,29 @@ public class UserResource {
                             .entity("Username not found")
                             .build();
                     break;
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+    
+    @GET
+    @Path("signup")
+    public Response signup(User u){
+        r = null;
+        try {
+            boolean result = service.createUser(u);
+            if(result){
+                r=Response.status(Response.Status.CREATED).build();
+            }
+            else{
+                r=Response.status(Response.Status.CONFLICT)
+                        .entity("A user with that name already exists")
+                        .build();
             }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
