@@ -27,7 +27,7 @@ public class ItemsResource {
     ItemService itemService = new ItemService();
 
     @GET
-    public Response getAllItem() throws Exception {
+    public Response getAllItems() throws Exception {
         List<Item> items = itemService.getAllItems();
         r = null;
         try {
@@ -44,7 +44,7 @@ public class ItemsResource {
     }
 
     @GET
-    @Path("{ItemId}")
+    @Path("id/{ItemId}")
     public Response getItem(@PathParam("ItemId") long id) throws Exception {
         r = null;
         Item item = itemService.getItem(id);
@@ -64,15 +64,15 @@ public class ItemsResource {
     }
 
     @GET
-    @Path("getrest/{resteurantName}")
-    public Response getResteurantItems(@PathParam("resteurantName") String name) throws Exception {
+    @Path("rest/{restaurantName}")
+    public Response getRestaurantItems(@PathParam("restaurantName") String name) throws Exception {
         r = null;
-        List<Item> items = itemService.getResteurantItems(name);
+        List<Item> items = itemService.getRestaurantItems(name);
         try {
             if (items != null) {
                 r = Response.ok(items).build();
             } else {
-                throw new Exception("We dont have a list of items for that resteuarant.");
+                throw new Exception("We dont have a list of items for that restaurant.");
 
             }
         } catch (Exception e) {
@@ -108,7 +108,7 @@ public class ItemsResource {
     public Response addItem(Item item) {
         try {
             itemService.addItem(item);
-            r = Response.ok(item).build();
+            r = Response.ok().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.FORBIDDEN)
                     .entity(e.getMessage())
@@ -124,7 +124,7 @@ public class ItemsResource {
         r = null;
         try {
             itemService.updateItem(id, item);
-            r = Response.ok(item).build();
+            r = Response.ok().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.FORBIDDEN)
                     .entity(e.getMessage())
@@ -141,7 +141,7 @@ public class ItemsResource {
         r = null;
         try {
             Item i = itemService.removeItem(id);
-            r = Response.ok(i).build();
+            r = Response.ok().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.NOT_FOUND)
                     .entity(e.getMessage())

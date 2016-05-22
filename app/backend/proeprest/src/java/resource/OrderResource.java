@@ -23,12 +23,11 @@ import service.OrderService;
  *
  * @author Amir
  */
-
 @Path("order")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class OrderResource {
-   
+
     Response r;
     OrderService service;
 
@@ -120,7 +119,7 @@ public class OrderResource {
             return r;
         }
     }
-    
+
     @POST
     @Path("addorder")
     public Response AddOrder(Order u) {
@@ -141,5 +140,5 @@ public class OrderResource {
             return r;
         }
     }
- 
+
 }

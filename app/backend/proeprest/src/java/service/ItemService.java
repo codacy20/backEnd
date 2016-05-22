@@ -61,7 +61,7 @@ public class ItemService {
         return searched;
     }
     
-    public List<Item> getResteurantItems(String name) throws Exception {
+    public List<Item> getRestaurantItems(String name) throws Exception {
         List<Item> rest = new ArrayList<>();
         for (Item i : itemlist) {
             if (i.getResteurant().equals(name)) {

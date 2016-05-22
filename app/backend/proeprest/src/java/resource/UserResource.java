@@ -121,18 +121,17 @@ public class UserResource {
             return r;
         }
     }
-    
+
     @GET
     @Path("signup")
-    public Response signup(User u){
+    public Response signup(User u) {
         r = null;
         try {
             boolean result = service.createUser(u);
-            if(result){
-                r=Response.status(Response.Status.CREATED).build();
-            }
-            else{
-                r=Response.status(Response.Status.CONFLICT)
+            if (result) {
+                r = Response.status(Response.Status.CREATED).build();
+            } else {
+                r = Response.status(Response.Status.CONFLICT)
                         .entity("A user with that name already exists")
                         .build();
             }
