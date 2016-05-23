@@ -79,6 +79,22 @@ public class RestaurantResource {
         }
     }
 
+    @GET
+    @Path("menu/{restaurant_Name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRestaurantMenu(@PathParam("restaurant_Name") String res_name) {
+        try {
+            r = null;
+            Restaurant Res = service.getRestaurantByname(res_name);
+            r = Response.ok(Res.getMenu()).build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
     @POST
     public Response createRestaurant(Restaurant Res) {
         r = null;
