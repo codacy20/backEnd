@@ -7,6 +7,7 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+import static javassist.CtMethod.ConstParameter.string;
 import model.*;
 
 /**
@@ -20,7 +21,9 @@ public class RestaurantService {
     public RestaurantService() {
         
         restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
-        restaurants.add(new Restaurant(1, "KFC", "pass", (new Address("Eindhoven", "Streetname", 13))));
+        restaurants.add(new Restaurant(1, "The Burger", "pass", (new Address("Eindhoven", "Streetname", 13))));
+        restaurants.add(new Restaurant(1, "Woke", "pass", (new Address("Rotterdam", "Streetname", 13))));
+        restaurants.add(new Restaurant(1, "KFC", "pass", (new Address("Rotterdam", "Streetname", 13))));
     }
 
     public Restaurant getRestaurantByID(int id) {
@@ -41,6 +44,18 @@ public class RestaurantService {
         return null;
     }
     
+    public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
+        ArrayList<Restaurant> return_res = new ArrayList<>();
+        for (Restaurant R : restaurants) {
+            if (res_city.equals(R.getAddress().getCity())) {
+                return_res.add(R);
+            }
+        }
+        if (!return_res.isEmpty()) {
+            return return_res;
+        }
+        return null;
+    }
     public void createRestaurant(Restaurant R){
         restaurants.add(R);
     }

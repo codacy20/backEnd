@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +32,7 @@ public class Restaurant {
         this.address = address;
         this.email = null;
         this.phoneNumber = null;
+        this.menu= new ArrayList<Item>();
     }
 
     public Restaurant(int resID, String resName, String password, Address address, String email, String phoneNumber) {
@@ -40,6 +42,7 @@ public class Restaurant {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.menu= new ArrayList<Item>();
     }
 
     public void setRestaurantID(int resID) {

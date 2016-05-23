@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.util.ArrayList;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import model.Restaurant;
@@ -51,6 +52,23 @@ public class RestaurantResource {
         try {
             r = null;
             Restaurant Res = service.getRestaurantByname(res_name);
+            r = Response.ok(Res).build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+    
+     @GET
+    @Path("restaurant_City/{City}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRestaurantByCity(@PathParam("City") String res_City) {
+        try {
+            r = null;
+            ArrayList<Restaurant> Res = service.getRestaurantByCity(res_City);
             r = Response.ok(Res).build();
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
