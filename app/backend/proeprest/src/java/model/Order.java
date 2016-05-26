@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,26 +13,29 @@ import java.util.List;
  * @author Amir
  */
 public class Order {
-    
+
     private int ID;
-    private User Owner;
+    private String username;
     List<Item> OrderList;
 
-    public Order(int ID, User Owner) {
+    public Order() {
+    }
+    
+    public Order(int ID, String username) {
         this.ID = ID;
-        this.Owner = Owner;
-        this.OrderList = new ArrayList<Item>();
+        this.username = username;
+        this.OrderList = new ArrayList<>();
     }
 
     public int getID() {
         return ID;
     }
 
-    public User getOwner() {
-        return Owner;
+    public String getOwner() {
+        return username;
     }
 
-    public List<Item> getOrderList() {
+    public List<Item> getItemsFromOrders() {
         return OrderList;
     }
 
@@ -41,22 +43,20 @@ public class Order {
         this.ID = ID;
     }
 
-    public void setOwner(User Owner) {
-        this.Owner = Owner;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 //    public void setOrderList(List<Item> OrderList) {
 //        this.OrderList = OrderList;
 //    }
-
     @Override
     public String toString() {
-        return "Order{" + "ID=" + ID + ", Owner=" + Owner + ", OrderList=" + OrderList + '}';
+        return "Order{" + "ID=" + ID + ", Owner=" + username + ", OrderList=" + OrderList + '}';
     }
-    
-    public void AddItemOderList(Item item)
-    {
+
+    public void AddItemToOrder(Item item) {
         OrderList.add(item);
     }
-    
+
 }

@@ -18,6 +18,8 @@ public class Item {
     //private int ProductID;
     private String Resteurant;
 
+    public Item() {
+    }
     
     public Item(String Name, int Price, String Restaurant) {
         this.ID = 0;

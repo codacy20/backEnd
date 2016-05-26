@@ -6,6 +6,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.List;
 import model.Address;
 import model.Item;
 import model.Order;
@@ -16,23 +17,25 @@ import model.User;
  * @author Amir
  */
 public class OrderService {
-    
-    ArrayList<Order> orderList = new ArrayList<>();
-    Order ord = new Order(2, new User());
-    
+
+    List<Order> orderList = new ArrayList<>();
+
     public OrderService() {
-        orderList.add(new Order(0, new User()));
-        orderList.add(new Order(1, new User()));
+        orderList.add(new Order(0, "Tycho"));
+        orderList.add(new Order(1, "Tycho"));
+        Order ord = new Order(2, "Tom");
+        ord.AddItemToOrder(new Item("Name", 10, "Restaurant"));
         orderList.add(ord);
     }
 
-    public User getOrderByName(String username) {
-        for (Order u : orderList) {
-            if (username.equals(u.getOwner().getUsername())) {
-                return u.getOwner();
+    public List<Order> getOrdersByName(String username) {
+        List<Order> returnorders = new ArrayList<>();
+        for (Order o : orderList) {
+            if (username.equals(o.getOwner())) {
+                returnorders.add(o);
             }
         }
-        return null;
+        return returnorders;
     }
 
     public boolean createOrder(Order orderNew) {
@@ -55,8 +58,8 @@ public class OrderService {
         return false;
     }
 
-    public boolean AddItemOrder(Item it){    
-        ord.AddItemOderList(it);
+    public boolean AddItemToOrder(Order o, Item it) {
+        o.AddItemToOrder(it);
 //        for (Item item : getOrderByName(username)) {
 //            if (order.getID() == or.getID()) {
 //                order = or;
@@ -65,9 +68,9 @@ public class OrderService {
 //        }
         return true;
     }
-    
-    public boolean AddOrder(Order ord){
-    for (Order order : orderList) {
+
+    public boolean AddOrder(Order ord) {
+        for (Order order : orderList) {
             if (order.getID() == ord.getID()) {
                 return false;
             }

@@ -11,14 +11,13 @@ import service.ItemService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import model.User;
 
 /**
  * REST Web Service
  *
  * @author Amir
  */
-@Path("items")
+@Path("item")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ItemsResource {
@@ -44,7 +43,7 @@ public class ItemsResource {
     }
 
     @GET
-    @Path("id/{ItemId}")
+    @Path("{ItemId}")
     public Response getItem(@PathParam("ItemId") long id) throws Exception {
         r = null;
         Item item = itemService.getItem(id);

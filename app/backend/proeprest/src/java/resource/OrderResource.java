@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -40,12 +41,12 @@ public class OrderResource {
     public Response getOrderByName(@PathParam("username") String username) {
         try {
             r = null;
-            User u = service.getOrderByName(username);
-            if (u != null) {
-                r = Response.ok(u).build();
+            List<Order> o = service.getOrdersByName(username);
+            if (o != null) {
+                r = Response.ok(o).build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND)
-                        .entity("User does not exist")
+                        .entity("Order does not exist")
                         .build();
             }
         } catch (Exception e) {
@@ -59,10 +60,10 @@ public class OrderResource {
 
     @POST
     @Path("create")
-    public Response createOrder(Order u) {
+    public Response createOrder(Order o) {
         r = null;
         try {
-            if (service.createOrder(u)) {
+            if (service.createOrder(o)) {
                 r = Response.ok().build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)
@@ -80,10 +81,10 @@ public class OrderResource {
 
     @PUT
     @Path("update")
-    public Response updateOrder(Order u) {
+    public Response updateOrder(Order o) {
         r = null;
         try {
-            if (service.updateOrder(u)) {
+            if (service.updateOrder(o)) {
                 r = Response.noContent().build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND)
@@ -104,7 +105,7 @@ public class OrderResource {
     public Response AddItemOrder(Item u) {
         r = null;
         try {
-            if (service.AddItemOrder(u)) {
+            if (service.AddItemToOrder(new Order(), u)) {
                 r = Response.ok().build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)
