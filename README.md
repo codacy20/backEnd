@@ -19,6 +19,8 @@ Create Library - Call it "Genson" - Add the .jar in the lib/Genson folder
 
 Create another Library - Call it "Jersey" - Add the .jars in the lib/Jersey folder
 
+Add a Library already in netbeans for MYSQL
+
 Now go to Tools -> Servers
 
 Add a new server - Call it "Apache Tomcat or TomEE"
