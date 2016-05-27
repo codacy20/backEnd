@@ -10,6 +10,10 @@ app/backend/proeprest/nbdist/
 app/backend/proeprest/nbactions.xml
 app/backend/proeprest/nb-gradle/
 
+### Frontend ###
+app/frontend/node_modules/
+app/frontend/typings/
+
 
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
