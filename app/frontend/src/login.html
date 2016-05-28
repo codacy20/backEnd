@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/responsive.css" />
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	<!--Angular 2-->
+	<script src="../node_modules/es6-shim/es6-shim.min.js"></script>
+	<script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="../node_modules/@angular/http/http.js"></script>
+	<script src="../node_modules/@angular/router/r"></script>
+	<script src="../node_modules/@angular/http/http.js"></script>
+
 </head>
 
 <body class="login_body">
@@ -132,7 +139,7 @@
 											<span>*</span>
 										</div>
 										<div class="submit text-center">
-											<input type="submit" value="Get started" />
+											<input (click)="onPost(first_name.value, last_name.value, username.value, housenumber.value, address.value, post_code.value, email_address.value, password.value)"type="submit" value="Get started" />
 										</div>
 									</form>
 								</div>
