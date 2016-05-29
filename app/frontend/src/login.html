@@ -17,11 +17,21 @@
     <link rel="stylesheet" href="../assets/css/responsive.css" />
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	<!--Angular 2-->
-	<script src="../node_modules/es6-shim/es6-shim.min.js"></script>
-	<script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="../node_modules/core-js/client/shim.min.js"></script>
+	<script src="../node_modules/zone.js/dist/zone.js"></script>
+	<script src="../node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="../node_modules/rxjs/bundles/Rx.umd.js"></script>
 	<script src="../node_modules/@angular/http/http.js"></script>
-	<script src="../node_modules/@angular/router/r"></script>
-	<script src="../node_modules/@angular/http/http.js"></script>
+	<script src="../node_modules/rxjs/Rx.js"></script>
+	<script src="../node_modules/@angular/core/core.umd.js"></script>
+	<script src="../node_modules/@angular/common/common.umd.js"></script>
+	<script src="../node_modules/@angular/compiler/compiler.umd.js"></script>
+	<script src="../node_modules/@angular/platform-browser/platform-browser.umd.js"></script>
+	<script src="../node_modules/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js"></script>
+
+	<!-- 2. Load our 'modules' -->
+	<script src='../app/app/sign-in/sign-in.component.js'></script>
+	<!--<script src='app/main.js'></script>-->
 
 </head>
 
@@ -138,8 +148,8 @@
 											<input type="password" placeholder="Set Password" required #password/>
 											<span>*</span>
 										</div>
-										<div class="submit text-center">
-											<input (click)="onPost(first_name.value, last_name.value, username.value, housenumber.value, address.value, post_code.value, email_address.value, password.value)"type="submit" value="Get started" />
+										<div (click)="onPost(first_name.value, last_name.value, username.value, housenumber.value, address.value, post_code.value, email_address.value, password.value)" class="submit text-center">
+											<input type="submit" value="Get started" />
 										</div>
 									</form>
 								</div>
