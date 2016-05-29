@@ -1,0 +1,187 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/uikit.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <link rel="stylesheet" href="/assets/css/responsive.css"/>
+    <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!--Angular 2-->
+    <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="/node_modules/@angular/http/http.js"></script>
+    <script src="/node_modules/@angular/router/r"></script>
+    <script src="/node_modules/@angular/http/http.js"></script>
+
+</head>
+
+<body class="login_body">
+<!--[if lt IE 8]>
+<p class="browserupgrade">
+    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your
+    browser</a> to improve your experience.
+</p>
+<![endif]-->
+<header class="header_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true, delay:400}">
+                    <a href="index.html"><img src="/assets/img/logo.png" alt=""/>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="to-close pull-right">
+                    <div class="x">
+                        <input type="checkbox" id="menu-x"/>
+                        <label for="menu-x"><span></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End row-->
+    </div>
+    <!--End container-->
+</header>
+<!--End header_area-->
+
+<div class="menu_body">
+    <section class="mainmenu_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mainmenu text-center">
+                        <ul id="nav">
+                            <li><a href="/">home</a>
+                            </li>
+                            <li><a href="work.html">how it works</a>
+                            </li>
+                            <li><a href="order.html">your order</a>
+                            </li>
+                            <li><a href="sign-in.html">sign in</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--End row-->
+        </div>
+        <!--End container-->
+    </section>
+    <!--End mainmenu_area-->
+</div>
+
+<!--Log In/sign up area-->
+<section class="login_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="login">
+                    <div class="mk_tab_nav">
+                        <ul class="" role="tablist">
+                            <li role="presentation" class="active"><a href="#signup" aria-controls="home" role="tab"
+                                                                      data-toggle="tab">Sign Up</a>
+                            </li>
+                            <li role="presentation"><a href="#login" aria-controls="profile" role="tab"
+                                                       data-toggle="tab">Log In</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--registration form-->
+                    <div class="mk_tab_content">
+                        <div class="tab-content">
+
+                            <!--sign up tab-->
+                            <div class="tab-pane fade in active" id="signup">
+                                <form action="">
+                                    <div class="name">
+                                        <div class="first_name">
+                                            <input type="text" placeholder="First name" required/>
+                                            <span>*</span>
+                                        </div>
+                                        <div class="last_name">
+                                            <input type="text" placeholder="Last name" required/>
+                                            <span>*</span>
+                                        </div>
+                                    </div>
+                                    <div class="username">
+                                        <input type="text" placeholder="Username" required/>
+                                        <span>*</span>
+                                    </div>
+                                    <div class="housenumber">
+                                        <input type="text" placeholder="House Number" required/>
+                                        <span>*</span>
+                                    </div>
+
+                                    <div class="address">
+                                        <div class="city">
+                                            <input type="text" placeholder="City" required/>
+                                            <span>*</span>
+                                        </div>
+                                        <div class="post_code">
+                                            <input type="text" placeholder="Post Code" required/>
+                                            <span>*</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="email">
+                                        <input type="email" placeholder="Email Address" required/>
+                                        <span>*</span>
+                                    </div>
+                                    <div class="password">
+                                        <input type="password" placeholder="Set Password" required/>
+                                        <span>*</span>
+                                    </div>
+                                    <div class="submit text-center">
+                                        <input (click)="onPost(first_name.value, last_name.value, username.value, housenumber.value, address.value, post_code.value, email_address.value, password.value)"
+                                               type="submit" value="Get started"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end sign up tab-->
+
+                            <!--log in tab-->
+                            <div class="tab-pane fade" id="login">
+                                <form action="">
+                                    <div class="email">
+                                        <input type="email" placeholder="Username" required/>
+                                        <span>*</span>
+                                    </div>
+                                    <div class="password">
+                                        <input type="password" placeholder="Password" required/>
+                                        <span>*</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--end log in tab-->
+                        </div>
+                    </div>
+                    <!--end registration form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Log In/sign up area-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.12.0.min.js"><\/script>')
+</script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/plugins.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>
