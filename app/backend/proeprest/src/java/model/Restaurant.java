@@ -35,7 +35,7 @@ public class Restaurant {
         this.menu= new ArrayList<Item>();
     }
 
-    public Restaurant(int resID, String resName, String password, Address address, String email, String phoneNumber) {
+    public Restaurant(int resID, String resName, String password, String email, String phoneNumber, Address address) {
         this.restaurant_ID = resID;
         this.restaurant_Name = resName;
         this.password = password;

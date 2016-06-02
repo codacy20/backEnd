@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -25,7 +26,7 @@ public class RestaurantResource {
     Response r;
     RestaurantService service;
 
-    public RestaurantResource() {
+    public RestaurantResource() throws SQLException  {
         service = new RestaurantService();
     }
 

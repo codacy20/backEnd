@@ -7,8 +7,13 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
-import static javassist.CtMethod.ConstParameter.string;
 import model.*;
+import database.DummyDatabase;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -17,17 +22,30 @@ import model.*;
 public class RestaurantService {
     
     ArrayList<Restaurant> restaurants = new ArrayList<>();
+    DummyDatabase d;    
 
-    public RestaurantService() {
-        
-        restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
-        restaurants.add(new Restaurant(1, "The Burger", "pass", (new Address("Eindhoven", "Streetname", 13))));
-        restaurants.add(new Restaurant(2, "Woke", "pass", (new Address("Rotterdam", "Streetname", 13))));
-        restaurants.add(new Restaurant(3, "KFC", "pass", (new Address("Rotterdam", "Streetname", 13))));
-        restaurants.get(0).setMenu(new Item("BigMac",8,restaurants.get(0).getRestaurantName()));
-        restaurants.get(1).setMenu(new Item("Beef Burger",12,restaurants.get(1).getRestaurantName()));
-        restaurants.get(2).setMenu(new Item("Nudle",5,restaurants.get(3).getRestaurantName()));
-        restaurants.get(3).setMenu(new Item("Zinger Burger",9,restaurants.get(3).getRestaurantName()));
+    
+
+    
+    
+
+    public RestaurantService() throws SQLException {
+        this.d = new DummyDatabase();
+//        ResultSet rs= d.runQuery("Select * from restaurant");
+//        while (rs.next()) { 
+//            
+//                //restaurants.add(new Restaurant(Integer.parseInt(rs.getString(1)),rs.getString(2),rs.getString(3),(new Address("Eindhoven", "Streetname", 12))));
+//                //restaurants.add(rs.get);
+//            }
+       restaurants=d.GetAllRestaurant("Select * from restaurant");
+       //restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
+//        restaurants.add(new Restaurant(1, "The Burger", "pass", (new Address("Eindhoven", "Streetname", 13))));
+//        restaurants.add(new Restaurant(2, "Woke", "pass", (new Address("Rotterdam", "Streetname", 13))));
+//        restaurants.add(new Restaurant(3, "KFC", "pass", (new Address("Rotterdam", "Streetname", 13))));
+//        restaurants.get(0).setMenu(new Item("BigMac",8,restaurants.get(0).getRestaurantName()));
+//        restaurants.get(1).setMenu(new Item("Beef Burger",12,restaurants.get(1).getRestaurantName()));
+//        restaurants.get(2).setMenu(new Item("Nudle",5,restaurants.get(3).getRestaurantName()));
+//        restaurants.get(3).setMenu(new Item("Zinger Burger",9,restaurants.get(3).getRestaurantName()));
     }
 
     public Restaurant getRestaurantByID(int id) {
@@ -70,6 +88,5 @@ public class RestaurantService {
     public void createRestaurant(Restaurant R){
         restaurants.add(R);
     }
-    
-    
+     
 }
