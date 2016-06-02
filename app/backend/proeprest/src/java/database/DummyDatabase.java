@@ -36,7 +36,7 @@ public class DummyDatabase {
                     "dbi271837", 
                     "O3JUJwTWhi");
             st = c.createStatement();
-            rs = st.executeQuery("SELECT username from users");
+            rs = st.executeQuery("SELECT user_name from users");
             while (rs.next()) {
                 System.out.println(rs.getString(1));
             }
