@@ -5,12 +5,9 @@
  */
 package service;
 
-import database.DummyDatabase;
 import model.Item;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 /**
  *

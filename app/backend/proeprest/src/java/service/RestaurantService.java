@@ -8,7 +8,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
-import database.DummyDatabase;
+import database.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class RestaurantService {
     
     ArrayList<Restaurant> restaurants = new ArrayList<>();
-    DummyDatabase d;    
+    Database d;    
 
     
 
@@ -30,7 +30,7 @@ public class RestaurantService {
     
 
     public RestaurantService() throws SQLException {
-        this.d = new DummyDatabase();
+        this.d = new Database();
 //        ResultSet rs= d.runQuery("Select * from restaurant");
 //        while (rs.next()) { 
 //            
