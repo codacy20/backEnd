@@ -5,6 +5,8 @@
  */
 package service;
 
+import database.DummyDatabase;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
@@ -17,7 +19,7 @@ public class UserService {
 
     ArrayList<User> users = new ArrayList<>();
 
-    public UserService() {
+    public UserService() throws SQLException {
         users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", 12)), "a@b.com"));
         users.add(new User("Tom", "pass", (new Address("Eindhoven", "Streetname", 13)), "a@b.com"));
     }

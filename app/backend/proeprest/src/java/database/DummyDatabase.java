@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Version;
 import model.Address;
+import model.Item;
 import model.Restaurant;
 
 /**
@@ -43,7 +44,7 @@ public class DummyDatabase {
                     "dbi271837", 
                     "O3JUJwTWhi");
             st = c.createStatement();
-            rs = st.executeQuery("SELECT user_name from users");
+            rs = st.executeQuery("SELECT UserName from users");
             while (rs.next()) {
                 
             }
@@ -83,7 +84,7 @@ public class DummyDatabase {
                 String restaurant_Name=rs.getString(2);
                 String password=rs.getString(3);
                 int addressID=Integer.parseInt(rs.getString(4));
-                //inner querry
+                //inner itemList
                 rs2=st2.executeQuery("SELECT * FROM address WHERE Address_ID = '"+addressID+"' ");
                 rs2.next();
                 String city=rs2.getString(2);
@@ -121,6 +122,64 @@ public class DummyDatabase {
         }
             
      return querry;   
-    }   
+    }
+    
+    
+    //this is just a Temp Solution, i think, this function is slowing us down
+    /////////////////////////////////////////////////////////////////////////
+    
+    public ArrayList GetAllItems(String myQuery)throws SQLException{
+        
+        ArrayList<Item> itemList = new ArrayList<>();
+        try {
+
+            c = DriverManager.getConnection("jdbc:mysql://192.168.15.56/dbi271837?", 
+                    "dbi271837", 
+                    "O3JUJwTWhi");
+            
+            st = c.createStatement();
+            st2 = c.createStatement();
+            rs = st.executeQuery(myQuery);
+            while(rs.next())
+            {
+                
+                int product_ID = Integer.parseInt(rs.getString(1));
+                int restaurant_ID = Integer.parseInt(rs.getString(2));
+                String name= rs.getString(3);
+                int price = Integer.parseInt(rs.getString(4));
+                int bid = Integer.parseInt(rs.getString(5));
+
+                System.out.print(name);
+                itemList.add(new Item(product_ID,restaurant_ID,
+                        name,price,bid));
+            }
+            
+        } finally {
+            
+            try {
+                
+                if (rs != null) {
+            
+                    rs.close();
+                }
+                if (st != null) {
+                    
+                    st.close();
+                }
+                if (c != null) {
+                    
+                    c.close();
+                }
+                
+            } catch (SQLException ex) {
+                
+                Logger lgr = Logger.getLogger(Version.class.getName());
+                lgr.log(Level.WARNING, ex.getMessage(), ex);
+            }
+        }
+            
+     return itemList;   
+    }
+    
     
 }

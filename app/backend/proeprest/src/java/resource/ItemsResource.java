@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.sql.SQLException;
 import java.util.List;
 import model.Item;
 import service.ItemService;
@@ -23,7 +24,11 @@ import javax.ws.rs.core.Response;
 public class ItemsResource {
 
     Response r;
-    ItemService itemService = new ItemService();
+    ItemService itemService =null;
+    
+    public ItemsResource() throws SQLException {
+           itemService = new ItemService();
+    }
 
     @GET
     public Response getAllItems() throws Exception {

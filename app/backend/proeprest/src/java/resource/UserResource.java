@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.sql.SQLException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import model.User;
@@ -23,7 +24,7 @@ public class UserResource {
     Response r;
     UserService service;
 
-    public UserResource() {
+    public UserResource() throws SQLException {
         service = new UserService();
     }
 

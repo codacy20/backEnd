@@ -6,6 +6,7 @@
 package service;
 
 import database.DummyDatabase;
+import java.sql.SQLException;
 import model.Item;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,16 +19,23 @@ import java.util.Map;
  */
 public class ItemService {
 
-    private final List<Item> itemlist = new ArrayList<>();
+    private List<Item> itemlist = new ArrayList<>();
+    
+    DummyDatabase d;    
 
-    public ItemService() {
+    public ItemService() throws SQLException{
         itemlist.add(new Item("item1", 0, "notkfc"));
         itemlist.add(new Item("item2", 0, "kfc"));
         itemlist.get(0).setID(0);
         itemlist.get(1).setID(1);
+        d = new DummyDatabase();
+        
+        itemlist = d.GetAllItems("SELECT * FROM products");
+        
     }
 
     public List<Item> getAllItems() {
+        
         return itemlist;
     }
 
@@ -62,6 +70,7 @@ public class ItemService {
     }
     
     public List<Item> getRestaurantItems(String name) throws Exception {
+        
         List<Item> rest = new ArrayList<>();
         for (Item i : itemlist) {
             if (i.getResteurant().equals(name)) {

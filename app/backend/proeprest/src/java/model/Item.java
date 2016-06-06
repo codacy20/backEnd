@@ -15,7 +15,7 @@ public class Item {
     private String Name;
     private int Price;
     private int bidPrice;
-    //private int ProductID;
+    private int resteurant_ID;
     private String Resteurant;
 
     public Item() {
@@ -28,6 +28,14 @@ public class Item {
         this.bidPrice=bidPrice;
         //this.ProductID = ProductID;
         this.Resteurant = Restaurant;
+    }
+
+    public Item(int product_ID, int restaurant_ID, String name, int price, int bid) {
+        this.ID = product_ID;
+        this.Name = name;
+        this.Price = price;
+        this.bidPrice = bid;
+        this.resteurant_ID = restaurant_ID;
     }
 
     public long getID() {
