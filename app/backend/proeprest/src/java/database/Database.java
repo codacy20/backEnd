@@ -21,14 +21,7 @@ import model.*;
  */
 public class Database {
 
-    public static void main(String[] args) {
-        Database db = new Database();
-        db.UpdateUser(new User(
-                "abcd",
-                "password131232",
-                new Address("eindhoven", "heya", 123, "A"),
-                "a@b.nl231231"));
-    }
+    //public static void main(String[] args) {    }
 
     private Connection c;
 
@@ -265,58 +258,55 @@ public class Database {
             }
         }
     }*/
-    
     //this is just a Temp Solution, i think, this function is slowing us down
     /////////////////////////////////////////////////////////////////////////
-    
-    public ArrayList GetAllItems(String myQuery)throws SQLException{
-        
+    public ArrayList GetAllItems(String myQuery) throws SQLException {
+
         Statement st = null;
         ResultSet rs = null;
-        
+
         ArrayList<Item> itemList = new ArrayList<>();
-        
-        try {  
+
+        try {
             st = (Statement) c.createStatement();
             rs = st.executeQuery(myQuery);
-            while(rs.next())
-            {
-                
+            while (rs.next()) {
+
                 int product_ID = Integer.parseInt(rs.getString(1));
                 int restaurant_ID = Integer.parseInt(rs.getString(2));
-                String name= rs.getString(3);
+                String name = rs.getString(3);
                 int price = Integer.parseInt(rs.getString(4));
                 int bid = Integer.parseInt(rs.getString(5));
 
                 System.out.print(name);
-                itemList.add(new Item(product_ID,restaurant_ID,
-                        name,price,bid));
+                itemList.add(new Item(product_ID, restaurant_ID,
+                        name, price, bid));
             }
-            
+
         } finally {
-            
+
             try {
-                
+
                 if (rs != null) {
-            
+
                     rs.close();
                 }
                 if (st != null) {
-                    
+
                     st.close();
                 }
                 if (c != null) {
-                    
+
                     c.close();
                 }
-                
+
             } catch (SQLException ex) {
-                
+
                 Logger lgr = Logger.getLogger(Version.class.getName());
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
-            
-     return itemList;   
+
+        return itemList;
     }
 }

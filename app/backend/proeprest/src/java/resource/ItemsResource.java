@@ -7,11 +7,11 @@ package resource;
 
 import java.sql.SQLException;
 import java.util.List;
-import model.Item;
-import service.ItemService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import model.Item;
+import service.ItemService;
 
 /**
  * REST Web Service
@@ -24,10 +24,10 @@ import javax.ws.rs.core.Response;
 public class ItemsResource {
 
     Response r;
-    ItemService itemService =null;
-    
+    ItemService itemService = null;
+
     public ItemsResource() throws SQLException {
-           itemService = new ItemService();
+        itemService = new ItemService();
     }
 
     @GET

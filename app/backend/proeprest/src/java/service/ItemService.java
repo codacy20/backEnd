@@ -7,11 +7,9 @@ package service;
 
 import database.Database;
 import java.sql.SQLException;
-import model.Item;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
+import model.Item;
 
 /**
  *
@@ -20,22 +18,18 @@ import java.util.Map;
 public class ItemService {
 
     private List<Item> itemlist = new ArrayList<>();
-    
-    Database d;    
 
-    public ItemService() throws SQLException{
-        itemlist.add(new Item("item1", 0, "notkfc"));
-        itemlist.add(new Item("item2", 0, "kfc"));
-        itemlist.get(0).setID(0);
-        itemlist.get(1).setID(1);
+    Database d;
+
+    public ItemService() throws SQLException {
         d = new Database();
-        
+
         itemlist = d.GetAllItems("SELECT * FROM products");
-        
+
     }
 
     public List<Item> getAllItems() {
-        
+
         return itemlist;
     }
 
@@ -58,7 +52,7 @@ public class ItemService {
         }
         return null;
     }
-    
+
     public List<Item> Search(String name) throws Exception {
         List<Item> searched = new ArrayList<>();
         for (Item i : itemlist) {
@@ -68,9 +62,9 @@ public class ItemService {
         }
         return searched;
     }
-    
+
     public List<Item> getRestaurantItems(String name) throws Exception {
-        
+
         List<Item> rest = new ArrayList<>();
         for (Item i : itemlist) {
             if (i.getResteurant().equals(name)) {

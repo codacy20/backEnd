@@ -10,10 +10,7 @@ import java.util.ArrayList;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import model.Restaurant;
-import model.Restaurant;
 import service.RestaurantService;
-import model.User;
-import service.UserService;
 
 /**
  *
@@ -26,7 +23,7 @@ public class RestaurantResource {
     Response r;
     RestaurantService service;
 
-    public RestaurantResource() throws SQLException  {
+    public RestaurantResource() throws SQLException {
         service = new RestaurantService();
     }
 
@@ -62,8 +59,8 @@ public class RestaurantResource {
             return r;
         }
     }
-    
-     @GET
+
+    @GET
     @Path("restaurant_City/{City}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRestaurantByCity(@PathParam("City") String res_City) {
@@ -96,6 +93,7 @@ public class RestaurantResource {
             return r;
         }
     }
+
     @POST
     public Response createRestaurant(Restaurant Res) {
         r = null;

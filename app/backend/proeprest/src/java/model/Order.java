@@ -20,7 +20,7 @@ public class Order {
 
     public Order() {
     }
-    
+
     public Order(int ID, String username) {
         this.ID = ID;
         this.username = username;

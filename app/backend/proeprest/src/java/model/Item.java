@@ -10,7 +10,7 @@ package model;
  * @author Amir
  */
 public class Item {
-    
+
     private int ID;
     private String Name;
     private int Price;
@@ -20,12 +20,12 @@ public class Item {
 
     public Item() {
     }
-    
+
     public Item(String Name, int Price, String Restaurant) {
         this.ID = 0;
         this.Name = Name;
         this.Price = Price;
-        this.bidPrice=bidPrice;
+        this.bidPrice = bidPrice;
         //this.ProductID = ProductID;
         this.Resteurant = Restaurant;
     }
@@ -46,11 +46,10 @@ public class Item {
         return Name;
     }
 
-
-
     public int getPrice() {
         return Price;
     }
+
     public int getBidPrice() {
         return bidPrice;
     }
@@ -58,15 +57,14 @@ public class Item {
 //    public int getProductID() {
 //        return ProductID;
 //    }
-
     public String getResteurant() {
         return Resteurant;
     }
-    
+
     public void setID(int ID) {
         this.ID = ID;
     }
-    
+
     public void setName(String Name) {
         this.Name = Name;
     }
@@ -74,6 +72,7 @@ public class Item {
     public void setPrice(int Price) {
         this.Price = Price;
     }
+
     public void setBidPrice(int Price) {
         this.Price = bidPrice;
     }
@@ -81,15 +80,13 @@ public class Item {
 //    public void setProductID(int ProductID) {
 //        this.ProductID = ProductID;
 //    }
-
     public void setResteurant(String Resteurant) {
         this.Resteurant = Resteurant;
     }
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + Name + ", Price=" + Price + ", bidPrice=" + bidPrice +'}';
-    }  
-    
-    
+        return "Item{" + "Name=" + Name + ", Price=" + Price + ", bidPrice=" + bidPrice + '}';
+    }
+
 }

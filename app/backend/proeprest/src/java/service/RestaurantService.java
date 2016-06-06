@@ -5,29 +5,20 @@
  */
 package service;
 
+import database.Database;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
-import database.Database;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 /**
  *
  * @author mikaeil
  */
 public class RestaurantService {
-    
+
     ArrayList<Restaurant> restaurants = new ArrayList<>();
-    Database d;    
-
-    
-
-    
-    
+    Database d;
 
     public RestaurantService() throws SQLException {
         this.d = new Database();
@@ -37,8 +28,8 @@ public class RestaurantService {
 //                //restaurants.add(new Restaurant(Integer.parseInt(rs.getString(1)),rs.getString(2),rs.getString(3),(new Address("Eindhoven", "Streetname", 12))));
 //                //restaurants.add(rs.get);
 //            }
-       restaurants=d.GetAllRestaurant("Select * from restaurant");
-       //restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
+        restaurants = d.GetAllRestaurant("Select * from restaurant");
+        //restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
 //        restaurants.add(new Restaurant(1, "The Burger", "pass", (new Address("Eindhoven", "Streetname", 13))));
 //        restaurants.add(new Restaurant(2, "Woke", "pass", (new Address("Rotterdam", "Streetname", 13))));
 //        restaurants.add(new Restaurant(3, "KFC", "pass", (new Address("Rotterdam", "Streetname", 13))));
@@ -56,7 +47,7 @@ public class RestaurantService {
         }
         return null;
     }
-    
+
     public Restaurant getRestaurantByname(String res_name) {
         for (Restaurant R : restaurants) {
             if (res_name.equals(R.getRestaurantName())) {
@@ -65,6 +56,7 @@ public class RestaurantService {
         }
         return null;
     }
+
     public List<Item> getRestaurantMenu(String res_name) {
         for (Restaurant R : restaurants) {
             if (res_name.equals(R.getRestaurantName())) {
@@ -73,6 +65,7 @@ public class RestaurantService {
         }
         return null;
     }
+
     public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
         ArrayList<Restaurant> return_res = new ArrayList<>();
         for (Restaurant R : restaurants) {
@@ -85,8 +78,9 @@ public class RestaurantService {
         }
         return null;
     }
-    public void createRestaurant(Restaurant R){
+
+    public void createRestaurant(Restaurant R) {
         restaurants.add(R);
     }
-     
+
 }
