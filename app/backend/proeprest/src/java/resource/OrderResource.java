@@ -5,6 +5,9 @@
  */
 package resource;
 
+import database.Database;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -18,6 +21,7 @@ import javax.ws.rs.core.Response;
 import model.User;
 import model.Item;
 import model.Order;
+import model.Restaurant;
 import service.OrderService;
 
 /**
@@ -31,9 +35,10 @@ public class OrderResource {
 
     Response r;
     OrderService service;
+    
 
-    public OrderResource() {
-        service = new OrderService();
+    public OrderResource() throws SQLException{
+        service = new OrderService();    
     }
 
     @GET

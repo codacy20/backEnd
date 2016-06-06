@@ -24,11 +24,6 @@ public class RestaurantService {
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
 
-    
-
-    
-    
-
     public RestaurantService() throws SQLException {
         this.d = new Database();
 //        ResultSet rs= d.runQuery("Select * from restaurant");
@@ -38,14 +33,6 @@ public class RestaurantService {
 //                //restaurants.add(rs.get);
 //            }
        restaurants=d.GetAllRestaurant("Select * from restaurant");
-       //restaurants.add(new Restaurant(0, "MCDonald", "pass", (new Address("Eindhoven", "Streetname", 12))));
-//        restaurants.add(new Restaurant(1, "The Burger", "pass", (new Address("Eindhoven", "Streetname", 13))));
-//        restaurants.add(new Restaurant(2, "Woke", "pass", (new Address("Rotterdam", "Streetname", 13))));
-//        restaurants.add(new Restaurant(3, "KFC", "pass", (new Address("Rotterdam", "Streetname", 13))));
-//        restaurants.get(0).setMenu(new Item("BigMac",8,restaurants.get(0).getRestaurantName()));
-//        restaurants.get(1).setMenu(new Item("Beef Burger",12,restaurants.get(1).getRestaurantName()));
-//        restaurants.get(2).setMenu(new Item("Nudle",5,restaurants.get(3).getRestaurantName()));
-//        restaurants.get(3).setMenu(new Item("Zinger Burger",9,restaurants.get(3).getRestaurantName()));
     }
 
     public Restaurant getRestaurantByID(int id) {

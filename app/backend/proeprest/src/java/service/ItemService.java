@@ -31,7 +31,6 @@ public class ItemService {
         d = new Database();
         
         itemlist = d.GetAllItems("SELECT * FROM products");
-        
     }
 
     public List<Item> getAllItems() {
@@ -39,17 +38,6 @@ public class ItemService {
         return itemlist;
     }
 
-//	public List<Item> getAllItemsForYear(int year) {
-//		List<Item> messagesForYear = new ArrayList<>();
-//		Calendar cal = Calendar.getInstance();
-//		for (Item item : itemss.values()) {
-//			cal.setTime(item.getCreated());
-//			if (cal.get(Calendar.YEAR) == year) {
-//				itemsForYear.add(item);
-//			}
-//		}
-//		return itemsForYear;
-//	}
     public Item getItem(long id) throws Exception {
         for (Item i : itemlist) {
             if (i.getID() == id) {

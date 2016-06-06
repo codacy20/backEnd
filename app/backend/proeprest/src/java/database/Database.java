@@ -319,4 +319,66 @@ public class Database {
             
      return itemList;   
     }
+    
+    public ArrayList GetOrder(String myQuery) throws SQLException {
+
+        Statement st = null;
+        Statement st2 = null;
+        Statement st3 = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        ResultSet rs3 = null;
+
+        ArrayList<Order> orderList = new ArrayList<>();
+        
+        
+        try {
+            
+            st = (Statement) c.createStatement();
+            st2 = (Statement) c.createStatement();
+            st3 = (Statement) c.createStatement();
+            
+            rs = st.executeQuery(myQuery);
+            while (rs.next()) {
+
+                int Order_ID = Integer.parseInt(rs.getString(1));
+                int User_ID = Integer.parseInt(rs.getString(2));
+                //inner querry
+                rs2 = st2.executeQuery("SELECT * FROM order_items WHERE Order_ID = '" + Order_ID + "' ");
+                rs2.next();
+                int Log_ID = Integer.parseInt(rs2.getString(1));
+                int Product_ID = Integer.parseInt(rs2.getString(2));
+
+                rs3 = st3.executeQuery("SELECT UserName FROM users WHERE User_ID = '" + User_ID + "' ");
+                String name= rs.getString(2);
+                Order or = new Order(Order_ID,name);
+                //end of inner query
+                orderList.add(or);
+            }
+
+        } finally {
+            try {
+
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (c != null) {
+                    c.close();
+                }
+                if (rs2 != null) {
+                    rs2.close();
+
+                }
+            } catch (SQLException ex) {
+                Logger lgr = Logger.getLogger(Version.class
+                        .getName());
+                lgr.log(Level.WARNING, ex.getMessage(), ex);
+            }
+        }
+
+        return orderList;
+    }
 }

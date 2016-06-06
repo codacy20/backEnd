@@ -5,6 +5,8 @@
  */
 package service;
 
+import database.Database;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Address;
@@ -19,13 +21,14 @@ import model.User;
 public class OrderService {
 
     List<Order> orderList = new ArrayList<>();
+    Database d;    
 
-    public OrderService() {
-        orderList.add(new Order(0, "Tycho"));
-        orderList.add(new Order(1, "Tycho"));
+    public OrderService() throws SQLException {
+        
         Order ord = new Order(2, "Tom");
         ord.AddItemToOrder(new Item("Name", 10, "Restaurant"));
-        orderList.add(ord);
+        this.d = new Database();
+        orderList = d.GetOrder("Select * from order");
     }
 
     public List<Order> getOrdersByName(String username) {
