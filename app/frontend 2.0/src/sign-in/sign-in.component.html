@@ -1,0 +1,47 @@
+<tabs>
+    <tab [tabTitle]="'Sign In'">
+        <div id="signup">
+            <form action="">
+                <div class="name">
+                    <div class="first_name">
+                        <input type="text" placeholder="First name" required />
+                        <span>*</span>
+                    </div>
+                    <div class="last_name">
+                        <input type="text" placeholder="Last name" required />
+                        <span>*</span>
+                    </div>
+                </div>
+                <div class="email">
+                    <input type="email" placeholder="Email Address" required />
+                    <span>*</span>
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="Set Password" required />
+                    <span>*</span>
+                </div>
+                <div class="submit text-center">
+                    <input type="submit" value="Get started" />
+                </div>
+        </form>
+        </div>
+    </tab>
+
+    <tab [tabTitle]="'Log In'">
+        <div id="login">
+            <form action="">
+                <div class="email">
+                    <input type="email" placeholder="Email Address" required />
+                    <span>*</span>
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="Set Password" required />
+                    <span>*</span>
+                </div>
+                <div class="submit text-center">
+                    <input type="submit" value="Log In" />
+                </div>
+            </form>
+        </div>
+    </tab>
+</tabs>

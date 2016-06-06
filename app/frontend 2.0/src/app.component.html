@@ -1,0 +1,66 @@
+<!--header-->
+<header class="header_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo">
+                    <a [routerLink]="['/']"><img src="/assets/img/logo.png" alt=""/>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="to-close pull-right">
+                    <div class="x">
+                        <input type="checkbox" id="menu-x"/>
+                        <label (click)="onClick($event)" for="menu-x"><span></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End row-->
+    </div>
+    <!--End container-->
+</header>
+<!--end header-->
+
+
+<!--menu-->
+<div class="menu_body">
+    <section class="mainmenu_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mainmenu text-center">
+                        <ul id="nav">
+                            <li (click)="onLiClick($event)"><a [routerLink]="['/']">home</a>
+                            </li>
+                            <li (click)="onLiClick($event)"><a [routerLink]="['/work']">how it works</a>
+                            </li>
+                            <li (click)="onLiClick($event)"><a [routerLink]="['/order']">your order</a>
+                            </li>
+                             <li (click)="onLiClick($event)"><a [routerLink]="['/sign-in']">sign in</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--End row-->
+        </div>
+        <!--End container-->
+    </section>
+    <!--End mainmenu_area-->
+</div>
+<!--end menu-->
+
+
+<!---->
+<!--leave this here for now-->
+<!--&lt;!&ndash; This is a sample with routing &#45;&#45; put your landing page here &ndash;&gt;-->
+<!--<h1>Sample</h1>-->
+<!--<nav>-->
+<!--<button><a [routerLink]="['/sign-in']">sign in</a></button>-->
+<!--<button><a [routerLink]="['/work']">work</a></button>-->
+<!--<button><a [routerLink]="['/order']">order</a></button>-->
+<!--</nav>-->
+
+<router-outlet></router-outlet>
