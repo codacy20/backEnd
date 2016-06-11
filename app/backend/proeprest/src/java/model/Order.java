@@ -34,10 +34,10 @@ public class Order {
     public String getOwner() {
         return username;
     }
-
-    public List<Item> getItemsFromOrders() {
-        return OrderList;
-    }
+//
+//    public List<Item> getItemsFromOrders() {
+//        return OrderList;
+//    }
 
     public void setID(int ID) {
         this.ID = ID;

@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Version;
 import model.*;
+import service.RestaurantService;
 
 /**
  *
@@ -38,14 +39,15 @@ public class Database {
             createUser,
             updateUser,
             getAddressByID,
+            getRestByName,
             createAddress;
 
     public Database() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            c = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.15.56/dbi271837?",
-                    "dbi271837",
-                    "O3JUJwTWhi");
+            c = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.20.19/dbi315860?",
+                    "dbi315860",
+                    "SyBdW8Q9Ns");
 
             //prepared statements
             //users
@@ -66,6 +68,8 @@ public class Database {
                     Statement.RETURN_GENERATED_KEYS);
             getAddressByID = (PreparedStatement) c.prepareStatement(
                     "Select * from address where AddressID = ?");
+            getRestByName = (PreparedStatement) c.prepareStatement(
+                    "select * from restaurant where Restaurant_ID = ?");
 
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,7 +79,7 @@ public class Database {
     public User GetUserByName(String name) {
         User u = null;
         try {
-            getUserByName.setString(1, name);
+            getUserByName.setString(1, name); 
             try (ResultSet rs = getUserByName.executeQuery()) {
                 while (rs.next()) {
                     u = new User(
@@ -319,15 +323,17 @@ public class Database {
             
      return itemList;   
     }
-    
+
     public ArrayList GetOrder(String myQuery) throws SQLException {
 
         Statement st = null;
         Statement st2 = null;
         Statement st3 = null;
+        Statement st4 = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
         ResultSet rs3 = null;
+        ResultSet rs4 = null;
 
         ArrayList<Order> orderList = new ArrayList<>();
         
@@ -337,6 +343,7 @@ public class Database {
             st = (Statement) c.createStatement();
             st2 = (Statement) c.createStatement();
             st3 = (Statement) c.createStatement();
+            st4 = (Statement) c.createStatement();
             
             rs = st.executeQuery(myQuery);
             while (rs.next()) {
@@ -345,18 +352,34 @@ public class Database {
                 int User_ID = Integer.parseInt(rs.getString(2));
                 //inner querry
                 rs2 = st2.executeQuery("SELECT * FROM order_items WHERE Order_ID = '" + Order_ID + "' ");
-                rs2.next();
-                int Log_ID = Integer.parseInt(rs2.getString(1));
-                int Product_ID = Integer.parseInt(rs2.getString(2));
+                while(rs2.next()){
+                    int Log_ID = Integer.parseInt(rs2.getString(1));
+                    int Product_ID = Integer.parseInt(rs2.getString(2));
+                    rs3 = st3.executeQuery("SELECT * FROM users WHERE ID = " + User_ID);
+                    rs3.next();
+                    rs4 = st4.executeQuery("SELECT * FROM products WHERE Product_ID = " + Product_ID);
+                    rs4.next();
+                    String item_name = rs4.getString(3);
+                    String item_rest = GetRest(Integer.parseInt(rs4.getString(2)));
+                    
+                    int price = Integer.parseInt(rs4.getString(4));
 
-                rs3 = st3.executeQuery("SELECT UserName FROM users WHERE User_ID = '" + User_ID + "' ");
-                String name= rs.getString(2);
-                Order or = new Order(Order_ID,name);
-                //end of inner query
-                orderList.add(or);
+                    String name= rs.getString(2);
+                    Order or = new Order(Order_ID,name);
+                    //end of inner query
+                    orderList.add(or);
+
+                    or.AddItemToOrder(new Item(item_name, price, item_rest));
+                    }
             }
-
-        } finally {
+            
+        }
+        catch (SQLException ex) {
+                Logger lgr = Logger.getLogger(Version.class
+                        .getName());
+                lgr.log(Level.WARNING, ex.getMessage(), ex);
+            } 
+        finally {
             try {
 
                 if (rs != null) {
@@ -372,6 +395,14 @@ public class Database {
                     rs2.close();
 
                 }
+                if (rs3 != null) {
+                    rs3.close();
+
+                }
+                if (rs4 != null) {
+                    rs4.close();
+
+                }
             } catch (SQLException ex) {
                 Logger lgr = Logger.getLogger(Version.class
                         .getName());
@@ -381,4 +412,24 @@ public class Database {
 
         return orderList;
     }
+    
+    public String GetRest(int id) throws SQLException{
+        
+        String u=null;
+        try {
+            getRestByName.setInt(1, id); 
+            try (ResultSet rs = getRestByName.executeQuery()) {
+                while (rs.next()) {
+                    u = rs.getString("Restaurant_Name");
+                }
+            }
+            getRestByName.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            return u;
+        }
+    
+    }
+
 }

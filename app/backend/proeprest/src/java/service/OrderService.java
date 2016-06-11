@@ -28,7 +28,7 @@ public class OrderService {
         Order ord = new Order(2, "Tom");
         ord.AddItemToOrder(new Item("Name", 10, "Restaurant"));
         this.d = new Database();
-        orderList = d.GetOrder("Select * from order");
+        orderList = d.GetOrder("SELECT * FROM `order`");
     }
 
     public List<Order> getOrdersByName(String username) {
