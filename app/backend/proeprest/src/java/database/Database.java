@@ -22,7 +22,12 @@ import service.RestaurantService;
  */
 public class Database {
 
-    //public static void main(String[] args) {    }
+    public static void main(String[] args) {  
+        Database db=new Database();
+        
+        model.User u =db.GetUserByName("Mikaeil");
+        System.out.println(u.getUsername());
+    }
 
     private Connection c;
 
@@ -38,9 +43,7 @@ public class Database {
     public Database() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            c = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.20.19/dbi315860?",
-                    "dbi315860",
-                    "SyBdW8Q9Ns");
+            c = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/db","root","");
 
             //prepared statements
             //users
