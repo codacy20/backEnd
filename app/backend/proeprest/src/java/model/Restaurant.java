@@ -13,7 +13,7 @@ import java.util.List;
  * @author mikaeil
  */
 public class Restaurant {
-    
+
     int restaurant_ID;
     String restaurant_Name;
     String password;
@@ -21,7 +21,7 @@ public class Restaurant {
     String email;
     String phoneNumber;
     List<Item> menu;
-    
+
     public Restaurant() {
     }
 
@@ -32,7 +32,7 @@ public class Restaurant {
         this.address = address;
         this.email = null;
         this.phoneNumber = null;
-        this.menu= new ArrayList<Item>();
+        this.menu = new ArrayList<Item>();
     }
 
     public Restaurant(int resID, String resName, String password, String email, String phoneNumber, Address address) {
@@ -42,7 +42,7 @@ public class Restaurant {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.menu= new ArrayList<Item>();
+        this.menu = new ArrayList<Item>();
     }
 
     public void setRestaurantID(int resID) {
@@ -68,6 +68,7 @@ public class Restaurant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
     public void setMenu(Item itemX) {
         this.menu.add(itemX);
     }
@@ -95,9 +96,9 @@ public class Restaurant {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    
+
     public List<Item> getMenu() {
         return this.menu;
     }
-    
+
 }

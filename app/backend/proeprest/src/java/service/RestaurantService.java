@@ -5,22 +5,18 @@
  */
 package service;
 
+import database.Database;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
-import database.Database;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 /**
  *
  * @author mikaeil
  */
 public class RestaurantService {
-    
+
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
 
@@ -43,7 +39,7 @@ public class RestaurantService {
         }
         return null;
     }
-    
+
     public Restaurant getRestaurantByname(String res_name) {
         for (Restaurant R : restaurants) {
             if (res_name.equals(R.getRestaurantName())) {
@@ -52,6 +48,7 @@ public class RestaurantService {
         }
         return null;
     }
+
     public List<Item> getRestaurantMenu(String res_name) {
         for (Restaurant R : restaurants) {
             if (res_name.equals(R.getRestaurantName())) {
@@ -60,6 +57,7 @@ public class RestaurantService {
         }
         return null;
     }
+
     public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
         ArrayList<Restaurant> return_res = new ArrayList<>();
         for (Restaurant R : restaurants) {
@@ -72,8 +70,9 @@ public class RestaurantService {
         }
         return null;
     }
-    public void createRestaurant(Restaurant R){
+
+    public void createRestaurant(Restaurant R) {
         restaurants.add(R);
     }
-     
+
 }

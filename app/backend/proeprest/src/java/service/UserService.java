@@ -5,10 +5,8 @@
  */
 package service;
 
-import database.Database;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import model.*;
 
 /**
@@ -54,16 +52,16 @@ public class UserService {
     }
 
     public int login(String user, String pass) {
-        for(User u : users){
-            if(u.getUsername().equals(user)){
-                if(u.getPassword().equals(pass))
+        for (User u : users) {
+            if (u.getUsername().equals(user)) {
+                if (u.getPassword().equals(pass)) {
                     return 1;
-                else
+                } else {
                     return 0;
+                }
             }
         }
         return -1;
     }
-    
 
 }
