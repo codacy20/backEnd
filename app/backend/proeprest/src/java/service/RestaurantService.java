@@ -6,29 +6,42 @@
 package service;
 
 import database.Database;
+import database.InputOutput;
+import java.io.IOException;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.*;
+import static service.ItemService.FILE_NAME;
 
 /**
  *
  * @author mikaeil
  */
-public class RestaurantService {
+public class RestaurantService implements Serializable{
 
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
+    InputOutput io = new InputOutput();
+    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newRest";
 
     public RestaurantService() throws SQLException {
-        this.d = new Database();
+        //this.d = new Database();
 //        ResultSet rs= d.runQuery("Select * from restaurant");
 //        while (rs.next()) { 
 //            
 //                //restaurants.add(new Restaurant(Integer.parseInt(rs.getString(1)),rs.getString(2),rs.getString(3),(new Address("Eindhoven", "Streetname", 12))));
 //                //restaurants.add(rs.get);
 //            }
-       restaurants=d.GetAllRestaurant("Select * from restaurant");
+       //restaurants=d.GetAllRestaurant("Select * from restaurant");
+       restaurants.add(new Restaurant(0, "la place", "", new Address("Eind", "someStreet", 0)));
+        write();
+        System.err.println("Ran the Write");
+        read();
+        System.err.println("Ran the Read");
     }
 
     public Restaurant getRestaurantByID(int id) {
@@ -73,6 +86,25 @@ public class RestaurantService {
 
     public void createRestaurant(Restaurant R) {
         restaurants.add(R);
+    }
+    
+    public List<Item> read(){
+        try {
+            restaurants = (ArrayList<Restaurant>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
+        } catch (IOException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void write(){
+        try {
+            io.writeSmallBinaryFile(io.serialize(restaurants),"C:\\Users\\Amir\\Desktop\\newRest");
+        } catch (IOException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author mikaeil
  */
-public class Restaurant {
+public class Restaurant implements Serializable{
 
     int restaurant_ID;
     String restaurant_Name;

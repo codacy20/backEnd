@@ -6,27 +6,40 @@
 package service;
 
 import database.Database;
+import database.InputOutput;
+import java.io.IOException;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Item;
 import model.Order;
+import model.User;
+import static service.UserService.FILE_NAME;
 
 /**
  *
  * @author Amir
  */
-public class OrderService {
+public class OrderService implements Serializable{
 
     List<Order> orderList = new ArrayList<>();
     Database d;    
-
+    InputOutput io = new InputOutput();
+    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newOrder";
+    
     public OrderService() throws SQLException {
         
         Order ord = new Order(2, "Tom");
         ord.AddItemToOrder(new Item("Name", 10, "Restaurant"));
-        this.d = new Database();
-        orderList = d.GetOrder("SELECT * FROM `order`");
+        //this.d = new Database();
+        //orderList = d.GetOrder("SELECT * FROM `order`");
+        write();
+        System.err.println("Ran the Write");
+        read();
+        System.err.println("Ran the Read");
     }
 
     public List<Order> getOrdersByName(String username) {
@@ -78,5 +91,24 @@ public class OrderService {
         }
         orderList.add(ord);
         return true;
+    }
+    
+    public List<Item> read(){
+        try {
+            orderList =  (List<Order>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
+        } catch (IOException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void write(){
+        try {
+            io.writeSmallBinaryFile(io.serialize(orderList),"C:\\Users\\Amir\\Desktop\\newOrder");
+        } catch (IOException ex) {
+            Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

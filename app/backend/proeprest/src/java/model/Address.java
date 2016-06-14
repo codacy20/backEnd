@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author tycho
  */
-public class Address {
+public class Address implements Serializable{
 
     String city;
     String street;

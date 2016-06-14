@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author Amir
  */
-public class Order {
+public class Order implements Serializable{
 
     private int ID;
     private String username;

@@ -219,52 +219,6 @@ public class Database {
         return query;
     }
 
-    /* private Address GetAddressByID(int id) {
-        Address a = null;
-        try {
-            getAddressByID.setInt(1, id);
-            try (ResultSet rs = getAddressByID.executeQuery()) {
-                while (rs.next()) {
-                    a = new Address(
-                            rs.getString("City"),
-                            rs.getString("Street"),
-                            rs.getInt("HouseNumber"),
-                            rs.getString("Addition"));
-                }
-            }
-            getAddressByID.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            return a;
-        }
-    }*/
-
- /* public List<User> GetAllUsers() {
-        List<User> users = null;
-        try {
-            users = new ArrayList<>();
-            ResultSet rs = getAllUsers.executeQuery();
-            while (rs.next()) {
-                users.add(new User(
-                        rs.getString("UserName"),
-                        rs.getString("Password"),
-                        GetAddressByID(rs.getInt("AddressID")),
-                        rs.getString("Email")));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                getAllUsers.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                return users;
-            }
-        }
-    }*/
     //this is just a Temp Solution, i think, this function is slowing us down
     /////////////////////////////////////////////////////////////////////////
     public ArrayList GetAllItems(String myQuery) throws SQLException {
