@@ -26,7 +26,7 @@ public class RestaurantService implements Serializable{
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newRest";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newRest";
 
     public RestaurantService() throws SQLException {
         //this.d = new Database();
@@ -39,9 +39,9 @@ public class RestaurantService implements Serializable{
        //restaurants=d.GetAllRestaurant("Select * from restaurant");
        restaurants.add(new Restaurant(0, "la place", "", new Address("Eind", "someStreet", 0)));
         write();
-        System.err.println("Ran the Write");
+        System.err.println("Ran the Write ORDER");
         read();
-        System.err.println("Ran the Read");
+        System.err.println("Ran the Read ORDER");
     }
 
     public Restaurant getRestaurantByID(int id) {
@@ -101,7 +101,7 @@ public class RestaurantService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(restaurants),"C:\\Users\\Amir\\Desktop\\newRest");
+            io.writeSmallBinaryFile(io.serialize(restaurants),"C:\\Users\\Administrator\\Desktop\\newRest");
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

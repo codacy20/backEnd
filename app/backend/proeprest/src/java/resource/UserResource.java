@@ -52,7 +52,7 @@ public class UserResource {
     }
 
     @POST
-    @Path("create")
+    @Path("/create")
     public Response createUser(User u) {
         r = null;
         try {

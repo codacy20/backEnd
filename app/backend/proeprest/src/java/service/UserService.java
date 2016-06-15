@@ -24,15 +24,15 @@ public class UserService implements Serializable{
 
     ArrayList<User> users = new ArrayList<>();
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newUser";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newUser";
 
     public UserService() throws SQLException {
         users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", 12)), "a@b.com"));
         users.add(new User("Tom", "pass", (new Address("Eindhoven", "Streetname", 13)), "a@b.com"));
         write();
-        System.err.println("Ran the Write");
+        System.err.println("Ran the Write USER");
         read();
-        System.err.println("Ran the Read");
+        System.err.println("Ran the Read USER");
     }
 
     public User getUserByName(String username) {
@@ -90,7 +90,7 @@ public class UserService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(users),"C:\\Users\\Amir\\Desktop\\newUser");
+            io.writeSmallBinaryFile(io.serialize(users),"C:\\Users\\Administrator\\Desktop\\newUser");
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

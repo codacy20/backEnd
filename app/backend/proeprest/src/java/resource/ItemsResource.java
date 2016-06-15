@@ -109,9 +109,12 @@ public class ItemsResource {
     }
 
     @POST
+    @Path("/create")
     public Response addItem(Item item) {
         try {
+
             itemService.addItem(item);
+            //itemService.createUser(item);
             r = Response.ok().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.FORBIDDEN)

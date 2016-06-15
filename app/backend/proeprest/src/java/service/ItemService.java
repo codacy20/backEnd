@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Item;
+import model.User;
 
 /**
  *
@@ -26,19 +27,19 @@ public class ItemService implements Serializable{
 
     Database d;
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newItem";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newItem";
 
     public ItemService() throws SQLException {
         //d = new Database();
-        itemlist.add(new Item("Something", 20, "La Place"));
         //itemlist = d.GetAllItems("SELECT * FROM products");
-        write();
-        System.err.println("Ran the Write");
+        System.err.println("Ran the Write Item");
         read();
-        System.err.println("Ran the Read");
+        System.err.println("Ran the Read Item");
+                //itemlist.add(new Item("Something", 20, "La Place"));
     }
 
     public List<Item> getAllItems() {
+        System.err.println("Ran the Write Item");
 
         return itemlist;
     }
@@ -74,8 +75,25 @@ public class ItemService implements Serializable{
     }
 
     public void addItem(Item item) {
+        System.err.println("created!!!!");
         item.setID(itemlist.size() + 1);
+                System.err.println(itemlist.size()+1);
+
         itemlist.add(item);
+                        System.err.println(itemlist.size()+1);
+                                write();
+
+
+    }
+    
+    public boolean createUser(Item u) {
+        for (Item user : itemlist) {
+            if (user.getID() == u.getID()) {
+                return false;
+            }
+        }
+        itemlist.add(u);
+        return true;
     }
 
     public void updateItem(long id, Item item) {
@@ -110,7 +128,7 @@ public class ItemService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(itemlist),"C:\\Users\\Amir\\Desktop\\newItem");
+            io.writeSmallBinaryFile(io.serialize(itemlist),"C:\\Users\\Administrator\\Desktop\\newItem");
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

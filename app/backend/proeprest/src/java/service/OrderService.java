@@ -28,7 +28,7 @@ public class OrderService implements Serializable{
     List<Order> orderList = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newOrder";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newOrder";
     
     public OrderService() throws SQLException {
         
@@ -37,9 +37,9 @@ public class OrderService implements Serializable{
         //this.d = new Database();
         //orderList = d.GetOrder("SELECT * FROM `order`");
         write();
-        System.err.println("Ran the Write");
+        System.err.println("Ran the Write ORDER");
         read();
-        System.err.println("Ran the Read");
+        System.err.println("Ran the Read ORDER");
     }
 
     public List<Order> getOrdersByName(String username) {
@@ -106,7 +106,7 @@ public class OrderService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(orderList),"C:\\Users\\Amir\\Desktop\\newOrder");
+            io.writeSmallBinaryFile(io.serialize(orderList),"C:\\Users\\Administrator\\Desktop\\newOrder");
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }
