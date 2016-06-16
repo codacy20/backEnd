@@ -26,7 +26,7 @@ public class RestaurantService implements Serializable{
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newRest";
+    final static String FILE_NAME = "/Users/Mikaeil/newRestaurant";
 
     public RestaurantService() throws SQLException {
         //this.d = new Database();
@@ -38,12 +38,16 @@ public class RestaurantService implements Serializable{
 //            }
        //restaurants=d.GetAllRestaurant("Select * from restaurant");
        restaurants.add(new Restaurant(0, "la place", "", new Address("Eind", "someStreet", 0)));
-        write();
-        System.err.println("Ran the Write ORDER");
+        //write();
         read();
-        System.err.println("Ran the Read ORDER");
+        System.err.println("Ran the Read Rest");
     }
 
+    public List<Restaurant> getAllRestaurants() {
+        System.err.println("Ran the Write Resr");
+
+        return restaurants;
+    }
     public Restaurant getRestaurantByID(int id) {
         for (Restaurant R : restaurants) {
             if (id == R.getRestaurantID()) {
@@ -85,7 +89,14 @@ public class RestaurantService implements Serializable{
     }
 
     public void createRestaurant(Restaurant R) {
+        //restaurants.add(R);
+        System.err.println("created!!!!");
+        R.setRestaurantID(restaurants.size() + 1);
+        System.err.println(restaurants.size()+1);
+
         restaurants.add(R);
+        System.err.println(restaurants.size()+1);
+        write();
     }
     
     public List<Item> read(){
@@ -101,7 +112,7 @@ public class RestaurantService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(restaurants),"C:\\Users\\Administrator\\Desktop\\newRest");
+            io.writeSmallBinaryFile(io.serialize(restaurants),FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

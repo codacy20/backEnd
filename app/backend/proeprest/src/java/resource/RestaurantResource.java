@@ -7,8 +7,10 @@ package resource;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import model.Item;
 import model.Restaurant;
 import service.RestaurantService;
 
@@ -18,6 +20,7 @@ import service.RestaurantService;
  */
 @Path("restaurant")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class RestaurantResource {
 
     Response r;
@@ -25,6 +28,23 @@ public class RestaurantResource {
 
     public RestaurantResource() throws SQLException {
         service = new RestaurantService();
+    }
+
+    @GET
+    public Response getAllRestaurants() throws Exception {
+        List<Restaurant> Restaurants = service.getAllRestaurants();
+        r = null;
+        try {
+            if (Restaurants != null) {
+                return r = Response.ok(Restaurants).build();
+            } else {
+                throw new Exception("Nothing exist here!");
+            }
+        } catch (Exception e) {
+            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        }
     }
 
     @GET
@@ -95,6 +115,7 @@ public class RestaurantResource {
     }
 
     @POST
+    @Path("/create")
     public Response createRestaurant(Restaurant Res) {
         r = null;
         try {
