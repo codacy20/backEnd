@@ -24,17 +24,23 @@ public class UserService implements Serializable{
 
     ArrayList<User> users = new ArrayList<>();
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newUser";
+    final static String FILE_NAME = "/Users/Mikaeil/newUser";
 
     public UserService() throws SQLException {
         users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", 12)), "a@b.com"));
         users.add(new User("Tom", "pass", (new Address("Eindhoven", "Streetname", 13)), "a@b.com"));
-        write();
-        System.err.println("Ran the Write USER");
+        
         read();
+        System.err.println("Ran the Write USER");
+        
         System.err.println("Ran the Read USER");
-    }
+    }   
+    public List<User> getAllUsers() {
+            System.err.println("Ran the Write Item");
 
+            return users;
+        }
+    
     public User getUserByName(String username) {
         for (User u : users) {
             if (username.equals(u.getUsername())) {
@@ -51,6 +57,9 @@ public class UserService implements Serializable{
             }
         }
         users.add(u);
+        write();
+        System.err.print("Khoondim");
+        
         return true;
     }
 
@@ -90,7 +99,7 @@ public class UserService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(users),"C:\\Users\\Administrator\\Desktop\\newUser");
+            io.writeSmallBinaryFile(io.serialize(users),FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

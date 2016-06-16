@@ -27,15 +27,17 @@ public class ItemService implements Serializable{
 
     Database d;
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newItem";
+    final static String FILE_NAME = "/Users/Mikaeil/newItem";
 
     public ItemService() throws SQLException {
         //d = new Database();
         //itemlist = d.GetAllItems("SELECT * FROM products");
-        System.err.println("Ran the Write Item");
+        itemlist.add(new Item("Something", 20, "La Place"));
         read();
+        System.err.println("Ran the Write Item");
+        
         System.err.println("Ran the Read Item");
-                //itemlist.add(new Item("Something", 20, "La Place"));
+                
     }
 
     public List<Item> getAllItems() {
@@ -77,11 +79,12 @@ public class ItemService implements Serializable{
     public void addItem(Item item) {
         System.err.println("created!!!!");
         item.setID(itemlist.size() + 1);
-                System.err.println(itemlist.size()+1);
+        System.err.println(itemlist.size()+1);
 
         itemlist.add(item);
-                        System.err.println(itemlist.size()+1);
-                                write();
+        System.err.println(itemlist.size()+1);
+        write();
+
 
 
     }
@@ -128,7 +131,8 @@ public class ItemService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(itemlist),"C:\\Users\\Administrator\\Desktop\\newItem");
+            io.writeSmallBinaryFile(io.serialize(itemlist),FILE_NAME);
+            read();
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

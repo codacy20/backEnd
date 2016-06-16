@@ -6,8 +6,10 @@
 package resource;
 
 import java.sql.SQLException;
+import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import model.Item;
 import model.User;
 import service.UserService;
 
@@ -28,6 +30,23 @@ public class UserResource {
         service = new UserService();
     }
 
+    @GET
+    public Response getAllUsers() throws Exception {
+        List<User> Users = service.getAllUsers();
+        r = null;
+        try {
+            if (Users != null) {
+                return r = Response.ok(Users).build();
+            } else {
+                throw new Exception("Nothing exist here!");
+            }
+        } catch (Exception e) {
+            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        }
+    }
+    
     @GET
     @Path("name/{username}")
     public Response getUserByName(@PathParam("username") String username) {
