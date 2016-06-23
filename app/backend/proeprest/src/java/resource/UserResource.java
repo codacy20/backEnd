@@ -72,23 +72,27 @@ public class UserResource {
 
     @POST
     @Path("/create")
-    public Response createUser(User u) {
+    public Response createUser(@QueryParam("username")String username){
+        
+        
         r = null;
-        try {
-            if (service.createUser(u)) {
-                r = Response.ok().build();
-            } else {
-                r = Response.status(Response.Status.CONFLICT)
-                        .entity("User already exists")
-                        .build();
-            }
-        } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        } finally {
-            return r;
-        }
+        
+//        try {
+//            if (service.createUser(username)) {
+//                r = Response.ok().build();
+//            } else {
+//                r = Response.status(Response.Status.CONFLICT)
+//                        .entity("User already exists")
+//                        .build();
+//            }
+//        } catch (Exception e) {
+//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity(e.getMessage())
+//                    .build();
+//        } finally {
+//            return r;
+//        }
+        return r = Response.ok().entity("something").build();
     }
 
     @PUT

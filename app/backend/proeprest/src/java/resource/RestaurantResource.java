@@ -12,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import model.Item;
 import model.Restaurant;
+import model.User;
 import service.RestaurantService;
 
 /**
@@ -19,8 +20,8 @@ import service.RestaurantService;
  * @author mikaeil
  */
 @Path("restaurant")
-@Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class RestaurantResource {
 
     Response r;
@@ -80,22 +81,22 @@ public class RestaurantResource {
         }
     }
 
-    @GET
-    @Path("restaurant_City/{City}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getRestaurantByCity(@PathParam("City") String res_City) {
-        try {
-            r = null;
-            ArrayList<Restaurant> Res = service.getRestaurantByCity(res_City);
-            r = Response.ok(Res).build();
-        } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        } finally {
-            return r;
-        }
-    }
+//    @GET
+//    @Path("restaurant_City/{City}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getRestaurantByCity(@PathParam("City") String res_City) {
+//        try {
+//            r = null;
+//            ArrayList<Restaurant> Res = service.getRestaurantByCity(res_City);
+//            r = Response.ok(Res).build();
+//        } catch (Exception e) {
+//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity(e.getMessage())
+//                    .build();
+//        } finally {
+//            return r;
+//        }
+//    }
 
     @GET
     @Path("menu/{restaurant_Name}")
@@ -116,11 +117,16 @@ public class RestaurantResource {
 
     @POST
     @Path("/create")
-    public Response createRestaurant(Restaurant Res) {
+    public Response createUser(Restaurant rest) {
         r = null;
         try {
-            service.createRestaurant(Res);
-            r = Response.noContent().build();
+            if (service.createRestaurant(rest)) {
+                r = Response.ok().build();
+            } else {
+                r = Response.status(Response.Status.CONFLICT)
+                        .entity("User already exists")
+                        .build();
+            }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
