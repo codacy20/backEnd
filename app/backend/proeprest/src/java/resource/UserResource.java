@@ -79,7 +79,7 @@ public class UserResource {
                                @QueryParam("city")String city,
                                @QueryParam("housenumber")String housenumber,
                                @QueryParam("street")String street){
-        
+
         User u = new User(username, pass, new Address(city, street, housenumber), email);
         r = null;
         
@@ -102,7 +102,14 @@ public class UserResource {
 
     @PUT
     @Path("update")
-    public Response updateUser(User u) {
+    public Response updateUser(@QueryParam("username")String username,
+                               @QueryParam("password")String pass,
+                               @QueryParam("email")String email,
+                               @QueryParam("city")String city,
+                               @QueryParam("housenumber")String housenumber,
+                               @QueryParam("street")String street){
+        
+        User u = new User(username, pass, new Address(city, street, housenumber), email);
         r = null;
         try {
             if (service.updateUser(u)) {
@@ -123,7 +130,7 @@ public class UserResource {
 
     @GET
     @Path("login/{username}")
-    public Response login(@PathParam("username") String name, String pass) {
+    public Response login(@QueryParam("username") String name,@QueryParam("password") String pass) {
         r = null;
         try {
             int result = service.login(name, pass);
@@ -141,28 +148,6 @@ public class UserResource {
                             .entity("Username not found")
                             .build();
                     break;
-            }
-        } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        } finally {
-            return r;
-        }
-    }
-
-    @GET
-    @Path("signup")
-    public Response signup(User u) {
-        r = null;
-        try {
-            boolean result = service.createUser(u);
-            if (result) {
-                r = Response.status(Response.Status.CREATED).build();
-            } else {
-                r = Response.status(Response.Status.CONFLICT)
-                        .entity("A user with that name already exists")
-                        .build();
             }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
