@@ -189,7 +189,7 @@ public class Database {
                 String email = rs.getString(5);
                 String phoneNumber = rs.getString(6);
                 System.out.print(restaurant_Name);
-                query.add(new Restaurant(restaurant_ID, restaurant_Name, password, email, phoneNumber, 0));
+                //query.add(new Restaurant(restaurant_ID, restaurant_Name, password, email, phoneNumber, 0));
 
             }
 

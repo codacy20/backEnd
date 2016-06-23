@@ -26,7 +26,7 @@ public class RestaurantService implements Serializable{
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newRestaurant";
+    final static String FILE_NAME = "/Users/Mikaeil/newRestaurantXX";
 
     public RestaurantService() throws SQLException {
         //this.d = new Database();
@@ -37,7 +37,7 @@ public class RestaurantService implements Serializable{
 //                //restaurants.add(rs.get);
 //            }
        //restaurants=d.GetAllRestaurant("Select * from restaurant");
-       restaurants.add(new Restaurant(0, "la place", "", 1));
+        //restaurants.add(new Restaurant(0, "la place", 1));
         //write();
         read();
         System.err.println("Ran the Read Rest");
@@ -50,7 +50,7 @@ public class RestaurantService implements Serializable{
     }
     public Restaurant getRestaurantByID(int id) {
         for (Restaurant R : restaurants) {
-            if (id == R.getRestaurantID()) {
+            if (id==R.getRestaurantID()) {
                 return R;
             }
         }
@@ -75,18 +75,18 @@ public class RestaurantService implements Serializable{
         return null;
     }
 
-//    public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
-//        ArrayList<Restaurant> return_res = new ArrayList<>();
-//        for (Restaurant R : restaurants) {
-//            if (res_city.equals(R.getAddress().getCity())) {
-//                return_res.add(R);
-//            }
-//        }
-//        if (!return_res.isEmpty()) {
-//            return return_res;
-//        }
-//        return null;
-//    }
+    public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
+        ArrayList<Restaurant> return_res = new ArrayList<>();
+        for (Restaurant R : restaurants) {
+            if (res_city.equals(R.getAddress().getCity())) {
+                return_res.add(R);
+            }
+        }
+        if (!return_res.isEmpty()) {
+            return return_res;
+        }
+        return null;
+    }
 
     public boolean createRestaurant(Restaurant R) {
         //restaurants.add(R);
@@ -99,6 +99,17 @@ public class RestaurantService implements Serializable{
         write();
         return true;
     }
+    
+    public boolean updateRestaurant(Restaurant R) {
+        for (Restaurant r : restaurants) {
+            if (r.getRestaurantID()==R.getRestaurantID()) {
+                r = R;
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     public List<Item> read(){
         try {

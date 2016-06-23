@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import model.Address;
 import model.Item;
 import model.Restaurant;
 import model.User;
@@ -81,22 +82,22 @@ public class RestaurantResource {
         }
     }
 
-//    @GET
-//    @Path("restaurant_City/{City}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getRestaurantByCity(@PathParam("City") String res_City) {
-//        try {
-//            r = null;
-//            ArrayList<Restaurant> Res = service.getRestaurantByCity(res_City);
-//            r = Response.ok(Res).build();
-//        } catch (Exception e) {
-//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-//                    .entity(e.getMessage())
-//                    .build();
-//        } finally {
-//            return r;
-//        }
-//    }
+    @GET
+    @Path("restaurant_City/{City}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRestaurantByCity(@PathParam("City") String res_City) {
+        try {
+            r = null;
+            ArrayList<Restaurant> Res = service.getRestaurantByCity(res_City);
+            r = Response.ok(Res).build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
 
     @GET
     @Path("menu/{restaurant_Name}")
@@ -117,14 +118,22 @@ public class RestaurantResource {
 
     @POST
     @Path("/create")
-    public Response createUser(Restaurant rest) {
+    public Response createRestaurant(@QueryParam("username")String username,
+                               @QueryParam("password")String pass,
+                               @QueryParam("email")String email,
+                               @QueryParam("city")String city,
+                               @QueryParam("housenumber")String housenumber,
+                               @QueryParam("street")String street){
+        
+        Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
         r = null;
+        
         try {
-            if (service.createRestaurant(rest)) {
-                r = Response.ok().build();
+            if (service.createRestaurant(R)) {
+                r = Response.ok().entity(R).build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)
-                        .entity("User already exists")
+                        .entity("Restaurant already exists")
                         .build();
             }
         } catch (Exception e) {

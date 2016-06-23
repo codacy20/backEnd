@@ -18,7 +18,7 @@ public class Restaurant implements Serializable{
     int restaurant_ID;
     String restaurant_Name;
     String password;
-    int address;
+    Address address;
     String email;
     String phoneNumber;
     List<Item> menu;
@@ -26,25 +26,14 @@ public class Restaurant implements Serializable{
     public Restaurant() {
     }
 
-    public Restaurant(int resID, String resName, String password, int address) {
-        this.restaurant_ID = resID;
-        this.restaurant_Name = resName;
-        this.password = password;
-        this.address = address;
-        this.email = null;
-        this.phoneNumber = null;
-        this.menu = new ArrayList<Item>();
-    }
-
-    public Restaurant(int resID, String resName, String password, String email, String phoneNumber, int address) {
-        this.restaurant_ID = resID;
-        this.restaurant_Name = resName;
+    public Restaurant(String username, String password, Address address, String email) {
+        this.restaurant_Name = username;
         this.password = password;
         this.address = address;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.menu = new ArrayList<Item>();
     }
+
+    
 
     public void setRestaurantID(int resID) {
         this.restaurant_ID = resID;
@@ -58,7 +47,7 @@ public class Restaurant implements Serializable{
         this.password = password;
     }
 
-    public void setAddress(int address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -86,7 +75,7 @@ public class Restaurant implements Serializable{
         return password;
     }
 
-    public int getAddress() {
+    public Address getAddress() {
         return address;
     }
 
