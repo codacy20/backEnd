@@ -72,8 +72,13 @@ public class UserResource {
 
     @POST
     @Path("/create")
-    public Response createUser(@QueryParam("username")String username){
-        
+    public Response createUser(@QueryParam("username")String username,
+                               @QueryParam("password")String pass,
+                               @QueryParam("email")String email,
+                               @QueryParam("city")String city,
+                               @QueryParam("housenumber")String housenumber,
+                               @QueryParam("street")String street,
+                               @QueryParam("postcode")String postcode){
         
         r = null;
         
@@ -92,7 +97,7 @@ public class UserResource {
 //        } finally {
 //            return r;
 //        }
-        return r = Response.ok().entity("something").build();
+        return r = Response.ok().entity(username).build();
     }
 
     @PUT
