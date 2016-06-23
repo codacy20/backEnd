@@ -15,20 +15,20 @@ public class Address implements Serializable{
 
     String city;
     String street;
-    int housenumber;
+    String housenumber;
     String addition;
 
     public Address() {
     }
 
-    public Address(String city, String street, int housenumber, String addition) {
+    public Address(String city, String street, String housenumber, String addition) {
         this.city = city;
         this.street = street;
         this.housenumber = housenumber;
         this.addition = addition;
     }
 
-    public Address(String city, String street, int housenumber) {
+    public Address(String city, String street, String housenumber) {
         this.city = city;
         this.street = street;
         this.housenumber = housenumber;
@@ -43,7 +43,7 @@ public class Address implements Serializable{
         this.street = street;
     }
 
-    public void setHousenumber(int housenumber) {
+    public void setHousenumber(String housenumber) {
         this.housenumber = housenumber;
     }
 
@@ -59,7 +59,7 @@ public class Address implements Serializable{
         return street;
     }
 
-    public int getHousenumber() {
+    public String getHousenumber() {
         return housenumber;
     }
 

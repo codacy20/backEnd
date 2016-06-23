@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import model.Address;
 import model.Item;
 import model.User;
 import service.UserService;
@@ -77,27 +78,26 @@ public class UserResource {
                                @QueryParam("email")String email,
                                @QueryParam("city")String city,
                                @QueryParam("housenumber")String housenumber,
-                               @QueryParam("street")String street,
-                               @QueryParam("postcode")String postcode){
+                               @QueryParam("street")String street){
         
+        User u = new User(username, pass, new Address(city, street, housenumber), email);
         r = null;
         
-//        try {
-//            if (service.createUser(username)) {
-//                r = Response.ok().build();
-//            } else {
-//                r = Response.status(Response.Status.CONFLICT)
-//                        .entity("User already exists")
-//                        .build();
-//            }
-//        } catch (Exception e) {
-//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-//                    .entity(e.getMessage())
-//                    .build();
-//        } finally {
-//            return r;
-//        }
-        return r = Response.ok().entity(username).build();
+        try {
+            if (service.createUser(u)) {
+                r = Response.ok().entity(u).build();
+            } else {
+                r = Response.status(Response.Status.CONFLICT)
+                        .entity("User already exists")
+                        .build();
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
     }
 
     @PUT

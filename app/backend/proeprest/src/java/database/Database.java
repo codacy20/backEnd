@@ -84,7 +84,7 @@ public class Database {
                             new Address(
                                     rs.getString("City"),
                                     rs.getString("Street"),
-                                    rs.getInt("HouseNumber"),
+                                    rs.getString("HouseNumber"),
                                     rs.getString("Addition")),
                             rs.getString("Email"));
                 }
@@ -118,7 +118,7 @@ public class Database {
             //create address
             createAddress.setString(1, u.getAddress().getCity());
             createAddress.setString(2, u.getAddress().getStreet());
-            createAddress.setInt(3, u.getAddress().getHousenumber());
+            createAddress.setString(3, u.getAddress().getHousenumber());
             createAddress.setString(4, u.getAddress().getAddition());
             createAddress.executeUpdate();
             //get generated address id for user
@@ -182,7 +182,7 @@ public class Database {
                 rs2.next();
                 String city = rs2.getString(2);
                 String street = rs2.getString(3);
-                int houseNumber = Integer.parseInt(rs2.getString(4));
+                String houseNumber = rs2.getString(4);
                 String addition = rs2.getString(5);
                 Address address = new Address(city, street, houseNumber, addition);
                 //end of inner query
