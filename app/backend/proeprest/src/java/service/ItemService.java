@@ -27,7 +27,7 @@ public class ItemService implements Serializable{
 
     Database d;
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newItem";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newItem";
 
     public ItemService() throws SQLException {
         //d = new Database();

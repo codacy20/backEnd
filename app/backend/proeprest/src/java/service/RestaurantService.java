@@ -26,7 +26,7 @@ public class RestaurantService implements Serializable{
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "/Users/Mikaeil/newRestaurantXX";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newRestaurantS";
 
     public RestaurantService() throws SQLException {
         //this.d = new Database();

@@ -5,6 +5,7 @@
  */
 package resource;
 
+import java.lang.annotation.Annotation;
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.*;
@@ -12,7 +13,9 @@ import javax.ws.rs.core.*;
 import model.Address;
 import model.Item;
 import model.User;
+import org.glassfish.jersey.server.JSONP;
 import service.UserService;
+//import JSON
 
 /**
  * REST Web Service
@@ -128,8 +131,8 @@ public class UserResource {
         }
     }
 
-    @GET
-    @Path("login/{username}")
+    @POST
+    @Path("login/")
     public Response login(@QueryParam("username") String name,@QueryParam("password") String pass) {
         r = null;
         try {
@@ -157,5 +160,29 @@ public class UserResource {
             return r;
         }
     }
+    @POST
+    @Path("/signup")
+    public Response createUser(String u) {
+        
+        r = null;
+        r = Response.ok().build();
+//        try {
+//            if (service.createUser(u)) {
+//                r = Response.ok().build();
+//            } else {
+//                r = Response.status(Response.Status.CONFLICT)
+//                        .entity("User already exists")
+//                        .build();
+//            }
+//        } catch (Exception e) {
+//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity(e.getMessage())
+//                    .build();
+//        } finally {
+//            return r;
+//        }
+return r = Response.ok().entity(u).build();
+    }
+
 
 }

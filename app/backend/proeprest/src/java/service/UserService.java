@@ -24,7 +24,7 @@ public class UserService implements Serializable{
 
     ArrayList<User> users = new ArrayList<>();
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Amir\\Desktop\\newUser";
+    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newUser";
 
     public UserService() throws SQLException {
         users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", "12")), "a@b.com"));
