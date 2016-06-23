@@ -110,7 +110,12 @@ public class ItemsResource {
 
     @POST
     @Path("/create")
-    public Response addItem(Item item) {
+    public Response addItem(@QueryParam("name")String name,
+                            @QueryParam("price")String price,
+                            @QueryParam("restaurant")String Restaurant){
+        
+        int pricee = Integer.parseInt(price);
+        Item item = new Item(name, pricee, Restaurant);
         try {
 
             itemService.addItem(item);
@@ -126,8 +131,15 @@ public class ItemsResource {
     }
 
     @PUT
-    @Path("{ItemId}")
-    public Response updateItem(@PathParam("ItemId") long id, Item item) {
+    @Path("update")
+    public Response updateItem(@QueryParam("id")String idd,
+                               @QueryParam("name")String name,
+                               @QueryParam("price")String price,
+                               @QueryParam("restaurant")String Restaurant){
+        
+        int id = Integer.parseInt(idd);
+        int pricee = Integer.parseInt(price);
+        Item item = new Item(name, pricee, Restaurant);
         r = null;
         try {
             itemService.updateItem(id, item);
