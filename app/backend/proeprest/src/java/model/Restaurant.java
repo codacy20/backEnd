@@ -22,6 +22,7 @@ public class Restaurant implements Serializable{
     String email;
     String phoneNumber;
     List<Item> menu;
+    List<String> comments;
     
 
     public Restaurant() {
@@ -32,6 +33,7 @@ public class Restaurant implements Serializable{
         this.password = password;
         this.address = address;
         this.email = email;
+        comments=new ArrayList<String>();
     }
 
     
@@ -92,6 +94,9 @@ public class Restaurant implements Serializable{
 
     public List<Item> getMenu() {
         return this.menu;
+    }
+    public void addComment(String comment) {
+        this.comments.add(comment);
     }
 
 }

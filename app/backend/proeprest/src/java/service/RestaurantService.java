@@ -26,7 +26,7 @@ public class RestaurantService implements Serializable{
     ArrayList<Restaurant> restaurants = new ArrayList<>();
     Database d;    
     InputOutput io = new InputOutput();
-    final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newRestaurantS";
+    final static String FILE_NAME = "/Users/Mikaeil/newRestaurantXX";
 
     public RestaurantService() throws SQLException {
         //this.d = new Database();
@@ -106,6 +106,11 @@ public class RestaurantService implements Serializable{
 
     public boolean createRestaurant(Restaurant R) {
         //restaurants.add(R);
+        for (Restaurant res : restaurants) {
+            if (res.getRestaurantName().equals(R.getRestaurantName())) {
+                return false;
+            }
+        }
         System.err.println("created!!!!");
         R.setRestaurantID(restaurants.size() + 1);
         System.err.println(restaurants.size()+1);
@@ -114,6 +119,19 @@ public class RestaurantService implements Serializable{
         System.err.println(restaurants.size()+1);
         write();
         return true;
+    }
+    
+    public boolean addComment(String comment, String resName) {
+        
+        System.err.println("CM added");
+        for (Restaurant R : restaurants) {
+            if (resName.equals(R.getRestaurantName())) {
+                R.addComment(comment);
+                write();
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean updateRestaurant(Restaurant R) {

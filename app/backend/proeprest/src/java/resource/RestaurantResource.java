@@ -119,13 +119,16 @@ public class RestaurantResource {
 
     @POST
     @Path("/create")
-    public Response createRestaurant(@QueryParam("username")String username,
-                               @QueryParam("password")String pass,
-                               @QueryParam("email")String email,
-                               @QueryParam("city")String city,
-                               @QueryParam("housenumber")String housenumber,
-                               @QueryParam("street")String street){
-        
+    public Response createRestaurant(String ss) throws ParseException{
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String pass=(String)json.get("password");
+        String email=(String)json.get("email");
+        String city=(String)json.get("city");
+        String housenumber=(String)json.get("housenumber");
+        String street=(String)json.get("street");
         Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
         r = null;
         
@@ -146,14 +149,16 @@ public class RestaurantResource {
         }
     }
     @POST
-    @Path("{Restaurant_Name}")
-    public Response Comment(@QueryParam("Restaurant_Name")String username,String body) throws ParseException{
+    @Path("comment/{Restaurant_Name}")
+    public Response Comment(String body) throws ParseException{
         JSONParser parser=new JSONParser();
         //Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
         Object obj= parser.parse(body);
         JSONObject json = (JSONObject)obj;
-        json.get("");
-        ArrayList<Item> imageArray = new ArrayList<Item>();
+        String username= (String) json.get("restaurant");
+        String Comment=(String)json.get("username")+": "+(String)json.get("comment") ;
+        service.addComment(Comment, username);
+        
 
 //         for (int i=0; i<jsonArray.size(); i++) {
 //             image_data img = new image_data();
