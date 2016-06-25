@@ -14,6 +14,9 @@ import model.Address;
 import model.Item;
 import model.Restaurant;
 import model.User;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
 import service.RestaurantService;
 
 /**
@@ -67,7 +70,6 @@ public class RestaurantResource {
 
     @GET
     @Path("restaurant_Name/{restaurant_Name}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getRestaurantByName(@PathParam("restaurant_Name") String res_name) {
         try {
             r = null;
@@ -101,7 +103,6 @@ public class RestaurantResource {
 
     @GET
     @Path("menu/{restaurant_Name}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getRestaurantMenu(@PathParam("restaurant_Name") String res_name) {
         try {
             r = null;
@@ -145,28 +146,45 @@ public class RestaurantResource {
         }
     }
     @POST
-    @Path("/restaurant/{restaurant_Name}")
-    public Response createRestaurantMenu(@QueryParam("Restaurant_Name")String username, String body){
-        
+    @Path("{Restaurant_Name}")
+    public Response Comment(@QueryParam("Restaurant_Name")String username,String body) throws ParseException{
+        JSONParser parser=new JSONParser();
         //Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
-        List<Item> ListX= new ArrayList<>(); 
-        r = null;
-        
-        try {
-            if (service.setRestaurantMenu(username,)) {
-                r = Response.ok().entity(R).build();
-            } else {
-                r = Response.status(Response.Status.CONFLICT)
-                        .entity("Restaurant already exists")
-                        .build();
-            }
-        } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        } finally {
-            return r;
-        }
+        Object obj= parser.parse(body);
+        JSONObject json = (JSONObject)obj;
+        json.get("");
+        ArrayList<Item> imageArray = new ArrayList<Item>();
+
+//         for (int i=0; i<jsonArray.size(); i++) {
+//             image_data img = new image_data();
+//
+//             Object jo = jsonArray.get(i);
+//
+//             image_data.name = jo.name;
+//             image_data.thumb = jo.thumb;
+//             image_data.path = jo.path;
+//
+//             imageArray.add(new image_data());
+//
+//         }
+////        r = null;
+//        
+//        try {
+//            if (true) {
+//                r = Response.ok().entity(R).build();
+//            } else {
+//                r = Response.status(Response.Status.CONFLICT)
+//                        .entity("Restaurant already exists")
+//                        .build();
+//            }
+//        } catch (Exception e) {
+//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity(e.getMessage())
+//                    .build();
+//        } finally {
+//            return r;
+//        }
+return r;
     }
 
 }
