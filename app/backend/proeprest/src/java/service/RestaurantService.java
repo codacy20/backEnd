@@ -74,6 +74,22 @@ public class RestaurantService implements Serializable{
         }
         return null;
     }
+    public Boolean setRestaurantMenu(String res_name, List<Item> itemX) {
+        for (Restaurant R : restaurants) {
+            if (res_name.equals(R.getRestaurantName())) {
+                 R.setMenu(itemX);
+            }
+        }
+        return null;
+    }
+    public Boolean setRestaurantMenuItem(String res_name, Item itemX) {
+        for (Restaurant R : restaurants) {
+            if (res_name.equals(R.getRestaurantName())) {
+                 R.setMenuItem(itemX);
+            }
+        }
+        return null;
+    }
 
     public ArrayList<Restaurant> getRestaurantByCity(String res_city) {
         ArrayList<Restaurant> return_res = new ArrayList<>();
