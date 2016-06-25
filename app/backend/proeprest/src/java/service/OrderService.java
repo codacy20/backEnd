@@ -30,6 +30,7 @@ public class OrderService implements Serializable{
     Database d;    
     InputOutput io = new InputOutput();
     final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newOrder";
+    final static String FILE_NAME_Amir = "C:\\Users\\Amir\\Desktop\\newOrder";
     UserService userService = new UserService();
     
     public OrderService() throws SQLException {
@@ -38,12 +39,18 @@ public class OrderService implements Serializable{
         ord.AddItemToOrder(new Item("Name", 10, "Restaurant"));
         //this.d = new Database();
         //orderList = d.GetOrder("SELECT * FROM `order`");
-        write();
+        orderList.add(ord);
+        //write();
         System.err.println("Ran the Write ORDER");
         read();
         System.err.println("Ran the Read ORDER");
     }
 
+    public List<Order> getAllOrders() {
+        
+        return orderList;
+    }
+    
     public List<Order> getOrdersByName(String username) {
         List<Order> returnorders = new ArrayList<>();
         for (Order o : orderList) {
@@ -87,12 +94,15 @@ public class OrderService implements Serializable{
         //o.AddItemToOrder(it);
             for(Order or : orderList)
             {
-                if(or.getOwner().equals(userService.getUserByName(username)))
+                
+                if(or.getOwner().equals(username))
                 {
                     or.AddItemToOrder(it);
+                    write();
+                    return true;
                 }
             }
-        return true;
+            return false;
     }
 
     public boolean AddOrder(Order ord) {
@@ -107,7 +117,7 @@ public class OrderService implements Serializable{
     
     public List<Item> read(){
         try {
-            orderList =  (List<Order>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
+            orderList =  (List<Order>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -118,7 +128,7 @@ public class OrderService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(orderList),"C:\\Users\\Administrator\\Desktop\\newOrder");
+            io.writeSmallBinaryFile(io.serialize(orderList),FILE_NAME_Amir);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

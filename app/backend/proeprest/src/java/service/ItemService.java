@@ -28,11 +28,14 @@ public class ItemService implements Serializable{
     Database d;
     InputOutput io = new InputOutput();
     final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newItem";
+    final static String FILE_NAME_Amir = "C:\\Users\\Amir\\Desktop\\newItem";
+
 
     public ItemService() throws SQLException {
         //d = new Database();
         //itemlist = d.GetAllItems("SELECT * FROM products");
         itemlist.add(new Item("Something", 20, "La Place"));
+        //write();
         read();
         System.err.println("Ran the Write Item");
         
@@ -120,7 +123,7 @@ public class ItemService implements Serializable{
     
     public List<Item> read(){
         try {
-            itemlist = (List<Item>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
+            itemlist = (List<Item>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -131,7 +134,7 @@ public class ItemService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(itemlist),FILE_NAME);
+            io.writeSmallBinaryFile(io.serialize(itemlist),FILE_NAME_Amir);
             read();
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);

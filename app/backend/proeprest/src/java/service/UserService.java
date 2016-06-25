@@ -25,6 +25,7 @@ public class UserService implements Serializable{
     ArrayList<User> users = new ArrayList<>();
     InputOutput io = new InputOutput();
     final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newUser";
+    final static String FILE_NAME_Amir = "C:\\Users\\Amir\\Desktop\\newUser";
 
     public UserService() throws SQLException {
         users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", "12")), "a@b.com"));
@@ -88,7 +89,7 @@ public class UserService implements Serializable{
     
     public List<Item> read(){
         try {
-            users = (ArrayList<User>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
+            users = (ArrayList<User>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -99,7 +100,7 @@ public class UserService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(users),FILE_NAME);
+            io.writeSmallBinaryFile(io.serialize(users),FILE_NAME_Amir);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -44,15 +44,36 @@ public class OrderResource {
     }
 
     @GET
+    public Response getAllOrders() {
+        try {
+            r = null;
+            List<Order> o = service.getAllOrders();
+            if (o.size() != 0) {
+                r = Response.ok(o).build();
+            } else {
+                r = Response.status(Response.Status.NOT_FOUND)
+                        .entity("Order does not exist")
+                        .build();
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+    
+    @GET
     @Path("owner/{username}")
     public Response getOrderByName(@PathParam("username") String username) {
         try {
             r = null;
             List<Order> o = service.getOrdersByName(username);
-            if (o != null) {
+            if (o.size() != 0) {
                 r = Response.ok(o).build();
             } else {
-                r = Response.status(Response.Status.NOT_FOUND)
+                r = Response.status(Response.Status.UNAUTHORIZED)
                         .entity("Order does not exist")
                         .build();
             }
@@ -116,7 +137,7 @@ public class OrderResource {
                 r = Response.ok().build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)
-                        .entity("Item already exists")
+                        .entity("User doesnt exists")
                         .build();
             }
         } catch (Exception e) {
