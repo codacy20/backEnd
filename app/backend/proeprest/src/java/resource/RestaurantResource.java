@@ -144,5 +144,29 @@ public class RestaurantResource {
             return r;
         }
     }
+    @POST
+    @Path("/restaurant/{restaurant_Name}")
+    public Response createRestaurantMenu(@QueryParam("Restaurant_Name")String username, String body){
+        
+        //Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
+        List<Item> ListX= new ArrayList<>(); 
+        r = null;
+        
+        try {
+            if (service.setRestaurantMenu(username,)) {
+                r = Response.ok().entity(R).build();
+            } else {
+                r = Response.status(Response.Status.CONFLICT)
+                        .entity("Restaurant already exists")
+                        .build();
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
 
 }
