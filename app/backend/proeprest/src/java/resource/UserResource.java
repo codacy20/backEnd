@@ -15,8 +15,8 @@ import model.Item;
 import model.User;
 import org.glassfish.jersey.server.JSONP;
 import service.UserService;
-//import JSON
-
+import org.json.simple.JSONObject;
+import org.json.simple.JSONObject;
 /**
  * REST Web Service
  *
@@ -181,7 +181,7 @@ public class UserResource {
 //        } finally {
 //            return r;
 //        }
-return r = Response.ok().entity(u).build();
+        return r = Response.ok().entity(u).build();
     }
 
 

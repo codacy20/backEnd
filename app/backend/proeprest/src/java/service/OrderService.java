@@ -18,6 +18,7 @@ import model.Item;
 import model.Order;
 import model.User;
 import static service.UserService.FILE_NAME;
+import service.UserService;
 
 /**
  *
@@ -29,6 +30,7 @@ public class OrderService implements Serializable{
     Database d;    
     InputOutput io = new InputOutput();
     final static String FILE_NAME = "C:\\Users\\Administrator\\Desktop\\newOrder";
+    UserService userService = new UserService();
     
     public OrderService() throws SQLException {
         
@@ -51,6 +53,15 @@ public class OrderService implements Serializable{
         }
         return returnorders;
     }
+    
+    public String getOwner(String username) {
+        for (Order o : orderList) {
+            if (username.equals(o.getOwner())) {
+                return o.getOwner();
+            }
+        }
+        return "Wasn't found!";
+    }
 
     public boolean createOrder(Order orderNew) {
         for (Order order : orderList) {
@@ -72,14 +83,15 @@ public class OrderService implements Serializable{
         return false;
     }
 
-    public boolean AddItemToOrder(Order o, Item it) {
-        o.AddItemToOrder(it);
-//        for (Item item : getOrderByName(username)) {
-//            if (order.getID() == or.getID()) {
-//                order = or;
-//                return true;
-//            }
-//        }
+    public boolean AddItemToOrder(String username, Item it) {
+        //o.AddItemToOrder(it);
+            for(Order or : orderList)
+            {
+                if(or.getOwner().equals(userService.getUserByName(username)))
+                {
+                    or.AddItemToOrder(it);
+                }
+            }
         return true;
     }
 
