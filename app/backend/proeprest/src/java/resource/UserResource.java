@@ -139,7 +139,8 @@ public class UserResource {
             int result = service.login(name, pass);
             switch (result) {
                 case 1:
-                    r = Response.ok().build();
+                    User u = service.getUserByName(name);
+                    r = Response.ok().entity(u).build();
                     break;
                 case 0:
                     r = Response.status(Response.Status.UNAUTHORIZED)
