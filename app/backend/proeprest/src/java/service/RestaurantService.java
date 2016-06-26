@@ -136,8 +136,9 @@ public class RestaurantService implements Serializable{
     
     public boolean updateRestaurant(Restaurant R) {
         for (Restaurant r : restaurants) {
-            if (r.getRestaurantID()==R.getRestaurantID()) {
+            if (r.getRestaurantName().equals(R.getRestaurantName())) {
                 r = R;
+                write();
                 return true;
             }
         }

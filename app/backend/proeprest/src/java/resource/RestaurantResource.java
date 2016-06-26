@@ -85,7 +85,7 @@ public class RestaurantResource {
     }
 
     @GET
-    @Path("restaurant_City/{City}")
+    @Path("City/{City}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRestaurantByCity(@PathParam("City") String res_City) {
         try {
@@ -129,7 +129,8 @@ public class RestaurantResource {
         String city=(String)json.get("city");
         String housenumber=(String)json.get("housenumber");
         String street=(String)json.get("street");
-        Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email);
+        String phoneNumber=(String)json.get("phoneNumber");
+        Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email,phoneNumber);
         r = null;
         
         try {
@@ -147,6 +148,34 @@ public class RestaurantResource {
         } finally {
             return r;
         }
+    }
+    @PUT
+    @Path("update")
+    public Response updateRestaurant(String ss) throws ParseException{
+        
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String pass=(String)json.get("password");
+        String email=(String)json.get("email");
+        String city=(String)json.get("city");
+        String housenumber=(String)json.get("housenumber");
+        String street=(String)json.get("street");
+        String phoneNumber=(String)json.get("phoneNumber");
+        Restaurant R = new Restaurant(username, pass, new Address(city, street, housenumber), email,phoneNumber);
+        r = null;
+        try {
+            service.updateRestaurant(R);
+            r = Response.ok().build();
+        } catch (Exception e) {
+            r = Response.status(Response.Status.FORBIDDEN)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+
     }
     @POST
     @Path("comment/{Restaurant_Name}")

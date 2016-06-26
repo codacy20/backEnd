@@ -28,11 +28,12 @@ public class Restaurant implements Serializable{
     public Restaurant() {
     }
 
-    public Restaurant(String username, String password, Address address, String email) {
+    public Restaurant(String username, String password, Address address, String email,String phoneNumber) {
         this.restaurant_Name = username;
         this.password = password;
         this.address = address;
         this.email = email;
+        this.phoneNumber= phoneNumber;
         comments=new ArrayList<String>();
     }
 
