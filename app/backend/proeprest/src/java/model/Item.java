@@ -27,7 +27,7 @@ public class Item implements Serializable{
         this.ID = 0;
         this.Name = Name;
         this.Price = Price;
-        this.bidPrice = bidPrice;
+        //this.bidPrice = bidPrice;
         //this.ProductID = ProductID;
         this.Resteurant = Restaurant;
     }
