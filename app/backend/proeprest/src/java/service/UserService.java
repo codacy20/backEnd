@@ -89,7 +89,7 @@ public class UserService implements Serializable{
     
     public List<Item> read(){
         try {
-            users = (ArrayList<User>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
+            users = (ArrayList<User>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -100,7 +100,7 @@ public class UserService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(users),FILE_NAME_Amir);
+            io.writeSmallBinaryFile(io.serialize(users),FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

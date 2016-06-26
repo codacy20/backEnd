@@ -151,10 +151,10 @@ public class OrderResource {
 
     @POST
     @Path("addorder")
-    public Response AddOrder(Order u) {
+    public Response AddOrder(@QueryParam("username")String username) {
         r = null;
         try {
-            if (service.AddOrder(u)) {
+            if (service.AddOrder(username)) {
                 r = Response.ok().build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)

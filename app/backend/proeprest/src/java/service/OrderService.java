@@ -105,19 +105,21 @@ public class OrderService implements Serializable{
             return false;
     }
 
-    public boolean AddOrder(Order ord) {
+    public boolean AddOrder(String username) {
         for (Order order : orderList) {
-            if (order.getID() == ord.getID()) {
+            if (order.getOwner() == username) {
                 return false;
             }
         }
+        Order ord = new Order(orderList.size()+1, username);
         orderList.add(ord);
+        write();
         return true;
     }
     
     public List<Item> read(){
         try {
-            orderList =  (List<Order>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
+            orderList =  (List<Order>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -128,7 +130,7 @@ public class OrderService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(orderList),FILE_NAME_Amir);
+            io.writeSmallBinaryFile(io.serialize(orderList),FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }

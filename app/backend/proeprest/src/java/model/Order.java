@@ -53,7 +53,7 @@ public class Order implements Serializable{
 //    }
     @Override
     public String toString() {
-        return "Order{" + "ID=" + ID + ", Owner=" + username + ", OrderList=" + OrderList + '}';
+        return "Order{" + "ID=" + ID + ", username=" + username + ", OrderList=" + OrderList + '}';
     }
 
     public void AddItemToOrder(Item item) {
