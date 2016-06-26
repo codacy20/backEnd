@@ -123,7 +123,7 @@ public class ItemService implements Serializable{
     
     public List<Item> read(){
         try {
-            itemlist = (List<Item>) io.deserialize(io.readSmallBinaryFile(FILE_NAME_Amir));
+            itemlist = (List<Item>) io.deserialize(io.readSmallBinaryFile(FILE_NAME));
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -134,7 +134,7 @@ public class ItemService implements Serializable{
     
     public void write(){
         try {
-            io.writeSmallBinaryFile(io.serialize(itemlist),FILE_NAME_Amir);
+            io.writeSmallBinaryFile(io.serialize(itemlist),FILE_NAME);
             read();
         } catch (IOException ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
