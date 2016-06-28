@@ -127,7 +127,7 @@ public class UserResource {
         r = null;
         try {
             if (service.updateUser(u)) {
-                r = Response.ok(u).header("Access-Control-Allow-Origin", "*").entity(u).build();
+                r = Response.ok(u).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                         .entity("Username not found")
@@ -143,7 +143,7 @@ public class UserResource {
     }
 
     @POST
-    @Path("login/")
+    @Path("/login/")
     public Response login(String ss) throws ParseException {
         r = null;
         JSONParser parser=new JSONParser();
@@ -157,11 +157,13 @@ public class UserResource {
             switch (result) {
                 case 1:
                     User u = service.getUserByName(username);
-                    r = Response.ok().header("Access-Control-Allow-Origin", "*").entity(u).build();
+                    r = Response.ok(u).header("Access-Control-Allow-Origin", "*").entity(u).build();
                     break;
                 case 0:
                     r = Response.status(Response.Status.UNAUTHORIZED).header("Access-Control-Allow-Origin", "*")
-                            .entity("Password incorrect")
+                            .entity("Password incorrect").header("Access-Control-Allow-Origin", "*")
+			.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+			.allow("OPTIONS")
                             .build();
                     break;
                 case -1:

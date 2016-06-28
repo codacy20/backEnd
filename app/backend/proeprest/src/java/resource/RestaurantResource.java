@@ -102,11 +102,21 @@ public class RestaurantResource {
     }
 
     @GET
-    @Path("menu/{restaurant_Name}")
-    public Response getRestaurantMenu(@PathParam("restaurant_Name") String res_name) {
+    @Path("menu/")
+    public Response getRestaurantMenu(String ss) throws ParseException {
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String pass=(String)json.get("password");
+        String email=(String)json.get("email");
+        String city=(String)json.get("city");
+        String housenumber=(String)json.get("housenumber");
+        String street=(String)json.get("street");
+        String phoneNumber=(String)json.get("phoneNumber");
         try {
             r = null;
-            Restaurant Res = service.getRestaurantByname(res_name);
+            Restaurant Res = service.getRestaurantByname(username);
             r = Response.ok(Res.getMenu()).build();
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -135,7 +145,7 @@ public class RestaurantResource {
         
         try {
             if (service.createRestaurant(R)) {
-                r = Response.ok().entity(R).build();
+                r = Response.ok(R).entity(R).build();
             } else {
                 r = Response.status(Response.Status.CONFLICT)
                         .entity("Restaurant already exists")
@@ -171,12 +181,12 @@ public class RestaurantResource {
                     r = Response.ok().header("Access-Coontrol-Allow-Origin", "*").entity(u).build();
                     break;
                 case 0:
-                    r = Response.status(Response.Status.UNAUTHORIZED)
+                    r = Response.status(Response.Status.UNAUTHORIZED).header("Access-Coontrol-Allow-Origin", "*")
                             .entity("Password incorrect")
                             .build();
                     break;
                 case -1:
-                    r = Response.status(Response.Status.NOT_FOUND)
+                    r = Response.status(Response.Status.NOT_FOUND).header("Access-Coontrol-Allow-Origin", "*")
                             .entity("Username not found")
                             .build();
                     break;
