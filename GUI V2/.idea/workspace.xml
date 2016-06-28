@@ -21,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard-view.tpl.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard-view.tpl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
@@ -57,10 +57,10 @@
         <entry file="file://$PROJECT_DIR$/public/angular/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
-                <marker date="1467156321482" expanded="true" signature="4123:4133" ph="{...}" />
-                <marker date="1467156321482" expanded="true" signature="4123:4142" ph="{...}" />
+                <marker date="1467157542682" expanded="true" signature="4285:4295" ph="{...}" />
+                <marker date="1467157542682" expanded="true" signature="4285:4304" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -70,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,13 +86,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restaurant-preview.tpl.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="restaurant-preview.tpl.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="522">
+              <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/public/angular/pages/home.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -611,12 +611,12 @@
       <workItem from="1466946307307" duration="1241000" />
       <workItem from="1467046791272" duration="22432000" />
       <workItem from="1467089857177" duration="427000" />
-      <workItem from="1467113121745" duration="28312000" />
+      <workItem from="1467113121745" duration="28962000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52412000" />
+    <option name="totallyTimeSpent" value="53062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -923,10 +923,10 @@
     <entry file="file://$PROJECT_DIR$/public/angular/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <marker date="1467156321482" expanded="true" signature="4123:4133" ph="{...}" />
-            <marker date="1467156321482" expanded="true" signature="4123:4142" ph="{...}" />
+            <marker date="1467157542682" expanded="true" signature="4285:4295" ph="{...}" />
+            <marker date="1467157542682" expanded="true" signature="4285:4304" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -959,20 +959,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/pages/home.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -980,7 +970,7 @@
     <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -991,6 +981,16 @@
           <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
