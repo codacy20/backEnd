@@ -1,4 +1,8 @@
 <style>
+    body{
+        padding-top: 50px;
+    }
+
     .side-nav {
         position: fixed;
         top: 51px;
@@ -13,11 +17,16 @@
         overflow-x: hidden;
         padding-bottom: 40px;
     }
+    .side-nav li
+    {
+        position: relative;
+        display: block;
+        width: inherit;
+    }
 </style>
 <navbar></navbar>
 
-<div class="container-fluid">
-
+<div class="container-fluid user-view">
     <div class="col-sm-2">
         <ul class="nav navbar-nav side-nav">
             <li ><a ui-sref="dashboard.dashboard-view">Dashboard</a></li>
@@ -25,7 +34,7 @@
             <li ><a ui-sref="dashboard.orders">New Orders</a></li>
         </ul>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-10 user-view">
             <div ui-view></div>
     </div>
 

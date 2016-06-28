@@ -1,5 +1,62 @@
+<style>
+    .new-comments{
+        background-color: #00b3ee;
+        color: white;
+        border-radius: 6px;
+        height:150px;
+    }
+    .new-orders{
+        background-color: #5cb85c;
+        color: white;
+        border-radius: 6px;
+        height:150px;
+    }
+    .add-menu{
+        background-color: #d9534f;
+        color: white;
+        border-radius: 6px;
+        height:150px;
+    }
+    .inner
+    {
+        padding:10px;
+    }
+    .glyphicon.glyphicon-comment,
+    .glyphicon.glyphicon-th-list,
+    .glyphicon.glyphicon-plus{
+        font-size: 75px;
+    }
+</style>
+
+<div style="text-align: center;" class="row jumbotron">
+    <h3> Dashboard overview</h3>
+</div>
 <div class="row top_panel">
-    <div class="col-sm-4">new comments</div>
-    <div class="col-sm-4">new orders</div>
-    <div class="col-sm-4">add menu</div>
+    <div class="col-sm-4">
+        <div class="inner new-comments">
+                <span class="glyphicon glyphicon-comment"></span>
+           <div class="col-sm-8">
+               <h2>{{3}}</h2>
+               <h3>New comments!</h3>
+           </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="inner new-orders">
+            <span class="glyphicon glyphicon-th-list"></span>
+            <div class="col-sm-8">
+                <h2>{{6}}</h2>
+                <h3>New Orders!</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="inner add-menu">
+            <span class="glyphicon glyphicon-plus"></span>
+            <div class="col-sm-8">
+                <h2>Add</h2>
+                <h3>new menu</h3>
+            </div>
+        </div>
+    </div>
 </div>
