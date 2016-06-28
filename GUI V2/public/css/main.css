@@ -1,0 +1,118 @@
+body { padding-top: 70px; }
+
+body {
+    padding-top: 75px;
+}
+
+.search-container {
+    width: 490px;
+    display: block;
+    margin: 0 auto;
+}
+
+input#search-bar {
+    margin: 0 auto;
+    width: 100%;
+    height: 70px;
+    padding: 0 20px;
+    font-size: 23px;
+    border: 4px solid rgba(232, 88, 46, 0.6);
+    outline: none;
+}
+input#search-bar:focus {
+    border: 4px solid #e95420;
+    transition: 0.35s ease;
+    color: #e95420;
+}
+input#search-bar:focus::-webkit-input-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+input#search-bar:focus::-moz-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+input#search-bar:focus:-ms-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+
+.search-icon {
+    position: relative;
+    float: right;
+    width: 75px;
+    height: 75px;
+    top: -62px;
+    right: -45px;
+}
+
+
+
+/*FOOD*/
+
+@import url(https://fonts.googleapis.com/css?family=Archivo+Black);
+@media only screen and (max-device-width: 480px) {
+    .box {
+        margin: 20px;
+    }
+
+    .product-info {
+        margin: 20px;
+    }
+}
+
+.box {
+    width: 1180px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 #999;
+    margin-top: 20px;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+
+
+h1 {
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #333;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.price {
+    margin-top: -40px;
+    font-size: 35px;
+    font-weight: bolder;
+    color: coral;
+}
+
+.description {
+    margin-top: -20px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+
+button {
+    margin-top: 10px;
+    background: #333;
+    font-size: 1em;
+    letter-spacing: .1em;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 15px;
+    border: 0;
+    border-radius: 10px;
+}
+button:hover {
+    background: #666;
+}
+
+.buy-button {
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
