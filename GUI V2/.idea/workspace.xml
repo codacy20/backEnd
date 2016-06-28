@@ -21,10 +21,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard-view.tpl.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard-view.tpl.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="493">
               <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -43,28 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logo.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/images/logo.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="14" selection-start-line="21" selection-start-column="15" selection-end-line="31" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,8 +56,21 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="41" column="92" selection-start-line="41" selection-start-column="92" selection-end-line="41" selection-end-column="92" />
+            <state relative-caret-position="510">
+              <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
+              <folding>
+                <marker date="1467156321482" expanded="true" signature="4123:4133" ph="{...}" />
+                <marker date="1467156321482" expanded="true" signature="4123:4142" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,14 +86,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restaurant-preview.tpl.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="restaurant-preview.tpl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+            <state relative-caret-position="306">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/angular/pages/home.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -394,7 +400,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fusion-eindhoven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fusion-eindhoven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,12 +611,12 @@
       <workItem from="1466946307307" duration="1241000" />
       <workItem from="1467046791272" duration="22432000" />
       <workItem from="1467089857177" duration="427000" />
-      <workItem from="1467113121745" duration="27760000" />
+      <workItem from="1467113121745" duration="28312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51860000" />
+    <option name="totallyTimeSpent" value="52412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -809,26 +871,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular/pages/home.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/shared/services/api.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="22" column="78" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -854,16 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -886,16 +922,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="41" column="92" selection-start-line="41" selection-start-column="92" selection-end-line="41" selection-end-column="92" />
-          <folding />
+        <state relative-caret-position="510">
+          <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
+          <folding>
+            <marker date="1467156321482" expanded="true" signature="4123:4133" ph="{...}" />
+            <marker date="1467156321482" expanded="true" signature="4123:4142" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -922,10 +961,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="306">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular/pages/home.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular/pages/main/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
