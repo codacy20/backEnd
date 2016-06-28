@@ -68,6 +68,7 @@ public class UserService implements Serializable{
         for (User user : users) {
             if (user.getUsername().equals(u.getUsername())) {
                 user = u;
+                write();
                 return true;
             }
         }

@@ -19,6 +19,7 @@ public class Item implements Serializable{
     private int bidPrice;
     private int resteurant_ID;
     private String Resteurant;
+    private String image="";
 
     public Item() {
     }
@@ -39,7 +40,10 @@ public class Item implements Serializable{
         this.bidPrice = bid;
         this.resteurant_ID = restaurant_ID;
     }
-
+    public String getImage()
+    {
+        return image;
+    }
     public long getID() {
         return ID;
     }
@@ -62,7 +66,10 @@ public class Item implements Serializable{
     public String getResteurant() {
         return Resteurant;
     }
-
+    public void setImage(String src)
+    {
+        this.image=src;
+    }
     public void setID(int ID) {
         this.ID = ID;
     }
@@ -88,7 +95,7 @@ public class Item implements Serializable{
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + Name + ", Price=" + Price + ", bidPrice=" + bidPrice + '}';
+        return "Item{" + "Name=" + Name + ", Price=" + Price + ", bidPrice=" + bidPrice + ", image"+ image +'}';
     }
 
 }

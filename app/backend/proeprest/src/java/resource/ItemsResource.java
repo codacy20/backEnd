@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package resource;
-
+ 
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.*;
@@ -45,7 +45,7 @@ public class ItemsResource {
                 throw new Exception("Nothing exist here!");
             }
         } catch (Exception e) {
-            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         }
@@ -58,12 +58,12 @@ public class ItemsResource {
         Item item = itemService.getItem(id);
         try {
             if (item != null) {
-                r = Response.ok(item).build();
+                r = Response.ok(item).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 throw new Exception("Nothing exist here!");
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -73,18 +73,24 @@ public class ItemsResource {
 
     @GET
     @Path("rest/{restaurantName}")
-    public Response getRestaurantItems(@PathParam("restaurantName") String name) throws Exception {
+    public Response getRestaurantItems(String ss) throws Exception {
+        
         r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String name=(String)json.get("name");
+        
         List<Item> items = itemService.getRestaurantItems(name);
         try {
             if (items != null) {
-                r = Response.ok(items).build();
+                r = Response.ok(items).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 throw new Exception("We dont have a list of items for that restaurant.");
 
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -94,17 +100,23 @@ public class ItemsResource {
 
     @GET
     @Path("search/{search}")
-    public Response Search(@PathParam("search") String name) throws Exception {
+    public Response Search(String ss) throws Exception {
+        
         r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String name=(String)json.get("name");
+        
         List<Item> items = itemService.Search(name);
         try {
             if (items != null) {
-                r = Response.ok(items).build();
+                r = Response.ok(items).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 throw new Exception("We dont have a list of items for that Search phrase.");
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.NOT_FOUND)
+            r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -114,9 +126,16 @@ public class ItemsResource {
 
     @POST
     @Path("/create")
-    public Response addItem(@QueryParam("name")String name,
-                            @QueryParam("price")String price,
-                            @QueryParam("restaurant")String Restaurant){
+    public Response addItem(String ss) throws ParseException{
+        
+        r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String name=(String)json.get("name");
+        String price=(String)json.get("price");
+        String Restaurant=(String)json.get("restaurant");
+        
         
         int pricee = Integer.parseInt(price);
         Item item = new Item(name, pricee, Restaurant);
@@ -124,9 +143,9 @@ public class ItemsResource {
 
             itemService.addItem(item);
             //itemService.createUser(item);
-            r = Response.ok().build();
+            r = Response.ok().header("Access-Control-Allow-Origin", "*").build();
         } catch (Exception e) {
-            r = Response.status(Response.Status.FORBIDDEN)
+            r = Response.status(Response.Status.FORBIDDEN).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -136,10 +155,17 @@ public class ItemsResource {
 
     @PUT
     @Path("update")
-    public Response updateItem(@QueryParam("id")String idd,
-                               @QueryParam("name")String name,
-                               @QueryParam("price")String price,
-                               @QueryParam("restaurant")String Restaurant){
+    public Response updateItem(String ss) throws ParseException{
+        
+        r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String idd=(String)json.get("id");
+        String name=(String)json.get("name");
+        String price=(String)json.get("price");
+        String Restaurant=(String)json.get("restaurant");
+        
         
         int id = Integer.parseInt(idd);
         int pricee = Integer.parseInt(price);
@@ -147,9 +173,9 @@ public class ItemsResource {
         r = null;
         try {
             itemService.updateItem(id, item);
-            r = Response.ok().build();
+            r = Response.ok().header("Access-Control-Allow-Origin", "*").build();
         } catch (Exception e) {
-            r = Response.status(Response.Status.FORBIDDEN)
+            r = Response.status(Response.Status.FORBIDDEN).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -160,13 +186,20 @@ public class ItemsResource {
 
     @DELETE
     @Path("{ItemId}")
-    public Response deleteItem(@PathParam("ItemId") long id) {
+    public Response deleteItem(String ss) throws ParseException {
+        
         r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        long id=(long)json.get("ItemId");
+        
+        
         try {
             Item i = itemService.removeItem(id);
-            r = Response.ok().build();
+            r = Response.ok().header("Access-Control-Allow-Origin", "*").build();
         } catch (Exception e) {
-            r = Response.status(Response.Status.NOT_FOUND)
+            r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -191,7 +224,7 @@ public class ItemsResource {
                     r = Response.ok().header("Access-Control-Allow-Origin", "*").entity(result).build();
          
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
