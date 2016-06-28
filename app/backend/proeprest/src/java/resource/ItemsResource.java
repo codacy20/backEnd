@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package resource;
-
+ 
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.*;
