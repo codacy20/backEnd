@@ -83,7 +83,7 @@ public class UserResource {
         JSONParser parser=new JSONParser();
         Object obj= parser.parse(ss);
         JSONObject json = (JSONObject)obj;
-        String username=(String)json.get("username");
+        String username=(String)json.get("username"); 
         String pass= (String)json.get("password");
         String email=(String)json.get("email");
         String city= (String)json.get("city");
@@ -127,7 +127,7 @@ public class UserResource {
         r = null;
         try {
             if (service.updateUser(u)) {
-                r = Response.noContent().build();
+                r = Response.ok(u).header("Access-Control-Allow-Origin", "*").entity(u).build();
             } else {
                 r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                         .entity("Username not found")
