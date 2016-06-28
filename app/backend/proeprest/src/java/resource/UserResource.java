@@ -42,12 +42,12 @@ public class UserResource {
         r = null;
         try {
             if (Users != null) {
-                return r = Response.ok(Users).build();
+                return r = Response.ok(Users).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 throw new Exception("Nothing exist here!");
             }
         } catch (Exception e) {
-            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            return r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         }
@@ -61,14 +61,14 @@ public class UserResource {
             User u = service.getUserByName(username);
             if (u != null) {
                 u.setPassword("");
-                r = Response.ok(u).build();
+                r = Response.ok(u).header("Access-Control-Allow-Origin", "*").build();
             } else {
-                r = Response.status(Response.Status.NOT_FOUND)
+                r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                         .entity("User does not exist")
                         .build();
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -78,26 +78,30 @@ public class UserResource {
 
     @POST
     @Path("/create")
-    public Response createUser(@QueryParam("username")String username,
-                               @QueryParam("password")String pass,
-                               @QueryParam("email")String email,
-                               @QueryParam("city")String city,
-                               @QueryParam("housenumber")String housenumber,
-                               @QueryParam("street")String street){
-
+    public Response createUser(String ss) throws ParseException{
+        r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String pass= (String)json.get("password");
+        String email=(String)json.get("email");
+        String city= (String)json.get("city");
+        String housenumber=(String)json.get("housenumber");
+        String street= (String)json.get("street");
         User u = new User(username, pass, new Address(city, street, housenumber), email);
         r = null;
         
         try {
             if (service.createUser(u)) {
-                r = Response.ok().entity(u).build();
+                r = Response.ok().header("Access-Control-Allow-Origin", "*").entity(u).build();
             } else {
-                r = Response.status(Response.Status.CONFLICT)
+                r = Response.status(Response.Status.CONFLICT).header("Access-Control-Allow-Origin", "*")
                         .entity("User already exists")
                         .build();
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -107,12 +111,17 @@ public class UserResource {
 
     @PUT
     @Path("update")
-    public Response updateUser(@QueryParam("username")String username,
-                               @QueryParam("password")String pass,
-                               @QueryParam("email")String email,
-                               @QueryParam("city")String city,
-                               @QueryParam("housenumber")String housenumber,
-                               @QueryParam("street")String street){
+    public Response updateUser(String ss) throws ParseException{
+        r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String pass= (String)json.get("password");
+        String email=(String)json.get("email");
+        String city= (String)json.get("city");
+        String housenumber=(String)json.get("housenumber");
+        String street= (String)json.get("street");
         
         User u = new User(username, pass, new Address(city, street, housenumber), email);
         r = null;
@@ -120,12 +129,12 @@ public class UserResource {
             if (service.updateUser(u)) {
                 r = Response.noContent().build();
             } else {
-                r = Response.status(Response.Status.NOT_FOUND)
+                r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                         .entity("Username not found")
                         .build();
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
@@ -141,8 +150,7 @@ public class UserResource {
         Object obj= parser.parse(ss);
         JSONObject json = (JSONObject)obj;
         String username=(String)json.get("username");
-        String passs;
-        passs = (String)json.get("password");
+        String passs = (String)json.get("password");
         
         try {
             int result = service.login(username, passs);
@@ -157,7 +165,7 @@ public class UserResource {
                             .build();
                     break;
                 case -1:
-                    r = Response.status(Response.Status.NOT_FOUND)
+                    r = Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*")
                             .entity("Username not found")
                             .build();
                     break;
@@ -170,29 +178,29 @@ public class UserResource {
             return r;
         }
     }
-    @POST
-    @Path("/signup")
-    public Response createUser(String u) {
-        
-        r = null;
-        r = Response.ok().build();
-//        try {
-//            if (service.createUser(u)) {
-//                r = Response.ok().build();
-//            } else {
-//                r = Response.status(Response.Status.CONFLICT)
-//                        .entity("User already exists")
-//                        .build();
-//            }
-//        } catch (Exception e) {
-//            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-//                    .entity(e.getMessage())
-//                    .build();
-//        } finally {
-//            return r;
-//        }
-        return r = Response.ok().entity(u).build();
-    }
+//    @POST
+//    @Path("/signup")
+//    public Response createUser(String u) {
+//        
+//        r = null;
+//        r = Response.ok().build();
+////        try {
+////            if (service.createUser(u)) {
+////                r = Response.ok().build();
+////            } else {
+////                r = Response.status(Response.Status.CONFLICT)
+////                        .entity("User already exists")
+////                        .build();
+////            }
+////        } catch (Exception e) {
+////            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+////                    .entity(e.getMessage())
+////                    .build();
+////        } finally {
+////            return r;
+////        }
+//        return r = Response.ok().entity(u).build();
+//    }
 
 
 }
