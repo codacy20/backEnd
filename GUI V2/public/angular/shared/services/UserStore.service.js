@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function UserStore($http, $q, $window) {
+    function UserStore($http, $q, $window, $state) {
         var userInfo;
 
         function loginUser(username, password) {
@@ -20,23 +20,9 @@
         }
 
         function logout() {
-            var deferred = $q.defer();
-
-            $http({
-                method: "POST",
-                url: "/api/logout",
-                headers: {
-                    "access_token": userInfo.accessToken
-                }
-            }).then(function (result) {
-                userInfo = null;
-                $window.sessionStorage["userInfo"] = null;
-                deferred.resolve(result);
-            }, function (error) {
-                deferred.reject(error);
-            });
-
-            return deferred.promise;
+            $window.sessionStorage["userInfo"] = null;
+            userInfo = undefined;
+            $state.go('app.main');
         }
 
         function getUserInfo() {
@@ -46,7 +32,6 @@
         function init() {
             if ($window.sessionStorage["userInfo"]) {
                 userInfo = JSON.parse($window.sessionStorage["userInfo"]);
-                console.log($window.sessionStorage["userInfo"])
             }
         }
         init();

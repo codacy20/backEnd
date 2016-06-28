@@ -22,8 +22,7 @@
                 .result.then(
                 function (bidPrice) {
                     Api.getBid().then(function(res) {
-                        vm.search = res.iD;
-                        console.log('res ', res);
+                        vm.search = res;
                     })
                 },
                 function () {

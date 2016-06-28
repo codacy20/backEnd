@@ -13,7 +13,6 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        console.log($urlRouterProvider)
         $urlRouterProvider.otherwise('/main');
         $stateProvider
             .state('app', {
@@ -21,13 +20,11 @@
                 redirectTo: 'app.main',
                 templateUrl: 'angular/pages/home.tpl.html',
                 resolve: {
-                    auth: function ($q, UserStore) {
+                    auth: function (UserStore) {
                         var userInfo = UserStore.getUserInfo();
-                        // if (userInfo) {
-                        //     return $q.when(userInfo);
-                        // } else {
-                        //     return $q.reject({ authenticated: false });
-                        // }
+                        if (userInfo) {
+                            return userInfo;
+                        }
                     }
                 }
             })
@@ -41,7 +38,7 @@
                 templateUrl: 'angular/pages/checkout/checkout.tpl.html',
                 controller: 'CheckoutCtrl as Checkout',
                 data: {
-                    requireLogin: false
+                    requireLogin: true
                 }
             })
             .state('app.register-login', {
@@ -61,28 +58,31 @@
             })
 
             //everything for the dashboard
-            .state('dashboard', {
+            .state('app.dashboard', {
                 url: 'dashboard',
                 redirectTo: 'dashboard.dashboard-view',
                 templateUrl: 'angular/pages/dashboard/dashboard.tpl.html'
             })
-            .state('dashboard.dashboard-view', {
+            .state('app.dashboard.dashboard-view', {
                 url: '/view',
                 templateUrl: 'angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html',
-                controller: 'DashboardViewCtrl as Dashboard'
+                controller: 'DashboardViewCtrl as Dashboard',
+                data: {
+                    requireLogin: false
+                }
             })
-            .state('dashboard.orders', {
+            .state('app.dashboard.orders', {
                 url: '/view',
                 templateUrl: 'angular/pages/dashboard/orders/orders.tpl.html',
                 controller: 'OrderCtrl as Order'
             })
-            .state('dashboard.comments', {
+            .state('app.dashboard.comments', {
                 url: '/view',
                 templateUrl: 'angular/pages/dashboard/comments/comments.tpl.html',
                 controller: 'CommentsCtrl as Comments'
             })
 
-            .state('edit-event', {
+            .state('app.edit-event', {
                 url: '/edit/:accessCode',
                 templateUrl: 'angular/pages/admin/edit-dashboard-view.tpl.html',
                 controller: 'EditEventCtrl as EditEvent',
@@ -102,21 +102,27 @@
 
 
     function run($rootScope, $location, $state, UserStore) {
-        console.log(UserStore.getUserInfo())
 
-        $rootScope.$on('$stateChangeStart', function (evt, to, params) {
+        $rootScope.$on('$stateChangeStart', function (evt, to, params, from) {
             var requireLogin = false;
             if (typeof to.data != 'undefined') {
                 requireLogin = to.data.requireLogin;
             }
 
-            //Check if user is logged in
-            if (requireLogin && typeof UserStore.getUserInfo() === 'undefined') {
-                evt.preventDefault();
-                $state.go('app.main')
 
+            //Check if user is not logged in
+            // if (requireLogin && typeof UserStore.getUserInfo() === 'undefined' || UserStore.getUserInfo() == null) {
+            //     evt.preventDefault();
+            //    // $state.go('app.main')
+            // }
+
+
+            if(to.url == "/user-login"){
+                if(from.url != "register-login") {
+                    evt.preventDefault();
+                    $state.go('app.register-login')
+                }
             }
-
 
             if (to.redirectTo) {
                 evt.preventDefault();

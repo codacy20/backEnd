@@ -46,48 +46,50 @@
     }
 
 </style>
+<div class="container">
 
-<div class="row">
+    <div class="row">
 
-    <div class="col-sm-6">
-        <div class="wrapper">
+        <div class="col-sm-6">
+            <div class="wrapper">
 
-            <form class="form-signin">
-                <h2 class="form-signin-heading">Login</h2>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.user-login">User</a>
+                <form class="form-signin" ng-hide="RegisterLogin.showDetailedLogin">
+                    <h2 class="form-signin-heading">Login</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.user-login">User</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.restaurant-login"  >Restaurant</a>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.restaurant-login"  >Restaurant</a>
-                    </div>
-                </div>
-            </form>
+                </form>
 
-            <!--Show Custom Login-->
-            <div ui-view></div>
+                <!--Show Custom Login-->
+                <div ui-view></div>
+
+
+            </div>
 
 
         </div>
+        <div class="col-sm-6">
+            <div class="wrapper">
+                <form class="form-signin">
+                    <h2 class="form-signin-heading">Register</h2>
+                    <input type="text" class="form-control" name="username" placeholder="Name" required="" autofocus="" />
+                    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+                    <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
+                    <input type="password" class="form-control" name="phone" placeholder="Phone" required=""/>
 
-
-    </div>
-    <div class="col-sm-6">
-        <div class="wrapper">
-            <form class="form-signin">
-                <h2 class="form-signin-heading">Register</h2>
-                <input type="text" class="form-control" name="username" placeholder="Name" required="" autofocus="" />
-                <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-                <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
-                <input type="password" class="form-control" name="phone" placeholder="Phone" required=""/>
-
-                <input type="text" class="form-control" name="city" placeholder="City" required="" autofocus="" />
-                <input type="text" class="form-control" name="housenr" placeholder="housenr" required="" autofocus="" />
-                <input type="text" class="form-control" name="street" placeholder="Street" required="" autofocus="" />
-                <input type="text" class="form-control" name="postcode" placeholder="Postcode" required="" autofocus="" />
-                <br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-            </form>
+                    <input type="text" class="form-control" name="city" placeholder="City" required="" autofocus="" />
+                    <input type="text" class="form-control" name="housenr" placeholder="housenr" required="" autofocus="" />
+                    <input type="text" class="form-control" name="street" placeholder="Street" required="" autofocus="" />
+                    <input type="text" class="form-control" name="postcode" placeholder="Postcode" required="" autofocus="" />
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

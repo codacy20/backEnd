@@ -1,15 +1,18 @@
-<style>ul.dropdown-cart{
-    min-width:250px;
+<style>ul.dropdown-cart {
+    min-width: 250px;
 }
-ul.dropdown-cart li .item{
-    display:block;
-    padding:3px 10px;
+
+ul.dropdown-cart li .item {
+    display: block;
+    padding: 3px 10px;
     margin: 3px 0;
 }
-ul.dropdown-cart li .item:hover{
-    background-color:#f3f3f3;
+
+ul.dropdown-cart li .item:hover {
+    background-color: #f3f3f3;
 }
-ul.dropdown-cart li .item:after{
+
+ul.dropdown-cart li .item:after {
     visibility: hidden;
     display: block;
     font-size: 0;
@@ -18,24 +21,29 @@ ul.dropdown-cart li .item:after{
     height: 0;
 }
 
-ul.dropdown-cart li .item-left{
-    float:left;
+ul.dropdown-cart li .item-left {
+    float: left;
 }
+
 ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info{
-    float:left;
+ul.dropdown-cart li .item-left span.item-info {
+    float: left;
 }
-ul.dropdown-cart li .item-left span.item-info{
-    margin-left:10px;
+
+ul.dropdown-cart li .item-left span.item-info {
+    margin-left: 10px;
 }
-ul.dropdown-cart li .item-left span.item-info span{
-    display:block;
+
+ul.dropdown-cart li .item-left span.item-info span {
+    display: block;
 }
-ul.dropdown-cart li .item-right{
-    float:right;
+
+ul.dropdown-cart li .item-right {
+    float: right;
 }
-ul.dropdown-cart li .item-right button{
-    margin-top:14px;
+
+ul.dropdown-cart li .item-right button {
+    margin-top: 14px;
 }
 
 </style>
@@ -61,10 +69,22 @@ ul.dropdown-cart li .item-right button{
                 <!--<li><a href="#">Category one <span class="sr-only"></span></a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ><a ui-sref="app.register-login">Register/Login </a></li>
-                <li ><a ui-sref="dashboard.dashboard-view">Dashboard </a></li>
+
+                <li><a ui-sref="app.dashboard.dashboard-view">Dashboard </a></li>
+
+
+                <li ng-show="user" class="dropdown" uib-dropdown>
+                    <a href="#" role="button" aria-expanded="false" uib-dropdown-toggle>
+                        Hello {{user.username}}! <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+                        <li><a class="text-center" ng-click="logout()">Logout</a></li>
+                    </ul>
+                </li>
+                <li ng-show="!user"><a ui-sref="app.register-login">Register/Login </a></li>
+
+
                 <li class="dropdown" uib-dropdown>
-                    <a href="#"  role="button" aria-expanded="false" uib-dropdown-toggle>
+                    <a href="#" role="button" aria-expanded="false" uib-dropdown-toggle>
                         <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-cart" role="menu" uib-dropdown-menu>
                         <li>

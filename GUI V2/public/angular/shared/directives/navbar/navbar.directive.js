@@ -1,11 +1,22 @@
 (function () {
     'use strict';
-    function navbar ($parse) {
+    function navbar (UserStore) {
         /**
          * @name link
          * @desc Directive link
          */
         function link (scope, elem, attrs) {
+            scope.user = UserStore.getUserInfo();
+
+            scope.logout = function() {
+                UserStore.logout();
+                scope.user = undefined;
+            }
+
+            scope.$on('login', function () {
+                scope.user = undefined;
+                scope.user = UserStore.getUserInfo();
+            })
 
         }
 
