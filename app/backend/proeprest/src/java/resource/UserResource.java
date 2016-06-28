@@ -149,10 +149,10 @@ public class UserResource {
             switch (result) {
                 case 1:
                     User u = service.getUserByName(username);
-                    r = Response.ok().header("Access-Coontrol-Allow-Origin", "*").entity(u).build();
+                    r = Response.ok().header("Access-Control-Allow-Origin", "*").entity(u).build();
                     break;
                 case 0:
-                    r = Response.status(Response.Status.UNAUTHORIZED).header("Access-Coontrol-Allow-Origin", "*")
+                    r = Response.status(Response.Status.UNAUTHORIZED).header("Access-Control-Allow-Origin", "*")
                             .entity("Password incorrect")
                             .build();
                     break;
@@ -163,7 +163,7 @@ public class UserResource {
                     break;
             }
         } catch (Exception e) {
-            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Coontrol-Allow-Origin", "*")
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
                     .entity(e.getMessage())
                     .build();
         } finally {
