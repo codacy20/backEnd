@@ -1,0 +1,32 @@
+ <div class="row">
+        <input type="text" id="search-bar" placeholder="Search Food" ng-model="Main.search" >
+
+        <button class="btn btn-default btn-lg" ng-click="Main.showModal()">Surprise Me</button>
+
+        <div ng-repeat="product in Main.products | filter: Main.search">
+            <product name="{{product.name}}" restaurant="{{product.resteurant}}" price="{{product.price}}" imageurl="http://placehold.it/300x150"></product>
+        </div>
+
+    </div>
+
+
+<!-- Comment -- Because of science :D-->
+<script type="text/ng-template" id="myModalContent.html" ng-controller="ModalDialogController">
+    <div class="modal-header">
+        <h3 class="modal-title">Surprise me</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="usr">Price:</label>
+            <input type="number" class="form-control" id="usr" ng-model="modal.bidPrice">
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="modal.ok()">Search Bid</button>
+    </div>
+</script>
+
+
+
