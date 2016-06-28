@@ -5,6 +5,7 @@
  */
 package resource;
 
+import model.Restaurant;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import model.Address;
 import model.Item;
-import model.Restaurant;
 import model.User;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -140,6 +140,46 @@ public class RestaurantResource {
                 r = Response.status(Response.Status.CONFLICT)
                         .entity("Restaurant already exists")
                         .build();
+                
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            
+            return r;
+        }
+    }
+    
+    @POST
+    @Path("/login")
+    public Response login(String ss) throws ParseException {
+        r = null;
+        //r.getHeaderString();
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String passs = (String)json.get("password");
+        
+        try {
+            int result = service.login(username, passs);
+            switch (result) {
+                case 1:
+                    Restaurant u = service.getRestaurantByname(username);
+                    r = Response.ok().header("Access-Coontrol-Allow-Origin", "*").entity(u).build();
+                    break;
+                case 0:
+                    r = Response.status(Response.Status.UNAUTHORIZED)
+                            .entity("Password incorrect")
+                            .build();
+                    break;
+                case -1:
+                    r = Response.status(Response.Status.NOT_FOUND)
+                            .entity("Username not found")
+                            .build();
+                    break;
             }
         } catch (Exception e) {
             r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)

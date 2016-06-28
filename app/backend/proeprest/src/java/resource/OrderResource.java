@@ -21,7 +21,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import model.Item;
 import model.Order;
-import model.Restaurant;
 import service.OrderService;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONObject;

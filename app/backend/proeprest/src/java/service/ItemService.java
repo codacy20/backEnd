@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Item;
@@ -52,6 +53,22 @@ public class ItemService implements Serializable{
     public Item getItem(long id) throws Exception {
         for (Item i : itemlist) {
             if (i.getID() == id) {
+                return i;
+            }
+        }
+        return null;
+    }
+    public Item surpriseMe(String amount) throws Exception {
+        Random r= new Random();
+        int am=Integer.parseInt(amount);
+        int respond=r.nextInt(am);
+        while(am<itemlist.get(respond).getBidPrice())
+        {
+             respond=r.nextInt(am);
+        }
+        
+        for (Item i : itemlist) {
+            if( i.getID()==respond){
                 return i;
             }
         }

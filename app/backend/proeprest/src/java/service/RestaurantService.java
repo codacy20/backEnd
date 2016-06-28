@@ -5,6 +5,7 @@
  */
 package service;
 
+import model.Restaurant;
 import database.Database;
 import database.InputOutput;
 import java.io.IOException;
@@ -119,6 +120,19 @@ public class RestaurantService implements Serializable{
         System.err.println(restaurants.size()+1);
         write();
         return true;
+    }
+    
+     public int login(String user, String pass) {
+        for (Restaurant R : restaurants) {
+            if (R.getRestaurantName().equals(user)) {
+                if (R.getPassword().equals(pass)) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        }
+        return -1;
     }
     
     public boolean addComment(String comment, String resName) {

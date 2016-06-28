@@ -11,6 +11,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import model.Item;
+import model.Restaurant;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import service.ItemService;
 
 /**
@@ -36,7 +40,7 @@ public class ItemsResource {
         r = null;
         try {
             if (items != null) {
-                return r = Response.ok(items).build();
+                return r = Response.ok(items).header("Access-Control-Allow-Origin", "*").build();
             } else {
                 throw new Exception("Nothing exist here!");
             }
@@ -163,6 +167,31 @@ public class ItemsResource {
             r = Response.ok().build();
         } catch (Exception e) {
             r = Response.status(Response.Status.NOT_FOUND)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+    @POST
+    @Path("/surpriseme")
+    public Response surpriseme(String ss) throws ParseException {
+        r = null;
+        //r.getHeaderString();
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String amount=(String)json.get("amount");
+        
+        
+        try {
+            Item result = itemService.surpriseMe(amount);
+            
+            
+                    r = Response.ok().header("Access-Control-Allow-Origin", "*").entity(result).build();
+         
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
                     .build();
         } finally {

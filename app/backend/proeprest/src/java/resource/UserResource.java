@@ -17,6 +17,8 @@ import org.glassfish.jersey.server.JSONP;
 import service.UserService;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 /**
  * REST Web Service
  *
@@ -133,10 +135,17 @@ public class UserResource {
 
     @POST
     @Path("login/")
-    public Response login(@QueryParam("username") String name,@QueryParam("password") String pass) {
+    public Response login(String ss,@QueryParam("username") String name,@QueryParam("password") String pass) throws ParseException {
         r = null;
+        JSONParser parser=new JSONParser();
+        Object obj= parser.parse(ss);
+        JSONObject json = (JSONObject)obj;
+        String username=(String)json.get("username");
+        String passs;
+        passs = (String)json.get("password");
+        
         try {
-            int result = service.login(name, pass);
+            int result = service.login(username, passs);
             switch (result) {
                 case 1:
                     User u = service.getUserByName(name);

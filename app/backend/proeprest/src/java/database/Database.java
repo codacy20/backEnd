@@ -5,6 +5,7 @@
  */
 package database;
 
+import model.Restaurant;
 import com.mysql.jdbc.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

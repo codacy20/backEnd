@@ -8,6 +8,8 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import model.Address;
+import model.Item;
 
 /**
  *
