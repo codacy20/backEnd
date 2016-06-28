@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div ng-click="Dashboard.showModal()" class="col-sm-4">
         <div class="inner add-menu">
             <span class="glyphicon glyphicon-plus"></span>
             <div class="col-sm-8">
@@ -60,3 +60,28 @@
         </div>
     </div>
 </div>
+
+
+<!--Add menu modal-->
+<script type="text/ng-template" id="addModalContent.html" ng-controller="AddMenuModalController">
+    <div class="modal-header">
+        <h3 class="modal-title">Add Restaurant Menu</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" ng-model="modal.name">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" ng-model="modal.price">
+            <label for="bidPrice">Bid Price:</label>
+            <input type="number" class="form-control" id="bidPrice" ng-model="modal.bidPrice">
+            <label for="image">Image Url:</label>
+            <input type="number" class="form-control" id="image" ng-model="modal.image">
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="modal.ok()">Add Item</button>
+    </div>
+</script>
