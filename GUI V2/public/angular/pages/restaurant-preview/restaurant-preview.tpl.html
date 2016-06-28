@@ -1,1 +1,110 @@
-<div>restaurant preview page</div>
+<style>
+    .restaurant_header
+    {
+        height: 300px;
+        background-color: #F5AB35;
+        background-image: url("images/eat-up-bkg1.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: 6px;
+    }
+    .inner
+    {
+        padding-top:10%;
+        text-align: center;
+        color: white;
+    }
+    .inner h1
+    {
+        color: #ffffff;
+    }
+    .glyphicon.glyphicon-heart
+    {
+        font-size: 35px;
+        color: indianred;
+    }
+    .ratings
+    {
+        text-align: center;
+        padding-top: 5%;
+    }
+    hr
+    {
+        border-top: 1px solid lightgray;
+    }
+    .comments {
+        list-style: none;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px 40px;
+    }
+    .comments .comment {
+        margin-bottom: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #000;
+    }
+    .comments .comment__author h3 {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .comments .comment__text p {
+        font-style: italic;
+        color: black;
+    }
+
+</style>
+<section>
+    <div class="col-sm-12 restaurant_header">
+        <div class="inner">
+               <h1>Restaurant Name's Profile</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="res_address">
+                <h2>Location:</h2>
+                <h3>Housenumber & street,</h3>
+                <h3>Postcode,</h3>
+                <h3>City, Country</h3>
+            </div>
+
+
+        </div>
+        <div class="col-sm-6">
+            <div class="ratings">
+                <h2>User ratings</h2>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="glyphicon glyphicon-heart"></span>
+                <hr>
+                <p><i>"Amazing services..."</i></p>
+                <p><i>"Food has was great, thanks!"</i></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="text-align: center;" class="row">
+            <h2>Comments</h2>
+        </div>
+        <ul class="comments">
+            <li class="comment">
+                <div class="comment__author">
+                    <h3>Tina</h3>
+                </div>
+                <div class="comment__text">
+                    <p>I really enjoyed your service. Order was right on time and food was still hot</p>
+                </div>
+            </li>
+            <li class="comment">
+                <div class="comment__author">
+                    <h3>Tina</h3>
+                </div>
+                <div class="comment__text">
+                    <p>I really enjoyed your service. Order was right on time and food was still hot</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -46,15 +46,11 @@
                 templateUrl: 'angular/pages/register-login/register-login.tpl.html',
                 controller: 'RegisterLoginCtrl as RegisterLogin'
             })
-            .state('app.restaurant-admin', {
-                url: 'restaurant-admin',
-                templateUrl: 'angular/pages/restaurant-admin/restaurant-admin.tpl.html'
-                // controller: 'RestaurantAdminCtrl as RestaurantAdmin'
-            })
+          
             .state('app.restaurant-preview', {
                 url: 'restaurant-preview',
-                templateUrl: 'angular/pages/restaurant-preview/restaurant-preview.tpl.html'
-                // controller: 'RestaurantPreviewCtrl as RestaurantPreview'
+                templateUrl: 'angular/pages/restaurant-preview/restaurant-preview.tpl.html',
+                controller: 'RestaurantPreviewCtrl as RestaurantPreview'
             })
 
             //everything for the dashboard
