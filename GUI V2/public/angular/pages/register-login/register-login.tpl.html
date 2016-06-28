@@ -41,21 +41,36 @@
         border-top-right-radius: 0;
     }
 
+     .form-signin .btn {
+        width: 220px;
+    }
+
 </style>
+
 <div class="row">
 
     <div class="col-sm-6">
         <div class="wrapper">
+
             <form class="form-signin">
                 <h2 class="form-signin-heading">Login</h2>
-                <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-                <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-                <label class="checkbox pull-right">
-                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.user-login">User</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary btn-lg" type="button" ng-click="RegisterLogin.OnloginSelection()" ui-sref="app.register-login.restaurant-login"  >Restaurant</a>
+                    </div>
+                </div>
             </form>
+
+            <!--Show Custom Login-->
+            <div ui-view></div>
+
+
         </div>
+
+
     </div>
     <div class="col-sm-6">
         <div class="wrapper">
@@ -76,3 +91,31 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<!--LOGIN-->
+<script type="text/ng-template" id="user-login.tpl.html" >
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Login User</h2>
+        <input type="text" class="form-control" name="username" placeholder="Email Address" ng-model="username" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password" required=""/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="RegisterLogin.loginUser(username, password)">Login</button>
+    </form>
+</script>
+
+
+<script type="text/ng-template" id="restaurant-login.tpl.html" >
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Login Restaurant</h2>
+        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+        <label class="checkbox pull-right">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="RegisterLogin.showAlert()">Login</button>
+    </form>
+</script>

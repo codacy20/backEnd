@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     angular
         .module('app', [
@@ -14,12 +14,22 @@
 
     function config($stateProvider, $urlRouterProvider) {
         console.log($urlRouterProvider)
-        // $urlRouterProvider.otherwise('/main');
+        $urlRouterProvider.otherwise('/main');
         $stateProvider
             .state('app', {
                 url: '/',
-                 redirectTo: 'app.main',
-                templateUrl: 'angular/pages/home.tpl.html'
+                redirectTo: 'app.main',
+                templateUrl: 'angular/pages/home.tpl.html',
+                resolve: {
+                    auth: function ($q, UserStore) {
+                        var userInfo = UserStore.getUserInfo();
+                        // if (userInfo) {
+                        //     return $q.when(userInfo);
+                        // } else {
+                        //     return $q.reject({ authenticated: false });
+                        // }
+                    }
+                }
             })
             .state('app.main', {
                 url: 'main',
@@ -29,11 +39,14 @@
             .state('app.checkout', {
                 url: 'checkout',
                 templateUrl: 'angular/pages/checkout/checkout.tpl.html',
-                controller: 'CheckoutCtrl as Checkout'
+                controller: 'CheckoutCtrl as Checkout',
+                data: {
+                    requireLogin: false
+                }
             })
             .state('app.register-login', {
                 url: 'register-login',
-                templateUrl: 'angular/pages/register-login/dashboard-view.tpl.html',
+                templateUrl: 'angular/pages/register-login/register-login.tpl.html',
                 controller: 'RegisterLoginCtrl as RegisterLogin'
             })
             .state('app.restaurant-admin', {
@@ -46,7 +59,7 @@
                 templateUrl: 'angular/pages/restaurant-preview/restaurant-preview.tpl.html'
                 // controller: 'RestaurantPreviewCtrl as RestaurantPreview'
             })
-            
+
             //everything for the dashboard
             .state('dashboard', {
                 url: 'dashboard',
@@ -74,7 +87,7 @@
                 templateUrl: 'angular/pages/admin/edit-dashboard-view.tpl.html',
                 controller: 'EditEventCtrl as EditEvent',
                 data: {
-                    requireLogin: false
+                    requireLogin: true
                 }
             })
     }
@@ -87,15 +100,29 @@
         .module('app')
         .run(run);
 
-    run.$inject = ['$rootScope', '$location'];
 
-    function run($rootScope, $location) {
+    function run($rootScope, $location, $state, UserStore) {
+        console.log(UserStore.getUserInfo())
 
-        $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+        $rootScope.$on('$stateChangeStart', function (evt, to, params) {
+            var requireLogin = false;
+            if (typeof to.data != 'undefined') {
+                requireLogin = to.data.requireLogin;
+            }
+
+            //Check if user is logged in
+            if (requireLogin && typeof UserStore.getUserInfo() === 'undefined') {
+                evt.preventDefault();
+                $state.go('app.main')
+
+            }
+
+
             if (to.redirectTo) {
                 evt.preventDefault();
                 $state.go(to.redirectTo, params, {location: 'replace'})
             }
+
         });
 
     }
