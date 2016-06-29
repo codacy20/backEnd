@@ -35,7 +35,7 @@
             var params = {};
             params.restaurantUsername = restaurantUsername;
             params.item = item;
-            return $http.post(url.base);//
+            return $http.post(url.base+'/item/create',params).then(success,error);//
 
         }
 
