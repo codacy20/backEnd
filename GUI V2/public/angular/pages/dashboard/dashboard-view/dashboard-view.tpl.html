@@ -4,18 +4,21 @@
         color: white;
         border-radius: 6px;
         height:150px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
     }
     .new-orders{
         background-color: #5cb85c;
         color: white;
         border-radius: 6px;
         height:150px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
     }
     .add-menu{
         background-color: #d9534f;
         color: white;
         border-radius: 6px;
         height:150px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
     }
     .inner
     {
@@ -26,29 +29,40 @@
     .glyphicon.glyphicon-plus{
         font-size: 75px;
     }
+    .header-res
+    {
+        padding-top: 7%;
+        height:200px;
+        color: white;
+
+    }
 </style>
 
-<div style="text-align: center;" class="row jumbotron">
+<div style="text-align: center;" class="row header-res">
     <h3> Dashboard overview</h3>
 </div>
 <div class="row top_panel">
     <div class="col-sm-4">
-        <div class="inner new-comments">
-                <span class="glyphicon glyphicon-comment"></span>
-           <div class="col-sm-8">
-               <h2>{{3}}</h2>
-               <h3>New comments!</h3>
-           </div>
-        </div>
+        <a ui-sref="app.dashboard.comments">
+            <div class="inner new-comments">
+                    <span class="glyphicon glyphicon-comment"></span>
+               <div class="col-sm-8">
+                   <h2>{{3}}</h2>
+                   <h3>New comments!</h3>
+               </div>
+            </div>
+        </a>
     </div>
     <div class="col-sm-4">
-        <div class="inner new-orders">
-            <span class="glyphicon glyphicon-th-list"></span>
-            <div class="col-sm-8">
-                <h2>{{6}}</h2>
-                <h3>New Orders!</h3>
+        <a ui-sref="app.dashboard.orders">
+            <div class="inner new-orders">
+                <span class="glyphicon glyphicon-th-list"></span>
+                <div class="col-sm-8">
+                    <h2>{{6}}</h2>
+                    <h3>New Orders!</h3>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div ng-click="Dashboard.showModal()" class="col-sm-4">
         <div class="inner add-menu">
