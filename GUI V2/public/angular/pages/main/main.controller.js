@@ -12,6 +12,8 @@
                 vm.products = res.data;
             })
         }
+        
+        
 
         vm.showModal = function(){
             $uibModal.open({

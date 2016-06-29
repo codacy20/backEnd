@@ -1,12 +1,14 @@
 (function () {
     'use strict';
-    function product ($parse) {
+    function product (ShoppingCart) {
         /**
          * @name link
          * @desc Directive link
          */
         function link (scope, elem, attrs) {
-
+            scope.addProduct = function(item) {
+                ShoppingCart.addItem(item);
+            }
         }
 
         return {
@@ -14,10 +16,7 @@
             link: link,
             templateUrl: 'angular/shared/directives/product/product.tpl.html',
             scope: {
-                name: '@',
-                price: '@',
-                imageurl: '@',
-                restaurant: '@'
+                product: '='
             }
         }
     }

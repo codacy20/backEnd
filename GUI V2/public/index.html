@@ -4,6 +4,7 @@
 
     <meta charset="utf-8">
     <title>Shop</title>
+    <script src="bower_components/sweetalert/dist/sweetalert-dev.js"></script>
 
 
     <!-- Angular dependencies-->
@@ -19,6 +20,10 @@
     <link rel="stylesheet" type="text/css" href="css/united.bootswatch.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
+    <!-- OTHER-->
+    <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
+
+
 </head>
 
 <body>
@@ -27,6 +32,7 @@
 <!-- App -->
 <script src="angular/app.js"></script>
 <script src="angular/shared/services/api.service.js"></script>
+<script src="angular/shared/directives/sweet-alert/swal.service.js"></script>
 <script src="angular/pages/main/main.controller.js"></script>
 <script src="angular/pages/checkout/checkout.controller.js"></script>
 <script src="angular/pages/register-login/register-login.controller.js"></script>
@@ -40,6 +46,7 @@
 
 <script src="angular/pages/register-login/register-login.route.js"></script>
 <script src="angular/shared/services/UserStore.service.js"></script>
+<script src="angular/shared/services/ShoppingCart.service.js"></script>
 
 
 <!-- End Angular -->

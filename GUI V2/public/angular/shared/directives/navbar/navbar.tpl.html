@@ -86,64 +86,32 @@ ul.dropdown-cart li .item-right button {
 
                 <li class="dropdown" uib-dropdown>
                     <a href="#" role="button" aria-expanded="false" uib-dropdown-toggle>
-                        <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
-                    <ul class="dropdown-menu dropdown-cart" role="menu" uib-dropdown-menu>
-                        <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt=""/>
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-                        </li>
-                        <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt=""/>
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-                        </li>
-                        <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt=""/>
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-                        </li>
-                        <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt=""/>
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-                        </li>
+                        <span class="glyphicon glyphicon-shopping-cart"></span> {{shoppingCart.count}} - Items<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-cart" role="menu" uib-dropdown-menu >
+                        <h5 ng-show="shoppingCart.count == 0" class="text-center">
+                            Add items to your shopping cart!
+                        </h5>
+                        <div style="max-height: 200px; overflow: scroll">
+                            <li ng-repeat="item in shoppingCart.orderList track by $index" >
+                          <span class="item">
+                            <span class="item-left">
+                                <!--<img src="{{item.image}}" alt="" width="30" height="30"/>-->
+                                <img src="http://lorempixel.com/50/50/" alt="" width="50" height="50"/>
+                                <span class="item-info">
+                                    <span>{{item.name}}</span>
+                                    <span>€{{item.price}}</span>
+                                </span>
+                            </span>
+                            <span class="item-right">
+                                <button class="btn btn-xs btn-danger pull-right" ng-click="removeShoppingCartItem(item)">x</button>
+                            </span>
+                          </span>
+                            </li>
+                        </div>
+
+
                         <li class="divider"></li>
                         <li><a class="text-center" ui-sref="app.checkout">View Cart - Checkout</a></li>
                     </ul>
