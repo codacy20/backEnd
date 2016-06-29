@@ -1,6 +1,6 @@
 (function () {
 
-function DashboardViewCtrl ($http, $state, $uibModal) {
+function DashboardViewCtrl ($http, $state, $uibModal, Api) {
     var vm = this;
 
 
@@ -12,7 +12,7 @@ function DashboardViewCtrl ($http, $state, $uibModal) {
         })
             .result.then(
             function (product) {
-                console.log(product)
+                Api.addItemToOrder(product).then(success,error);
             },
             function () {
                 //cancelled

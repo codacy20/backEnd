@@ -32,11 +32,9 @@
 
         //add item to Order
         this.addItemToOrder = function (restaurantUsername, item) {
-            var params = {};
-            params.restaurantUsername = restaurantUsername;
-            params.item = item;
-            return $http.post(url.base+'/item/create',params).then(success,error);//
-
+            item.restaurant = restaurantUsername;
+            console.log(item);
+            return $http.post(url.base+'/item/create',item).then(success,error);//
         }
 
     }
