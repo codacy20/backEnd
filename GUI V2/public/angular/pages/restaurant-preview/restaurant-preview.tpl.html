@@ -65,6 +65,7 @@
         width: 100%;
         resize: none;
         border: none;
+        color: #000;
     }
 
 
@@ -111,10 +112,10 @@
                 <li class="comment">
                     <div style="width: 500px;" class="comment-block">
                         <form action="">
-                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."ng-model="comment"></textarea>
                         </form>
                     </div>
-                    <button class="action-button shadow animate yellow btn btn-lg">Post</button>
+                    <button class="action-button shadow animate yellow btn btn-lg" ng-click="addcomment(comment)">Post</button>
                 </li>
                 <li class="comment">
                     <div class="comment__author">

@@ -40,6 +40,17 @@
             // console.log(item);
         }
 
+        //add comment to restaurnt preview page
+        this.addComment = function (restaurantUsername, username, comment) {
+            var params = {};
+            params.username = username;
+            params.restaurantUsername = restaurantUsername;
+            params.comment = comment;
+            console.log(params);
+            // return $http.post(url.base+'')
+
+        }
+
     }
 
     angular
