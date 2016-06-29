@@ -3,7 +3,7 @@
     function Api ($q, $http) {
 
         var url = {
-            base: 'http://192.168.20.17:8080/webshop/api/'
+            base: 'http://192.168.20.20:8080/webshop/api/'
             // base: 'localhost'
         }
 
@@ -29,6 +29,15 @@
         this.checkout = function (params) {
             return $http.post(url.base + 'order/create/', params).then(success, error);
         };
+
+        //add item to Order
+        this.addItemToOrder = function (restaurantUsername, item) {
+            var params = {};
+            params.restaurantUsername = restaurantUsername;
+            params.item = item;
+            return $http.post(url.base+'/item/create',params).then(success,error);//
+
+        }
 
     }
 

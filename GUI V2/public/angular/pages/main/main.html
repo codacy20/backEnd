@@ -1,16 +1,15 @@
-<div class="container">
-    <div class="row">
-        <input type="text" id="search-bar" placeholder="Search Food" ng-model="Main.search" >
+ <div class="container">
+        <div class="row">
+            <input type="text" id="search-bar" placeholder="Search Food" ng-model="Main.search" >
 
-        <button class="btn btn-default btn-lg" ng-click="Main.showModal()">Surprise Me</button>
+            <button class="action-button shadow animate yellow btn btn-lg" ng-click="Main.showModal()">Surprise Me</button>
 
         <div ng-repeat="product in Main.products | filter: Main.search">
             <product product="product" imageurl="http://placehold.it/300x150"></product>
         </div>
 
+        </div>
     </div>
-</div>
-
 
 <!-- Comment -- Because of science :D-->
 <script type="text/ng-template" id="myModalContent.html" ng-controller="ModalDialogController">

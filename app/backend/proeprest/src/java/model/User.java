@@ -17,7 +17,9 @@ public class User implements Serializable{
     String password;
     Address address;
     String email;
-
+    //group can be user or restaurant
+    String group="user";
+    
     public User() {
     }
 
@@ -26,6 +28,7 @@ public class User implements Serializable{
         this.password = password;
         this.address = address;
         this.email = email;
+        group="user";
     }
 
     public void setUsername(String username) {

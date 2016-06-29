@@ -28,11 +28,9 @@ public class UserService implements Serializable{
     final static String FILE_NAME_Amir = "C:\\Users\\Amir\\Desktop\\newUser";
 
     public UserService() throws SQLException {
-        users.add(new User("Tycho", "pass", (new Address("Eindhoven", "Streetname", "12")), "a@b.com"));
-        users.add(new User("Tom", "pass", (new Address("Eindhoven", "Streetname", "13")), "a@b.com"));
+   
         
         read();
-        System.err.println("Ran the Write USER");
         
         System.err.println("Ran the Read USER");
     }   

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="product-img">
-                <img src="{{product.image}}" alt=""/>
+                <img width="300" height="200"  src="{{product.image}}" alt=""/>
             </div>
         </div>
         <div class="col-sm-6">
@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-2">
             <div class="buy-button">
-                <button ng-click="addProduct(product)">ADD TO CART</button>
+                <button class="action-button shadow animate red" ng-click="addProduct(product)">ADD TO CART</button>
             </div>
         </div>
     </div>
