@@ -313,11 +313,11 @@ public class Database {
                     int price = Integer.parseInt(rs4.getString(4));
 
                     String name= rs.getString(2);
-                    Order or = new Order(Order_ID,name);
+                    //Order or = new Order(Order_ID,name);
                     //end of inner query
-                    orderList.add(or);
+                    //orderList.add(or);
 
-                    or.AddItemToOrder(new Item(item_name, price, item_rest));
+                    //or.AddItemToOrder(new Item(item_name, price, item_rest));
                     }
             }
             

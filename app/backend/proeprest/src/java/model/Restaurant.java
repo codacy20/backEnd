@@ -18,25 +18,28 @@ import model.Item;
 public class Restaurant implements Serializable{
 
     int restaurant_ID;
-    String restaurant_Name;
+    String username;
     String password;
     Address address;
     String email;
     String phoneNumber;
     List<Item> menu;
     List<String> comments;
+    //group can be user or restaurant
+    String group="restaurant";
     
 
     public Restaurant() {
     }
 
     public Restaurant(String username, String password, Address address, String email,String phoneNumber) {
-        this.restaurant_Name = username;
+        this.username = username;
         this.password = password;
         this.address = address;
         this.email = email;
         this.phoneNumber= phoneNumber;
         comments=new ArrayList<String>();
+        group="restaurant";
     }
 
     
@@ -46,7 +49,7 @@ public class Restaurant implements Serializable{
     }
 
     public void setRestaurantName(String resName) {
-        this.restaurant_Name = resName;
+        this.username = resName;
     }
 
     public void setPassword(String password) {
@@ -76,7 +79,7 @@ public class Restaurant implements Serializable{
     }
 
     public String getRestaurantName() {
-        return restaurant_Name;
+        return username;
     }
 
     public String getPassword() {

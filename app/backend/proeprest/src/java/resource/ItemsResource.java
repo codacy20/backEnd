@@ -71,6 +71,27 @@ public class ItemsResource {
         }
     }
 
+    @POST
+    @Path("setimage/{ItemId}")
+    public Response SetItemImg(@PathParam("ItemId") long id,String url) throws Exception {
+        r = null;
+        Item item = itemService.getItem(id);
+        item.setImage(url);
+        try {
+            if (item != null) {
+                r = Response.ok(item).header("Access-Control-Allow-Origin", "*").build();
+            } else {
+                throw new Exception("Nothing exist here!");
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+    
     @GET
     @Path("rest/{restaurantName}")
     public Response getRestaurantItems(String ss) throws Exception {
@@ -206,13 +227,15 @@ public class ItemsResource {
             return r;
         }
     }
+    
     @POST
     @Path("/surpriseme")
     public Response surpriseme(String ss) throws ParseException {
         r = null;
         //r.getHeaderString();
         JSONParser parser=new JSONParser();
-        Object obj= parser.parse(ss);
+        Object obj;
+        obj = parser.parse(ss);
         JSONObject json = (JSONObject)obj;
         String amount=(String)json.get("amount");
         
