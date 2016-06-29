@@ -4,15 +4,10 @@
     <list default="true" id="1ddd5f9c-eb8e-4863-bf33-3d9e4d064f5c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/app.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/dashboard/dashboard.tpl.html" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/dashboard/dashboard.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/home.tpl.html" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/home.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.html" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.controller.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.tpl.html" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.controller.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html" afterPath="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/angular/shared/services/UserStore.service.js" afterPath="$PROJECT_DIR$/GUI V2/public/angular/shared/services/UserStore.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI V2/public/index.html" afterPath="$PROJECT_DIR$/GUI V2/public/index.html" />
     </list>
     <ignored path="backEnd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,18 +31,18 @@
       <file leaf-file-name="main.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="286">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register-login.route.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.route.js">
+      <file leaf-file-name="api.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/services/api.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+            <state relative-caret-position="435">
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -56,58 +51,58 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/dashboard/dashboard.tpl.html">
+      <file leaf-file-name="navbar.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            <state relative-caret-position="127">
+              <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.html">
+      <file leaf-file-name="restaurant-preview.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state relative-caret-position="-720">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/home.tpl.html">
+      <file leaf-file-name="register-login.route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="17" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register-login.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.controller.js">
+      <file leaf-file-name="restaurant-preview.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register-login.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.tpl.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GUI V2/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="93" column="10" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
+            <state relative-caret-position="309">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -123,7 +118,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.directive.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="navbar.directive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -152,17 +147,18 @@
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.route.js" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/shared/services/api.service.js" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/checkout/checkout.controller.js" />
-        <option value="$PROJECT_DIR$/GUI V2/public/index.html" />
-        <option value="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/home.tpl.html" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/dashboard/dashboard.tpl.html" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.html" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.tpl.html" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.controller.js" />
-        <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js" />
-        <option value="$PROJECT_DIR$/GUI V2/public/angular/app.js" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/shared/services/UserStore.service.js" />
         <option value="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js" />
+        <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.controller.js" />
+        <option value="$PROJECT_DIR$/GUI V2/public/angular/app.js" />
+        <option value="$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js" />
+        <option value="$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html" />
+        <option value="$PROJECT_DIR$/GUI V2/public/index.html" />
       </list>
     </option>
   </component>
@@ -271,6 +267,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -447,6 +465,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restaurant-preview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -732,12 +780,12 @@
       <option name="presentableId" value="Default" />
       <updated>1467121063225</updated>
       <workItem from="1467121064685" duration="1510000" />
-      <workItem from="1467123332758" duration="22574000" />
+      <workItem from="1467123332758" duration="24125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24084000" />
+    <option name="totallyTimeSpent" value="25635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -841,34 +889,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/services/api.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/dashboard/dashboard-view/dasboard-view.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -905,14 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -937,18 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js">
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -961,10 +969,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.directive.js">
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/services/api.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="435">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/register-login/register-login.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/main/main.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/shared/directives/navbar/navbar.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/angular/pages/restaurant-preview/restaurant-preview.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI V2/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding />
         </state>
       </provider>

@@ -21,9 +21,7 @@
             })
                 .result.then(
                 function (bidPrice) {
-                    Api.getBid().then(function(res) {
-                        vm.search = res;
-                    })
+                    vm.search = bidPrice;
                 },
                 function () {
                    //cancelled

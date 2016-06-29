@@ -1,5 +1,5 @@
 (function () {
-
+'use strict';
 function RestaurantPreviewCtrl ($http, $state) {
     var vm = this;
 

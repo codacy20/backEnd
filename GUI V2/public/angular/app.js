@@ -77,15 +77,6 @@
                 templateUrl: 'angular/pages/dashboard/comments/comments.tpl.html',
                 controller: 'CommentsCtrl as Comments'
             })
-
-            .state('app.edit-event', {
-                url: '/edit/:accessCode',
-                templateUrl: 'angular/pages/admin/edit-dashboard-view.tpl.html',
-                controller: 'EditEventCtrl as EditEvent',
-                data: {
-                    requireLogin: true
-                }
-            })
     }
 
 
@@ -106,11 +97,12 @@
             }
 
 
-            //Check if user is not logged in
-            // if (requireLogin && typeof UserStore.getUserInfo() === 'undefined' || UserStore.getUserInfo() == null) {
-            //     evt.preventDefault();
-            //    // $state.go('app.main')
-            // }
+
+           // // Check if user is not logged in
+           //  if (requireLogin && typeof UserStore.getUserInfo() === 'undefined' || UserStore.getUserInfo() == null) {
+           //      evt.preventDefault();
+           //      $state.go('app.main')
+           //  }
 
 
             if(to.url == "/user-login"){
