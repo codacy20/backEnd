@@ -2,6 +2,9 @@ body { padding-top: 70px; }
 
 body {
     padding-top: 75px;
+    background-image: url("../images/signinbkg.png");
+    background-size: 100%;
+    background-attachment: fixed;
 }
 
 .search-container {
@@ -68,6 +71,7 @@ input#search-bar:focus:-ms-placeholder {
     margin-top: 20px;
     max-height: 150px;
     overflow: hidden;
+    background-color: white;
 }
 
 
@@ -93,8 +97,42 @@ h1 {
     font-weight: bold;
     color: #555;
 }
+.animate
+{
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
 
+.yellow
+{
+    background-color: #ffc600;
+    border-bottom: 5px solid #f1bb00;
+    text-shadow: 0px -2px #D1B358;
+}
 
+.red
+{
+    background-color: #E74C3C;
+    border-bottom: 5px solid #BD3E31;
+    text-shadow: 0px -2px #BD3E31;
+}
+
+.red.action-button:active, .red.action-button:hover
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 3px solid;
+    background-color: #f52626;
+    border-bottom: 5px solid #f52626;
+}
+.yellow.action-button:active, .yellow.action-button:hover
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 3px solid;
+    background-color: #ddac03;
+    border-bottom: 5px solid #be9401;
+}
 
 button {
     margin-top: 10px;
@@ -106,10 +144,10 @@ button {
     padding: 15px 15px;
     border: 0;
     border-radius: 10px;
+
+    /*background-color: #ffba00;*/
 }
-button:hover {
-    background: #666;
-}
+
 
 .buy-button {
     margin-top: 40px;

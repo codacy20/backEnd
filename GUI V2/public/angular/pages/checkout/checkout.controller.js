@@ -1,6 +1,6 @@
 (function () {
 
-function Checkout ($http, $state) {
+function CheckoutCtrl ($http, $state) {
     var vm = this;
 
     function init() {
@@ -12,6 +12,6 @@ function Checkout ($http, $state) {
 
 angular
     .module('app')
-    .controller('Checkout', Checkout);
+    .controller('CheckoutCtrl', CheckoutCtrl);
 }());
 
