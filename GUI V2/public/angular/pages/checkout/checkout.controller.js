@@ -10,12 +10,10 @@ function CheckoutCtrl ($scope, ShoppingCart, UserStore, Api) {
             username: UserStore.getUserInfo().username,
             orderList: ShoppingCart.getShoppingCart().orderList
         };
-        swal.error("ERROR", "jj");
-        
         Api.checkout(params).then(function() {
-            
+            alert("success")
         }, function(err) {
-            swal.error("ERROR", err);
+            alert("error")
         })
     }
 
