@@ -5,7 +5,7 @@
             <button class="action-button shadow animate yellow btn btn-lg" ng-click="Main.showModal()">Surprise Me</button>
 
             <div class="items" ng-repeat="product in Main.products | filter: Main.search">
-                <product name="{{product.name}}" restaurant="{{product.resteurant}}" price="{{product.price}}" imageurl="http://placehold.it/300x150"></product>
+                <product name="{{product.name}}" restaurant="{{product.resteurant}}" price="{{product.price}}" imageurl="{{product.image}}"></product>
             </div>
 
         </div>

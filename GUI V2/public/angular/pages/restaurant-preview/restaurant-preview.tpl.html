@@ -53,6 +53,21 @@
         color: white;
     }
 
+    .comment-block {
+        padding: 1rem;
+        background-color: #fff;
+        display: table-cell;
+        vertical-align: top;
+        border-radius: 0.1875rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+    }
+    .comment-block textarea {
+        width: 100%;
+        resize: none;
+        border: none;
+    }
+
+
 
 </style>
 <sections style="color: white">
@@ -94,9 +109,12 @@
 
             <ul class="comments">
                 <li class="comment">
-                        <div class="comment-block">
-                            add comment here
-                        </div>
+                    <div style="width: 500px;" class="comment-block">
+                        <form action="">
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                        </form>
+                    </div>
+                    <button class="action-button shadow animate yellow btn btn-lg">Post</button>
                 </li>
                 <li class="comment">
                     <div class="comment__author">

@@ -11,8 +11,8 @@ function DashboardViewCtrl ($http, $state, $uibModal) {
             controllerAs: 'modal' //change this
         })
             .result.then(
-            function () {
-                //ok
+            function (product) {
+                console.log(product)
             },
             function () {
                 //cancelled
@@ -23,9 +23,10 @@ function DashboardViewCtrl ($http, $state, $uibModal) {
 }
     function AddMenuModalController ($uibModalInstance) {
         var vm = this;
+        vm.product = {};
 
         vm.ok = function () {
-            $uibModalInstance.close();//change the param
+            $uibModalInstance.close(vm.product);//change the param
         };
 
         vm.cancel = function () {
