@@ -27,8 +27,8 @@
         }
 
         function getShoppingCart() {
-            var user = UserStore.getUserInfo();
-
+            // var user = UserStore.getUserInfo();
+            //
             var count = 0;
             var orderList = JSON.parse($window.localStorage && $window.localStorage.getItem('shoppingCart'));
 
