@@ -62,7 +62,28 @@ public class OrderResource {
             return r;
         }
     }
-    
+    @GET
+    @Path("res/{username}")
+    public Response getOrderByRestaurantNamw(@PathParam("username") String username) {
+        try {
+            r = null;
+            List<Order> o = service.getOrdersByRes(username);
+            if (o.size() != 0) {
+                r = Response.ok(o).build();
+            } else {
+                r = Response.status(Response.Status.UNAUTHORIZED)
+                        .entity("Order does not exist")
+                        .build();
+            }
+        } catch (Exception e) {
+            r = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        } finally {
+            return r;
+        }
+    }
+
     @GET
     @Path("owner/{username}")
     public Response getOrderByName(@PathParam("username") String username) {

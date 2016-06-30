@@ -156,10 +156,12 @@ public class ItemsResource {
         String name=(String)json.get("name");
         String price=(String)json.get("price");
         String Restaurant=(String)json.get("restaurant");
+        String img=(String)json.get("image");
         
         
         int pricee = Integer.parseInt(price);
         Item item = new Item(name, pricee, Restaurant);
+        item.setImage(img);
         try {
 
             itemService.addItem(item);

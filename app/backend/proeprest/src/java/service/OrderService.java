@@ -50,7 +50,18 @@ public class OrderService implements Serializable{
         
         return orderList;
     }
-    
+    public List<Order> getOrdersByRes(String username) {
+        List<Order> returnorders = new ArrayList<>();
+        for (Order o : orderList) {
+            for(Item I : o.getOrderList()){
+                if (username.equals(I.getResteurant())) {
+                    returnorders.add(o);
+            }
+            }
+            
+        }
+        return returnorders;
+    }
     public List<Order> getOrdersByName(String username) {
         List<Order> returnorders = new ArrayList<>();
         for (Order o : orderList) {
@@ -71,12 +82,13 @@ public class OrderService implements Serializable{
     }
 
     public boolean createOrder(Order orderNew) {
-        for (Order order : orderList) {
-            if (order.getOwner().equals(orderNew.getOwner())) {
-                return false;
-            }
-        }
+//        for (Order order : orderList) {
+//            if (order.getOwner().equals(orderNew.getOwner())) {
+//                return false;
+//            }
+//        }
         orderList.add(orderNew);
+        write();
         return true;
     }
 
