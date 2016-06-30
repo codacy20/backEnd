@@ -35,7 +35,7 @@ public class ItemService implements Serializable{
     public ItemService() throws SQLException {
         //d = new Database();
         //itemlist = d.GetAllItems("SELECT * FROM products");
-        itemlist.add(new Item("Something", 20, "La Place"));
+        //itemlist.add(new Item("Something", 20, "La Place"));
         //write();
         read();
         System.err.println("Ran the Write Item");
