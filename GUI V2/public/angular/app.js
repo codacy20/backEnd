@@ -105,12 +105,14 @@
            //  }
 
 
-            if(to.url == "/user-login"){
+            if(to.url == "/user-login" || to.url == "/restaurant-login"){
                 if(from.url != "register-login") {
                     evt.preventDefault();
                     $state.go('app.register-login')
                 }
             }
+
+
 
             if (to.redirectTo) {
                 evt.preventDefault();

@@ -12,7 +12,12 @@ function DashboardViewCtrl ($http, $state, $uibModal, Api) {
         })
             .result.then(
             function (product) {
-                Api.addItemToOrder(product).then(success,error);
+                console.log(product);
+                Api.addItemToOrder("",product).then(function(res){
+                    alert("succss");
+                },function(err) {
+                    alert("error");
+                });
             },
             function () {
                 //cancelled

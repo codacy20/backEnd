@@ -3,7 +3,7 @@
     function Api ($q, $http) {
 
         var url = {
-            base: 'http://192.168.20.20:8080/webshop/api/'
+            base: 'http://192.168.20.17:8080/webshop/api/'
             // base: 'localhost'
         }
 
@@ -27,14 +27,28 @@
         };
         
         this.checkout = function (params) {
+            console.log(params);
             return $http.post(url.base + 'order/create/', params).then(success, error);
         };
 
         //add item to Order
         this.addItemToOrder = function (restaurantUsername, item) {
-            item.restaurant = restaurantUsername;
             console.log(item);
-            return $http.post(url.base+'/item/create',item).then(success,error);//
+            item.restaurant = "laplace"; //for testing purposes
+            console.log(item);
+            return $http.post(url.base+'item/create',item).then(success,error);//
+            // console.log(item);
+        }
+
+        //add comment to restaurnt preview page
+        this.addComment = function (restaurantUsername, username, comment) {
+            var params = {};
+            params.username = username;
+            params.restaurantUsername = restaurantUsername;
+            params.comment = comment;
+            console.log(params);
+            // return $http.post(url.base+'')
+
         }
 
     }
