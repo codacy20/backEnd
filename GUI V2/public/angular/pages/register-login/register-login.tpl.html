@@ -113,11 +113,8 @@
 <script type="text/ng-template" id="restaurant-login.tpl.html" >
     <form class="form-signin">
         <h2 class="form-signin-heading">Login Restaurant</h2>
-        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-        <label class="checkbox pull-right">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="RegisterLogin.showAlert()">Login</button>
+        <input type="text" class="form-control" name="username" placeholder="Email Address" ng-model="username"  required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password"  ng-model="password" required=""/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="RegisterLogin.loginRestaurant(username, password)">Login</button>
     </form>
 </script>

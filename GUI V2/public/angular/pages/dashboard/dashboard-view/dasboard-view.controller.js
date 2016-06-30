@@ -1,6 +1,6 @@
 (function () {
 
-function DashboardViewCtrl ($http, $state, $uibModal, Api) {
+function DashboardViewCtrl ($http, $state, $uibModal, Api, UserStore) {
     var vm = this;
 
 
@@ -13,7 +13,7 @@ function DashboardViewCtrl ($http, $state, $uibModal, Api) {
             .result.then(
             function (product) {
                 console.log(product);
-                Api.addItemToOrder("",product).then(function(res){
+                Api.addItemToOrder(UserStore.getUserInfo().username, product).then(function(res){
                     alert("succss");
                 },function(err) {
                     alert("error");

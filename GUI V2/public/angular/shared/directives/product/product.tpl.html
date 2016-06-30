@@ -7,7 +7,7 @@
         </div>
         <div class="col-sm-6">
             <div class="product-info">
-                <h1>{{product.name}} - <small><span class="description">{{product.resteurant}}</span></small></h1>
+                <h1>{{product.name}} - <small><span class="description"><a ui-sref="app.restaurant-preview({name: product.resteurant})">{{product.resteurant}}</a></span></small></h1>
                 <p class="price">€{{product.price}}</p>
             </div>
         </div>

@@ -19,6 +19,15 @@ function RegisterLoginCtrl ($http, $state, UserStore, $rootScope) {
         })
     }
 
+    vm.loginRestaurant = function(username, password) {
+        UserStore.loginRestaurant(username, password).then(function(res){
+            $rootScope.$broadcast('login');
+            $state.go('app.main');
+        }, function(err) {
+            alert("There was an error")
+        })
+    }
+
 
 
 }

@@ -29,7 +29,7 @@
                    //cancelled
                 }
             );
-        }
+        };
 
         init();
     }

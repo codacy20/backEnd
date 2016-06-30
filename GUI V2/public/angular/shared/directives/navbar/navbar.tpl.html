@@ -69,9 +69,7 @@ ul.dropdown-cart li .item-right button {
                 <!--<li><a href="#">Category one <span class="sr-only"></span></a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-
-                <li><a ui-sref="app.restaurant-preview">Restaurant </a></li>
-                <li><a ui-sref="app.dashboard.dashboard-view">Dashboard </a></li>
+                <li ng-if="showDashboardMenuItem"><a ui-sref="app.dashboard.dashboard-view">Dashboard </a></li>
 
 
                 <li ng-show="user" class="dropdown" uib-dropdown>

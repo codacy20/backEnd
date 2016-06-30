@@ -6,15 +6,27 @@ function CheckoutCtrl ($scope, ShoppingCart, UserStore, Api) {
 
     
     vm.checkout = function() {
-        var params = {
-            username: UserStore.getUserInfo().username,
-            orderList: ShoppingCart.getShoppingCart().orderList
-        };
-        Api.checkout(params).then(function() {
-            alert("success")
-        }, function(err) {
-            alert("error")
-        })
+        if (UserStore.getUserInfo()) {
+            var params = {
+                username: UserStore.getUserInfo().username,
+                OrderList: ShoppingCart.getShoppingCart().orderList
+            };
+            Api.checkout(params).then(function() {
+                alert("success")
+            }, function(err) {
+                alert("error")
+            })
+        } else {
+            alert("Login first")
+        }
+    };
+
+    vm.getTotal = function() {
+        var total = 0;
+        angular.forEach(vm.shoppingCart.orderList, function(order) {
+            total += order.price;
+        });
+        return total;
     }
 
     vm.removeItem = function(item) {

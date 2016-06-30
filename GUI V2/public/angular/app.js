@@ -36,10 +36,7 @@
             .state('app.checkout', {
                 url: 'checkout',
                 templateUrl: 'angular/pages/checkout/checkout.tpl.html',
-                controller: 'CheckoutCtrl as Checkout',
-                data: {
-                    requireLogin: true
-                }
+                controller: 'CheckoutCtrl as Checkout'
             })
             .state('app.register-login', {
                 url: 'register-login',
@@ -48,24 +45,24 @@
             })
           
             .state('app.restaurant-preview', {
-                url: 'restaurant-preview',
+                url: 'restaurant-preview/:name',
                 templateUrl: 'angular/pages/restaurant-preview/restaurant-preview.tpl.html',
-                controller: 'RestaurantPreviewCtrl as RestaurantPreview'
+                controller: 'RestaurantPreviewCtrl as Restaurant'
             })
 
             //everything for the dashboard
             .state('app.dashboard', {
                 url: 'dashboard',
                 redirectTo: 'dashboard.dashboard-view',
-                templateUrl: 'angular/pages/dashboard/dashboard.tpl.html'
+                templateUrl: 'angular/pages/dashboard/dashboard.tpl.html',
+                data: {
+                    allowedUsers: ['restaurant']
+                }
             })
             .state('app.dashboard.dashboard-view', {
                 url: '/view',
                 templateUrl: 'angular/pages/dashboard/dashboard-view/dashboard-view.tpl.html',
-                controller: 'DashboardViewCtrl as Dashboard',
-                data: {
-                    requireLogin: false
-                }
+                controller: 'DashboardViewCtrl as Dashboard'
             })
             .state('app.dashboard.orders', {
                 url: '/view',
@@ -91,19 +88,24 @@
     function run($rootScope, $location, $state, UserStore) {
 
         $rootScope.$on('$stateChangeStart', function (evt, to, params, from) {
-            var requireLogin = false;
-            if (typeof to.data != 'undefined') {
-                requireLogin = to.data.requireLogin;
-            }
 
+           //Check If user is authorized to go to an specific page
+           if(to.data){
+               if ('allowedUsers' in to.data) {
+                   var allowedUsers = [];
+                   if (typeof to.data != 'undefined') {
+                       allowedUsers = to.data.allowedUsers;
+                   }
 
-
-           // // Check if user is not logged in
-           //  if (requireLogin && typeof UserStore.getUserInfo() === 'undefined' || UserStore.getUserInfo() == null) {
-           //      evt.preventDefault();
-           //      $state.go('app.main')
-           //  }
-
+                    console.log(UserStore.userNotAllowed(allowedUsers))
+                   // Check if user is not logged in
+                   if (!UserStore.userNotAllowed(allowedUsers) || !UserStore.userLoggedIn()  ) {
+                       alert("Not Allowed")
+                       evt.preventDefault();
+                       $state.go('app.main')
+                   }
+               }
+           }
 
             if(to.url == "/user-login" || to.url == "/restaurant-login"){
                 if(from.url != "register-login") {

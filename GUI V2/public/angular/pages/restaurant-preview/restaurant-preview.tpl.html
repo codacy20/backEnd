@@ -74,16 +74,15 @@
     <div class="container">
         <div class="col-sm-12 restaurant_header">
             <div class="inner">
-                <h1>Restaurant Name's Profile</h1>
+                <h1>{{Restaurant.restaurant.restaurantName}}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="res_address">
                     <h2>Location:</h2>
-                    <h3>Housenumber & street,</h3>
-                    <h3>Postcode,</h3>
-                    <h3>City, Country</h3>
+                    <h3>{{Restaurant.restaurant.address.street}} {{Restaurant.restaurant.address.housenumber}}</h3>
+                    <h3>{{Restaurant.restaurant.address.city}}</h3>
                 </div>
 
 
@@ -116,21 +115,10 @@
                     </div>
                     <button class="action-button shadow animate yellow btn btn-lg">Post</button>
                 </li>
-                <li class="comment">
-                    <div class="comment__author">
-                        <h3>Tina</h3>
-                    </div>
-                    <div class="comment__text">
-                        <p>I really enjoyed your service. Order was right on time and food was still hot</p>
-                    </div>
-                </li>
-                <li class="comment">
-                    <div class="comment__author">
-                        <h3>Tina</h3>
-                    </div>
-                    <div class="comment__text">
-                        <p>I really enjoyed your service. Order was right on time and food was still hot</p>
-                    </div>
+                <li ng-repeat="comment in Restaurant.restaurant.comments" class="comment">
+                   <p>{{comment}}</p>
+                   <p>{{comment}}</p>
+                   <p>{{comment}}</p>
                 </li>
             </ul>
         </div>

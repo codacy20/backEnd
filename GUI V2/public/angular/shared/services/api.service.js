@@ -25,20 +25,30 @@
             params.password = password;
             return $http.post(url.base + 'user/login/', params).then(success, error);
         };
+
+        this.loginRestaurant = function (username, password) {
+            console.log(username)
+            var params = {};
+            params.username = username;
+            params.password = password;
+            return $http.post(url.base + 'restaurant/login', params).then(success, error);
+        };
         
         this.checkout = function (params) {
             console.log(params);
             return $http.post(url.base + 'order/create/', params).then(success, error);
         };
 
-        //add item to Order
         this.addItemToOrder = function (restaurantUsername, item) {
-            console.log(item);
-            item.restaurant = "laplace"; //for testing purposes
-            console.log(item);
-            return $http.post(url.base+'item/create',item).then(success,error);//
-            // console.log(item);
+            item.restaurant = restaurantUsername; //for testing purposes
+            return $http.post(url.base+'item/create',item).then(success,error);
         }
+
+        this.getRestaurant = function (name) {
+            return $http.get(url.base+'restaurant/restaurant_Name/'+ name).then(success,error);
+        }
+
+
 
     }
 
