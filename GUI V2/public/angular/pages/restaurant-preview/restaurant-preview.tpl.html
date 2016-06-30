@@ -65,6 +65,7 @@
         width: 100%;
         resize: none;
         border: none;
+        color: #000;
     }
 
 
@@ -72,13 +73,13 @@
 </style>
 <sections style="color: white">
     <div class="container">
-        <div class="col-sm-12 restaurant_header">
+        <div class="col-sm-6 restaurant_header">
             <div class="inner">
                 <h1>{{Restaurant.restaurant.restaurantName}}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <div class="res_address">
                     <h2>Location:</h2>
                     <h3>{{Restaurant.restaurant.address.street}} {{Restaurant.restaurant.address.housenumber}}</h3>
@@ -87,7 +88,7 @@
 
 
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <div class="ratings">
                     <h2>User ratings</h2>
                     <span class="glyphicon glyphicon-heart"></span>
@@ -102,23 +103,26 @@
             </div>
         </div>
         <div class="col-sm-12">
+            <div ng-repeat="product in Restaurant.products | filter: Main.search">
+                <product product="product" imageurl="http://placehold.it/300x150"></product>
+            </div>
+        </div>
+        <div class="col-sm-12" >
             <div style="text-align: center;" class="row">
                 <h2>Comments</h2>
             </div>
 
             <ul class="comments">
-                <li class="comment">
+                <li class="comment" ng-if="Restaurant.user">
                     <div style="width: 500px;" class="comment-block">
                         <form action="">
-                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."ng-model="Restaurant.comment"></textarea>
                         </form>
                     </div>
-                    <button class="action-button shadow animate yellow btn btn-lg">Post</button>
+                    <button class="action-button shadow animate yellow btn btn-lg" ng-click="Restaurant.addcomment(Restaurant.comment)">Post</button>
                 </li>
-                <li ng-repeat="comment in Restaurant.restaurant.comments" class="comment">
-                   <p>{{comment}}</p>
-                   <p>{{comment}}</p>
-                   <p>{{comment}}</p>
+                <li ng-repeat="comentario in Restaurant.restaurant.comments track by $index" class="comment">
+                   <p>{{comentario}}</p>
                 </li>
             </ul>
         </div>

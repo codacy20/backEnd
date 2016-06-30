@@ -35,6 +35,9 @@ public class Order implements Serializable{
     public String getOwner() {
         return username;
     }
+     public List<Item> getOrderList() {
+        return OrderList;
+    }
 //
 //    public List<Item> getItemsFromOrders() {
 //        return OrderList;

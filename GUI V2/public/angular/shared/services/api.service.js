@@ -33,7 +33,17 @@
             params.password = password;
             return $http.post(url.base + 'restaurant/login', params).then(success, error);
         };
-        
+
+        this.createRestaurant = function (params) {
+            return $http.post(url.base + 'restaurant/create', params).then(success, error);
+        };
+
+
+        this.createUser = function (params) {
+            return $http.post(url.base + 'user/create', params).then(success, error);
+        };
+
+
         this.checkout = function (params) {
             console.log(params);
             return $http.post(url.base + 'order/create/', params).then(success, error);
@@ -48,7 +58,13 @@
             return $http.get(url.base+'restaurant/restaurant_Name/'+ name).then(success,error);
         }
 
+        //add comment to restaurnt preview page
+        this.addComment = function (params) {
+            console.log(params);
 
+            return $http.post(url.base+'restaurant/comment', params).then(success, error)
+
+        }
 
     }
 
