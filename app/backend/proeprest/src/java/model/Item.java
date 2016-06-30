@@ -25,7 +25,7 @@ public class Item implements Serializable{
     }
 
     public Item(String Name, int Price, String Restaurant) {
-        this.ID = 0;
+        this.ID = 1;
         this.Name = Name;
         this.Price = Price;
         //this.bidPrice = bidPrice;
